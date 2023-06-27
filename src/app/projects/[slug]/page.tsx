@@ -47,8 +47,6 @@ export default async function GuidesPage({ params }: ProjectPageProps) {
 
   return (
     <article>
-      <h1>{project.title}</h1>
-      <p>{project.description}</p>
       <Content />
     </article>
   )
