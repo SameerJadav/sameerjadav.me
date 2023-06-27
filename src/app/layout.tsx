@@ -2,6 +2,7 @@ import { siteConfig } from '~/config/site';
 import './globals.css';
 import { Inter } from 'next/font/google';
 import { Metadata } from 'next';
+import { cn } from '~/lib/utils';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -54,9 +55,6 @@ export const metadata: Metadata = {
     creator: siteConfig.twitterId,
     site: siteConfig.twitterId,
   },
-  /*   icons: {
-    icon: "/favicon.ico",
-  }, */
   manifest: `${siteConfig.url}/site.webmanifest`,
   alternates: {
     canonical: siteConfig.url,
@@ -70,7 +68,14 @@ export default function RootLayout({
 }) {
   return (
     <html dir="ltr" lang="en">
-      <body className={inter.className}>{children}</body>
+      <body
+        className={cn(
+          'bg-mauve1 text-mauve12 antialiased scroll-smooth',
+          inter.className
+        )}
+      >
+        {children}
+      </body>
     </html>
   );
 }
