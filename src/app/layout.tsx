@@ -3,6 +3,7 @@ import { Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/react"
 import { siteConfig } from "~/config/site"
 import { cn } from "~/lib/utils"
+import SiteHeader from "~/components/site-header"
 import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -71,10 +72,11 @@ export default function RootLayout({
     <html dir="ltr" lang="en">
       <body
         className={cn(
-          "scroll-smooth bg-mauve1 text-mauve12 antialiased",
+          "mx-auto w-full max-w-2xl scroll-smooth bg-mauve1 px-4 text-mauve12 antialiased md:p-0",
           inter.className
         )}
       >
+        <SiteHeader />
         {children}
         <Analytics />
       </body>
