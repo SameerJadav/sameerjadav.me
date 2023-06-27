@@ -9,7 +9,7 @@ export default function ProjectsPage() {
       </p>
       <div className="mt-4 divide-y divide-mauve6">
         <Link
-          href="/modweb"
+          href="/projects/modweb"
           className="group flex w-full flex-col py-2 transition-colors md:flex-row md:items-center md:justify-between"
         >
           <span className="text-lg group-hover:text-mauve11">ModWeb</span>
@@ -19,7 +19,7 @@ export default function ProjectsPage() {
         </Link>
 
         <Link
-          href="/guestbook"
+          href="/projects/guestbook"
           className="group flex w-full flex-col py-2 transition-colors md:flex-row md:items-center md:justify-between"
         >
           <span className="text-lg group-hover:text-mauve11">Guestbook</span>
@@ -28,7 +28,7 @@ export default function ProjectsPage() {
           </span>
         </Link>
         <Link
-          href="/qrcode"
+          href="/projects/qrcode"
           className="group flex w-full flex-col py-2 transition-colors md:flex-row md:items-center md:justify-between"
         >
           <span className="text-lg group-hover:text-mauve11">
@@ -39,7 +39,7 @@ export default function ProjectsPage() {
           </span>
         </Link>
         <Link
-          href="/3dtext"
+          href="/projects/3dtext"
           className="group flex w-full flex-col py-2 transition-colors md:flex-row md:items-center md:justify-between"
         >
           <span className="text-lg group-hover:text-mauve11">3D Text</span>
