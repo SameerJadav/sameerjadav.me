@@ -7,7 +7,7 @@ import { cn, getTitle } from "~/lib/utils"
 export default function SiteHeader() {
   const pathname = usePathname()
   return (
-    <header className="mt-8 flex w-full items-center justify-between md:mt-20">
+    <header className="mt-8 flex w-full items-center justify-between md:mt-16">
       <h1 className="text-2xl font-bold">{getTitle(pathname)}</h1>
       <nav className="flex items-center gap-2">
         <Link
