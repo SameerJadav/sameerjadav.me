@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <main>
+    <>
       <p className="mt-6 md:mt-8">
         Hey there! I&apos;m Sameer Jadav, a 19 y/o from India. I like coding,
         VFX, and CGI. I&apos;ve got a real passion for this thing called
@@ -29,6 +29,6 @@ export default function Home() {
         check out my resume—I&apos;m currently seeking job or internship
         opportunities.
       </p>
-    </main>
+    </>
   )
 }

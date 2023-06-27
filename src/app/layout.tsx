@@ -78,7 +78,7 @@ export default function RootLayout({
         )}
       >
         <SiteHeader />
-        {children}
+        <main>{children}</main>
         <SiteFooter />
         <Analytics />
       </body>
