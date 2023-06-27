@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { allProjects } from "contentlayer/generated"
 
 export default function ProjectsPage() {
   return (
@@ -8,45 +9,20 @@ export default function ProjectsPage() {
         created:
       </p>
       <div className="mt-4 divide-y divide-mauve6">
-        <Link
-          href="/projects/modweb"
-          className="group flex w-full flex-col py-2 transition-colors md:flex-row md:items-center md:justify-between"
-        >
-          <span className="text-lg group-hover:text-mauve11">ModWeb</span>
-          <span className="text-mauve11 group-hover:text-mauve10">
-            Interactive guides for building modern web apps
-          </span>
-        </Link>
-
-        <Link
-          href="/projects/guestbook"
-          className="group flex w-full flex-col py-2 transition-colors md:flex-row md:items-center md:justify-between"
-        >
-          <span className="text-lg group-hover:text-mauve11">Guestbook</span>
-          <span className="text-mauve11 group-hover:text-mauve10">
-            Full stack web application built with T3 stack
-          </span>
-        </Link>
-        <Link
-          href="/projects/qrcode"
-          className="group flex w-full flex-col py-2 transition-colors md:flex-row md:items-center md:justify-between"
-        >
-          <span className="text-lg group-hover:text-mauve11">
-            QR Code Generator
-          </span>
-          <span className="text-mauve11 group-hover:text-mauve10">
-            A simple and userfriendly QR code generator
-          </span>
-        </Link>
-        <Link
-          href="/projects/3dtext"
-          className="group flex w-full flex-col py-2 transition-colors md:flex-row md:items-center md:justify-between"
-        >
-          <span className="text-lg group-hover:text-mauve11">3D Text</span>
-          <span className="text-mauve11 group-hover:text-mauve10">
-            3D text made with react-three-fiber and Next.js
-          </span>
-        </Link>
+        {allProjects.map((project) => (
+          <Link
+            key={project.slug}
+            href={project.slug}
+            className="group flex w-full flex-col py-2 transition-colors md:flex-row md:items-center md:justify-between"
+          >
+            <span className="text-lg group-hover:text-mauve11">
+              {project.title}
+            </span>
+            <span className="text-mauve11 group-hover:text-mauve10">
+              {project.description}
+            </span>
+          </Link>
+        ))}
       </div>
     </>
   )
