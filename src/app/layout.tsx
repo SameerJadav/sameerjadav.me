@@ -1,10 +1,10 @@
-import { siteConfig } from '~/config/site';
-import './globals.css';
-import { Inter } from 'next/font/google';
-import { Metadata } from 'next';
-import { cn } from '~/lib/utils';
+import { Metadata } from "next"
+import { Inter } from "next/font/google"
+import { siteConfig } from "~/config/site"
+import { cn } from "~/lib/utils"
+import "./globals.css"
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: {
@@ -13,12 +13,12 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: [
-    'Next.js',
-    'React',
-    'Tailwind CSS',
-    'Creative Coding',
-    'Frontend Development',
-    'Radix UI',
+    "Next.js",
+    "React",
+    "Tailwind CSS",
+    "Creative Coding",
+    "Frontend Development",
+    "Radix UI",
   ],
   authors: [
     {
@@ -28,12 +28,12 @@ export const metadata: Metadata = {
   ],
   creator: siteConfig.author,
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#161618' },
-    { media: '(prefers-color-scheme: dark)', color: '#161618' },
+    { media: "(prefers-color-scheme: light)", color: "#161618" },
+    { media: "(prefers-color-scheme: dark)", color: "#161618" },
   ],
   openGraph: {
-    type: 'website',
-    locale: 'en_US',
+    type: "website",
+    locale: "en_US",
     url: siteConfig.url,
     title: siteConfig.name,
     description: siteConfig.description,
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
@@ -59,23 +59,23 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteConfig.url,
   },
-};
+}
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html dir="ltr" lang="en">
       <body
         className={cn(
-          'bg-mauve1 text-mauve12 antialiased scroll-smooth',
+          "scroll-smooth bg-mauve1 text-mauve12 antialiased",
           inter.className
         )}
       >
         {children}
       </body>
     </html>
-  );
+  )
 }
