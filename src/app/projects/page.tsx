@@ -1,9 +1,11 @@
 import Link from "next/link"
 import { allProjects } from "contentlayer/generated"
+import SiteHeader from "~/components/site-header"
 
 export default function ProjectsPage() {
   return (
     <>
+      <SiteHeader />
       <p className="mt-6 md:mt-8">
         Here are the web development and creative coding projects I&apos;ve
         created:
