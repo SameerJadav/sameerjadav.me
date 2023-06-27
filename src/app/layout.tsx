@@ -1,5 +1,6 @@
 import { Metadata } from "next"
 import { Inter } from "next/font/google"
+import { Analytics } from "@vercel/analytics/react"
 import { siteConfig } from "~/config/site"
 import { cn } from "~/lib/utils"
 import "./globals.css"
@@ -75,6 +76,7 @@ export default function RootLayout({
         )}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   )
