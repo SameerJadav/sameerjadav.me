@@ -17,4 +17,8 @@
     --mauve11: 253 4% 63.7%;
     --mauve12: 256 6% 93.2%;
   }
+
+  * {
+    @apply border-mauve6;
+  }
 }

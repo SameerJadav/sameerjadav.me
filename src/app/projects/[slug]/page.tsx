@@ -2,8 +2,8 @@ import { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { allProjects } from "contentlayer/generated"
-import { getMDXComponent } from "next-contentlayer/hooks"
 import { Balancer } from "react-wrap-balancer"
+import { Mdx } from "~/components/mdx-components"
 
 interface ProjectPageProps {
   params: {
@@ -45,11 +45,9 @@ export default async function GuidesPage({ params }: ProjectPageProps) {
 
   if (!project) notFound()
 
-  const Content = getMDXComponent(project.body.code)
-
   return (
     <article className="mt-8 md:mt-16">
-      <h1 className="text-2xl font-bold">{project.title}</h1>
+      <h1 className="text-4xl font-bold">{project.title}</h1>
       <div className="mt-2 flex items-end justify-between md:items-center">
         <p className="flex-1 text-lg text-mauve11">
           <Balancer>{project.description}</Balancer>
@@ -62,7 +60,7 @@ export default async function GuidesPage({ params }: ProjectPageProps) {
         </Link>
       </div>
       <div className="mt-5">
-        <Content />
+        <Mdx code={project.body.code} />
       </div>
     </article>
   )
