@@ -9,7 +9,7 @@ export default function SiteHeader() {
   return (
     <header className="mt-8 flex w-full items-center justify-between md:mt-16">
       <h1 className="text-4xl font-bold">{getTitle(pathname)}</h1>
-      <nav className="flex items-center gap-1">
+      <nav className="flex items-center gap-2">
         <Link
           href="/thoughts"
           className={cn(
