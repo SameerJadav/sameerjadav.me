@@ -6,11 +6,11 @@ export default function ProjectsPage() {
   return (
     <>
       <SiteHeader />
-      <p className="mt-6 md:mt-8">
+      <p className="mt-6">
         Here are the web development and creative coding projects I&apos;ve
         created:
       </p>
-      <div className="mt-4 divide-y divide-mauve6">
+      <div className="mt-6 divide-y divide-mauve6">
         {allProjects.map((project) => (
           <Link
             key={project.slug}

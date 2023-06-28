@@ -3,7 +3,7 @@ import { siteConfig } from "~/config/site"
 
 export default function SiteFooter() {
   return (
-    <footer className="mt-6 border-t border-mauve6 py-6 md:mt-8">
+    <footer className="mt-6 border-t border-mauve6 py-6">
       <nav className="flex items-center justify-center gap-2 md:justify-start">
         <a
           className="border-b border-mauve7 leading-none transition-colors hover:border-mauve8 hover:text-mauve11"
