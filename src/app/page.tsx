@@ -6,25 +6,20 @@ export default function Home() {
       <SiteHeader />
       <main>
         <p className="mt-6">
-          Hey there! I&apos;m Sameer Jadav, a 19 y/o from India. I like coding,
-          VFX, and CGI. I&apos;ve got a real passion for this thing called
-          creative coding—it&apos;s like blending art and tech, it&apos;s
-          awesome! I also enjoy exploring and figuring things out about myself.
+          Hey there! I&apos;m Sameer Jadav, a 19 y/o from India. I am into
+          programming, VFX, CGI and creative coding—it&apos;s like blending art
+          and tech, it&apos;s awesome! Exploring and figuring things out about
+          myself is another thing I enjoy.
         </p>
         <p className="mt-6">
-          Not too long ago, I used to spend countless hours watching anime. Then
-          one day my friend called me to let me know he was getting himself a
-          fancy new laptop! That got me thinking, &quot;Hey, dude, can I have
-          your old laptop?&quot; And guess what? He was kind enough to say yes!
-        </p>
-        <p className="mt-6">
-          With this shiny new piece of tech, I decided to ditch the anime binges
-          and dive into learning some serious skills. And guess what I stumbled
-          upon? Programming, specifically web development. Maybe it&apos;s
-          because I started with HTML and CSS—I just loved seeing my creations
-          come to life right there in the browser. Now, I&apos;m on a mission to
-          create stuff that&apos;s not only impressive but also brings a whole
-          lot of joy.
+          Not too long ago, I used to spend hours immersed in anime. But one
+          day, a friend generously offered me his old laptop since he was
+          upgrading. With this awesome new device, I decided to ditch the anime
+          binges and dive into learning some serious skills. That&apos;s when I
+          discovered programming, especially web development. I started with
+          front-end development, and now venturing into backend development to
+          build full-stack applications. I&apos;m loving every step of this
+          journey and aim to create something valuable while having fun.
         </p>
         <p className="mt-6">
           I may not be the most outgoing person, but I&apos;m always up for
