@@ -15,12 +15,11 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: [
-    "Next.js",
-    "React",
-    "Tailwind CSS",
+    "Sameer Jadav",
     "Creative Coding",
-    "Frontend Development",
-    "Radix UI",
+    "Frontend Developer",
+    "Blog",
+    "Next.js",
   ],
   authors: [
     {

@@ -3,6 +3,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { allProjects } from "contentlayer/generated"
 import { Balancer } from "react-wrap-balancer"
+import { siteConfig } from "~/config/site"
 import { Mdx } from "~/components/mdx-components"
 
 // import "~/styles/mdx.css"
@@ -39,6 +40,17 @@ export async function generateMetadata({
   return {
     title: project.title,
     description: project.description,
+    openGraph: {
+      title: project.title,
+      description: project.description,
+    },
+    twitter: {
+      title: project.title,
+      description: project.description,
+    },
+    alternates: {
+      canonical: `${siteConfig.url}/${project.slug}`,
+    },
   }
 }
 
