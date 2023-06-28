@@ -5,6 +5,8 @@ import { allProjects } from "contentlayer/generated"
 import { Balancer } from "react-wrap-balancer"
 import { Mdx } from "~/components/mdx-components"
 
+// import "~/styles/mdx.css"
+
 interface ProjectPageProps {
   params: {
     slug: string
