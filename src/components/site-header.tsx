@@ -10,7 +10,7 @@ export default function SiteHeader() {
     <header className="mt-8 flex w-full items-center justify-between md:mt-16">
       <h1 className="text-4xl font-bold">{getTitle(pathname)}</h1>
       <nav className="flex items-center gap-2">
-        <Link
+        {/* <Link
           href="/thoughts"
           className={cn(
             "border-b border-mauve7 leading-none transition-colors hover:border-mauve8 hover:text-mauve11",
@@ -19,7 +19,7 @@ export default function SiteHeader() {
           )}
         >
           Thoughts
-        </Link>
+        </Link> */}
         <Link
           href="/projects"
           className={cn(

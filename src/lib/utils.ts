@@ -6,14 +6,13 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const getTitle = (pathname: string): string => {
-  switch (pathname) {
-    case "/thoughts":
-      return "Thoughts"
-    case "/projects":
-      return "Projects"
-    case "/":
-      return "About"
-    default:
-      return "Unknown"
+  if (pathname === "/") {
+    return "About"
   }
+
+  const title =
+    pathname.split("/").join("").charAt(0).toUpperCase() +
+    pathname.split("/").join("").slice(1)
+
+  return title
 }
