@@ -43,10 +43,17 @@ export async function generateMetadata({
     openGraph: {
       title: project.title,
       description: project.description,
+      images: [
+        {
+          url: `${siteConfig.ogImage}/og?title=${project.title}`,
+          alt: project.title,
+        },
+      ],
     },
     twitter: {
       title: project.title,
       description: project.description,
+      images: [`${siteConfig.ogImage}/og?title=${project.title}`],
     },
     alternates: {
       canonical: `${siteConfig.url}/${project.slug}`,

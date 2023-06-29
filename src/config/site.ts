@@ -3,7 +3,7 @@ export const siteConfig = {
   description:
     "I'm a full stack developer based in India. I like creative coding, VFX, and CGI. Let's connect and see where it takes us.",
   url: "https://sameerjadav.me",
-  ogImage: "https://sameerjadav.me/og.png",
+  ogImage: "https://og.sameerjadav.me",
   author: "Sameer Jadav",
   twitterId: "@SameerJadav_",
   links: {

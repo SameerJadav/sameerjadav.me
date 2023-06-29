@@ -10,10 +10,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Projects",
     description: "Web development and creative coding projects.",
+    images: [
+      {
+        url: `${siteConfig.ogImage}/og?title=Projects`,
+        alt: "Projects",
+      },
+    ],
   },
   twitter: {
     title: "Projects",
     description: "Web development and creative coding projects.",
+    images: [`${siteConfig.ogImage}/og?title=Projects`],
   },
   alternates: {
     canonical: `${siteConfig.url}/projects`,
