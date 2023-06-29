@@ -5,8 +5,7 @@ import { allProjects } from "contentlayer/generated"
 import { Balancer } from "react-wrap-balancer"
 import { siteConfig } from "~/config/site"
 import { Mdx } from "~/components/mdx-components"
-
-// import "~/styles/mdx.css"
+import "~/styles/mdx.css"
 
 interface ProjectPageProps {
   params: {

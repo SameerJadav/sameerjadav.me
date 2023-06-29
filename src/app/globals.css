@@ -22,3 +22,7 @@
     @apply border-mauve6;
   }
 }
+
+::selection {
+  @apply bg-mauve5;
+}
