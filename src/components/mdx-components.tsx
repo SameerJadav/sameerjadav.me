@@ -11,17 +11,19 @@ const components = {
       {...props}
     />
   ),
+  p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
+    <p className={cn("mt-6 leading-7", className)} {...props} />
+  ),
   a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
     <a
       className={cn(
         "border-b border-mauve7 leading-none transition-colors hover:border-mauve8 hover:text-mauve11",
         className
       )}
+      target="_blank"
+      rel="noopener noreferrer"
       {...props}
     />
-  ),
-  p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
-    <p className={cn("mt-6 leading-7", className)} {...props} />
   ),
   ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
     <ul className={cn("ml-6 mt-6 list-disc", className)} {...props} />
