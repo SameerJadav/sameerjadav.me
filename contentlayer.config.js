@@ -28,6 +28,11 @@ const Projects = defineDocumentType(() => ({
       type: "string",
       required: true,
     },
+    // Remove projectLink
+    projectLink: {
+      type: "string",
+      required: true,
+    },
   },
   computedFields,
 }))
