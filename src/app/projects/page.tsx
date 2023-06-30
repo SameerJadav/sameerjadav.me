@@ -39,11 +39,7 @@ export default function ProjectsPage() {
         {allProjects.map((project) => (
           <Link
             key={project.slug}
-            // Change back to slug when the content is writter
-            // href={project.slug}
-            href={project.projectLink}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={project.slug}
             className="group flex w-full flex-col py-2 transition-colors md:flex-row md:items-center md:justify-between"
           >
             <span className="text-lg group-hover:text-mauve11">
@@ -55,7 +51,6 @@ export default function ProjectsPage() {
           </Link>
         ))}
       </div>
-      <a href="http://" target="_blank" rel="noopener noreferrer"></a>
     </>
   )
 }
