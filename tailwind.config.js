@@ -1,24 +1,24 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       colors: {
-        mauve1: 'hsl(var(--mauve1) / <alpha-value>)',
-        mauve2: 'hsl(var(--mauve2) / <alpha-value>)',
-        mauve3: 'hsl(var(--mauve3) / <alpha-value>)',
-        mauve4: 'hsl(var(--mauve4) / <alpha-value>)',
-        mauve5: 'hsl(var(--mauve5) / <alpha-value>)',
-        mauve6: 'hsl(var(--mauve6) / <alpha-value>)',
-        mauve7: 'hsl(var(--mauve7) / <alpha-value>)',
-        mauve8: 'hsl(var(--mauve8) / <alpha-value>)',
-        mauve9: 'hsl(var(--mauve9) / <alpha-value>)',
-        mauve10: 'hsl(var(--mauve10) / <alpha-value>)',
-        mauve11: 'hsl(var(--mauve11) / <alpha-value>)',
-        mauve12: 'hsl(var(--mauve12) / <alpha-value>)',
+        slate1: "hsl(var(--slate1) / <alpha-value>)",
+        slate2: "hsl(var(--slate2) / <alpha-value>)",
+        slate3: "hsl(var(--slate3) / <alpha-value>)",
+        slate4: "hsl(var(--slate4) / <alpha-value>)",
+        slate5: "hsl(var(--slate5) / <alpha-value>)",
+        slate6: "hsl(var(--slate6) / <alpha-value>)",
+        slate7: "hsl(var(--slate7) / <alpha-value>)",
+        slate8: "hsl(var(--slate8) / <alpha-value>)",
+        slate9: "hsl(var(--slate9) / <alpha-value>)",
+        slate10: "hsl(var(--slate10) / <alpha-value>)",
+        slate11: "hsl(var(--slate11) / <alpha-value>)",
+        slate12: "hsl(var(--slate12) / <alpha-value>)",
       },
     },
   },
@@ -26,4 +26,4 @@ module.exports = {
     hoverOnlyWhenSupported: true,
   },
   plugins: [],
-};
+}

@@ -69,12 +69,12 @@ export default async function GuidesPage({ params }: ProjectPageProps) {
     <article className="mt-8 md:mt-16">
       <h1 className="text-4xl font-bold">{project.title}</h1>
       <div className="mt-2 flex items-end justify-between md:items-center">
-        <p className="flex-1 text-lg text-mauve11">
+        <p className="flex-1 text-lg text-slate11">
           <Balancer>{project.description}</Balancer>
         </p>
         <Link
           href="/projects"
-          className="border-b border-mauve7 leading-none transition-colors hover:border-mauve8 hover:text-mauve11"
+          className="border-b border-slate7 leading-none transition-colors hover:border-slate8 hover:text-slate11"
         >
           Back
         </Link>

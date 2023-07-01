@@ -17,7 +17,7 @@ const components = {
   a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
     <a
       className={cn(
-        "border-b border-mauve7 leading-none transition-colors hover:border-mauve8 hover:text-mauve11",
+        "border-b border-slate7 leading-none transition-colors hover:border-slate8 hover:text-slate11",
         className
       )}
       target="_blank"
@@ -36,7 +36,7 @@ const components = {
   ),
   blockquote: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <blockquote
-      className={cn("mt-6 border-l-2 pl-6 italic text-mauve11", className)}
+      className={cn("mt-6 border-l-2 pl-6 italic text-slate11", className)}
       {...props}
     />
   ),
@@ -46,7 +46,7 @@ const components = {
   pre: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <pre
       className={cn(
-        "mb-6 mt-6 overflow-x-auto rounded-lg bg-mauve3 px-4 py-2",
+        "mb-6 mt-6 overflow-x-auto rounded-lg bg-slate3 px-4 py-2",
         className
       )}
       {...props}
@@ -55,7 +55,7 @@ const components = {
   code: ({ className, ...props }: React.HTMLAttributes<HTMLHRElement>) => (
     <code
       className={cn(
-        "rounded bg-mauve3 px-1 py-0.5 font-mono text-sm",
+        "rounded bg-slate3 px-1 py-0.5 font-mono text-sm",
         className
       )}
       {...props}
@@ -68,7 +68,7 @@ const components = {
   ),
   tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
     <tr
-      className={cn("m-0 border-t p-0 even:bg-mauve3", className)}
+      className={cn("m-0 border-t p-0 even:bg-slate3", className)}
       {...props}
     />
   ),

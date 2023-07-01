@@ -71,7 +71,7 @@ export default function RootLayout({
     <html dir="ltr" lang="en">
       <body
         className={cn(
-          "mx-auto w-full max-w-2xl scroll-smooth bg-mauve1 px-4 text-mauve12 antialiased md:p-0",
+          "mx-auto w-full max-w-2xl scroll-smooth bg-slate1 px-4 text-slate12 antialiased md:p-0",
           inter.className
         )}
       >

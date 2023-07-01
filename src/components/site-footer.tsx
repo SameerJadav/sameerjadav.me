@@ -3,10 +3,10 @@ import { siteConfig } from "~/config/site"
 
 export default function SiteFooter() {
   return (
-    <footer className="mt-6 border-t border-mauve6 py-6">
+    <footer className="mt-6 border-t border-slate6 py-6">
       <nav className="flex items-center justify-center gap-2 md:justify-start">
         <a
-          className="border-b border-mauve7 leading-none transition-colors hover:border-mauve8 hover:text-mauve11"
+          className="border-b border-slate7 leading-none transition-colors hover:border-slate8 hover:text-slate11"
           target="_blank"
           rel="noopener noreferrer"
           href={siteConfig.links.twitter}
@@ -15,7 +15,7 @@ export default function SiteFooter() {
         </a>
         ∙
         <a
-          className="border-b border-mauve7 leading-none transition-colors hover:border-mauve8 hover:text-mauve11"
+          className="border-b border-slate7 leading-none transition-colors hover:border-slate8 hover:text-slate11"
           target="_blank"
           rel="noopener noreferrer"
           href={siteConfig.links.github}
@@ -24,7 +24,7 @@ export default function SiteFooter() {
         </a>
         ∙
         <a
-          className="border-b border-mauve7 leading-none transition-colors hover:border-mauve8 hover:text-mauve11"
+          className="border-b border-slate7 leading-none transition-colors hover:border-slate8 hover:text-slate11"
           target="_blank"
           rel="noopener noreferrer"
           href={siteConfig.links.linkedin}
@@ -33,7 +33,7 @@ export default function SiteFooter() {
         </a>
         ∙
         <a
-          className="border-b border-mauve7 leading-none transition-colors hover:border-mauve8 hover:text-mauve11"
+          className="border-b border-slate7 leading-none transition-colors hover:border-slate8 hover:text-slate11"
           target="_blank"
           rel="noopener noreferrer"
           href={siteConfig.links.instagram}
@@ -42,7 +42,7 @@ export default function SiteFooter() {
         </a>
         ∙
         <a
-          className="border-b border-mauve7 leading-none transition-colors hover:border-mauve8 hover:text-mauve11"
+          className="border-b border-slate7 leading-none transition-colors hover:border-slate8 hover:text-slate11"
           target="_blank"
           rel="noopener noreferrer"
           href={siteConfig.links.mail}

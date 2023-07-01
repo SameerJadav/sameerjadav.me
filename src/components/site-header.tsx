@@ -13,9 +13,9 @@ export default function SiteHeader() {
         {/* <Link
           href="/thoughts"
           className={cn(
-            "border-b border-mauve7 leading-none transition-colors hover:border-mauve8 hover:text-mauve11",
+            "border-b border-slate7 leading-none transition-colors hover:border-slate8 hover:text-slate11",
             pathname === "/thoughts" &&
-              "pointer-events-none border-transparent text-mauve11"
+              "pointer-events-none border-transparent text-slate11"
           )}
         >
           Thoughts
@@ -23,9 +23,9 @@ export default function SiteHeader() {
         <Link
           href="/projects"
           className={cn(
-            "border-b border-mauve7 leading-none transition-colors hover:border-mauve8 hover:text-mauve11",
+            "border-b border-slate7 leading-none transition-colors hover:border-slate8 hover:text-slate11",
             pathname === "/projects" &&
-              "pointer-events-none border-transparent text-mauve11"
+              "pointer-events-none border-transparent text-slate11"
           )}
         >
           Projects
@@ -33,9 +33,9 @@ export default function SiteHeader() {
         <Link
           href="/"
           className={cn(
-            "border-b border-mauve7 leading-none transition-colors hover:border-mauve8 hover:text-mauve11",
+            "border-b border-slate7 leading-none transition-colors hover:border-slate8 hover:text-slate11",
             pathname === "/" &&
-              "pointer-events-none border-transparent text-mauve11"
+              "pointer-events-none border-transparent text-slate11"
           )}
         >
           About
