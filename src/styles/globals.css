@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate1 text-slate12 antialiased scroll-smooth font-sans;
+  }
+}
