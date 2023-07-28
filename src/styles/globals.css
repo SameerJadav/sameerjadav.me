@@ -4,6 +4,6 @@
 
 @layer base {
   body {
-    @apply bg-slate1 text-slate12 antialiased scroll-smooth font-sans;
+    @apply mx-auto w-full max-w-2xl scroll-smooth bg-slate1 px-4 font-sans text-slate12 antialiased selection:bg-slate6 md:p-0;
   }
 }

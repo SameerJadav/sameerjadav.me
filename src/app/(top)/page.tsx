@@ -3,5 +3,5 @@ export default function HomePage() {
     <main>
       <p>Hello world!</p>
     </main>
-  );
+  )
 }
