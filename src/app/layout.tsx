@@ -1,6 +1,7 @@
 import { type Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Inter, JetBrains_Mono } from "next/font/google"
 import { SITE } from "~/config"
+import { cn } from "~/lib/utils"
 import "~/styles/globals.css"
 
 interface RootLayoutProps {
@@ -13,14 +14,25 @@ const inter = Inter({
   variable: "--font-inter",
 })
 
+const title = SITE.name
+const description = SITE.description
+const url = SITE.url
+const image = `${SITE.image}/home`
+
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-jetbrains-mono",
+})
+
 export const metadata: Metadata = {
   title: {
-    default: SITE.name,
-    template: `%s - ${SITE.name}`,
+    default: title,
+    template: `%s - ${title}`,
   },
-  description: SITE.description,
+  description: description,
   keywords: ["Sameer Jadav", "Web Developer", "Programming", "Blog"],
-  authors: [{ name: SITE.author }],
+  authors: [{ name: SITE.author, url: url }],
   creator: SITE.author,
   icons: [
     {
@@ -44,24 +56,24 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: SITE.url,
-    title: SITE.name,
-    description: SITE.description,
-    siteName: SITE.name,
+    url: url,
+    title: title,
+    description: description,
+    siteName: title,
     images: [
       {
-        url: `${SITE.image}/home`,
+        url: image,
         width: 1200,
         height: 630,
-        alt: SITE.name,
+        alt: title,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: SITE.name,
-    description: SITE.description,
-    images: [`${SITE.image}/home`],
+    title: title,
+    description: description,
+    images: [image],
     creator: SITE.twitterId,
     site: SITE.twitterId,
   },
@@ -76,14 +88,14 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  manifest: `${SITE.url}/site.webmanifest`,
-  alternates: { canonical: SITE.url },
+  manifest: `${url}/site.webmanifest`,
+  alternates: { canonical: url },
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html dir="ltr" lang="en_US">
-      <body className={inter.variable}>{children}</body>
+      <body className={cn(inter.variable, jetbrains.variable)}>{children}</body>
     </html>
   )
 }

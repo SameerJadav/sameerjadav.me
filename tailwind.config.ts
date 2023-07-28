@@ -11,6 +11,7 @@ export default {
       },
       fontFamily: {
         sans: ["var(--font-inter)", ...theme.fontFamily.sans],
+        mono: ["var(--font-jetbrains-mono)", ...theme.fontFamily.mono],
       },
     },
   },
