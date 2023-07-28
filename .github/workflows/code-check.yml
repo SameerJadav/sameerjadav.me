@@ -40,6 +40,9 @@ jobs:
       - name: Install deps (with cache)
         run: pnpm install
 
+      - name: Run build
+        run: pnpm run build
+
       - name: Run lint
         run: pnpm run lint
 
