@@ -13,7 +13,7 @@ export default function SiteHeader() {
           className={cn(
             "text-slate11 transition-colors duration-200 ease-in hover:text-slate12",
             pathname === "/" &&
-              "text-slate12 underline decoration-slate7 underline-offset-4 hover:decoration-slate8",
+              "text-slate12 underline decoration-slate7 underline-offset-8 hover:decoration-slate8",
           )}
         >
           Home
@@ -23,7 +23,7 @@ export default function SiteHeader() {
           className={cn(
             "text-slate11 transition-colors duration-200 ease-in hover:text-slate12",
             pathname === "/blog" &&
-              "text-slate12 underline decoration-slate7 underline-offset-4 hover:decoration-slate8",
+              "text-slate12 underline decoration-slate7 underline-offset-8 hover:decoration-slate8",
           )}
         >
           Blog

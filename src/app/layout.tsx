@@ -2,6 +2,7 @@ import { type Metadata } from "next"
 import { Inter, JetBrains_Mono } from "next/font/google"
 import { SITE } from "~/config"
 import { cn } from "~/lib/utils"
+import SiteHeader from "~/components/SiteHeader"
 import "~/styles/globals.css"
 
 interface RootLayoutProps {
@@ -95,7 +96,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html dir="ltr" lang="en_US">
-      <body className={cn(inter.variable, jetbrains.variable)}>{children}</body>
+      <body className={cn(inter.variable, jetbrains.variable)}>
+        <SiteHeader />
+        <main>{children}</main>
+      </body>
     </html>
   )
 }
