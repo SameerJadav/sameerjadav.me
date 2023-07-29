@@ -4,6 +4,7 @@ import { allPosts } from "contentlayer/generated"
 import { Balancer } from "react-wrap-balancer"
 import { SITE } from "~/config"
 import { formatDate } from "~/lib/utils"
+import { Mdx } from "~/components/MdxComponents"
 import { MyLink } from "~/components/MyLink"
 
 interface PostPageProps {
@@ -74,17 +75,18 @@ export default async function PostPage({ params }: PostPageProps) {
 
   if (!post) notFound()
 
-  // const Content = getMDXComponent(post.body.code)
-
   return (
-    <article>
+    <>
       <h1 className="mt-8 text-2xl font-bold tracking-tighter">
         <Balancer>{post.title}</Balancer>
       </h1>
-      <div className="flex items-center justify-between text-sm">
+      <div className="mt-2 flex items-center justify-between text-sm">
         <p className="font-mono text-slate11">{formatDate(post.publishedAt)}</p>
         <MyLink href="/blog" title="Blog" />
       </div>
-    </article>
+      <div className="mb-8 md:mb-16">
+        <Mdx code={post.body.code} />
+      </div>
+    </>
   )
 }
