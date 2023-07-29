@@ -87,14 +87,14 @@ const components = {
   ),
   tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
     <tr
-      className={cn("m-0 border-t p-0 even:bg-slate3", className)}
+      className={cn("m-0 border-t border-slate7 p-0 even:bg-slate3", className)}
       {...props}
     />
   ),
   th: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
     <th
       className={cn(
-        "border px-4 py-2 text-left font-medium [&[align=center]]:text-center [&[align=right]]:text-right",
+        "border border-slate7 px-4 py-2 text-left font-medium [&[align=center]]:text-center [&[align=right]]:text-right",
         className,
       )}
       {...props}
@@ -103,7 +103,7 @@ const components = {
   td: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
     <td
       className={cn(
-        "border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right",
+        "border border-slate7 px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right",
         className,
       )}
       {...props}
