@@ -5,7 +5,7 @@ import ProjectCard from "~/components/ProjectCard"
 export default function HomePage() {
   return (
     <>
-      <h1 className="mt-8 text-2xl font-bold tracking-tighter">
+      <h1 className="mt-8 text-2xl font-medium tracking-tight">
         Hey, I&apos;m Sameer 👋
       </h1>
       <div className="mt-6 space-y-4">

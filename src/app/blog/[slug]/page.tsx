@@ -78,12 +78,12 @@ export default async function PostPage({ params }: PostPageProps) {
 
   return (
     <>
-      <h1 className="mt-8 text-2xl font-bold tracking-tighter">
+      <h1 className="mt-8 text-2xl font-medium tracking-tight">
         <Balancer>{post.title}</Balancer>
       </h1>
       <div className="mt-2 flex items-center justify-between text-sm">
         <p className="font-mono text-slate11">{formatDate(post.publishedAt)}</p>
-        <MyLink href="/blog" title="Blog" />
+        <MyLink href="/blog" title="Back" />
       </div>
       <div className="mb-8 md:mb-16">
         <Mdx code={post.body.code} />

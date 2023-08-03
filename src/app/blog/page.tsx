@@ -1,6 +1,7 @@
 import { type Metadata } from "next"
 import { allPosts } from "contentlayer/generated"
 import { SITE } from "~/config"
+import { formatDate } from "~/lib/utils"
 import { MyLink } from "~/components/MyLink"
 
 const title = "Blog"
@@ -39,7 +40,7 @@ const sortedPosts = allPosts.sort((a, b) => {
 export default function BlogPage() {
   return (
     <div>
-      <h1 className="mt-8 text-2xl font-bold tracking-tighter">Blog</h1>
+      <h1 className="mt-8 text-2xl font-medium tracking-tight">Blog</h1>
       <div className="mt-6 space-y-4">
         {sortedPosts.map((post) => (
           <div key={post.slug} className="space-y-2">
@@ -49,7 +50,9 @@ export default function BlogPage() {
               className="text-lg font-medium"
             />
             <p className="text-slate11">{post.description}</p>
-            <p className="font-mono text-slate11">{post.publishedAt}</p>
+            <p className="font-mono text-slate11">
+              {formatDate(post.publishedAt)}
+            </p>
           </div>
         ))}
       </div>

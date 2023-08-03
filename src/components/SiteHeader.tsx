@@ -7,7 +7,7 @@ import { RoughNotation } from "react-rough-notation"
 const home = (pathname: string) => {
   return pathname === "/" ? (
     <RoughNotation type="underline" animate color="#4c5155" show padding={6}>
-      Home
+      <span className="font-medium">Home</span>
     </RoughNotation>
   ) : (
     <Link
@@ -22,7 +22,7 @@ const home = (pathname: string) => {
 const blog = (pathname: string) => {
   return pathname === "/blog" ? (
     <RoughNotation type="underline" animate color="#4c5155" show padding={6}>
-      Blog
+      <span className="font-medium">Blog</span>
     </RoughNotation>
   ) : (
     <Link
