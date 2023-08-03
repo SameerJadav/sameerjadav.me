@@ -74,7 +74,7 @@ const components = {
   code: ({ className, ...props }: React.HTMLAttributes<HTMLHRElement>) => (
     <code
       className={cn(
-        "rounded bg-slate3 px-1 py-0.5 font-mono text-sm",
+        "rounded border border-slate7 bg-slate3 px-1 py-0.5 font-mono text-sm",
         className,
       )}
       {...props}
