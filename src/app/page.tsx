@@ -1,6 +1,10 @@
 import { SITE } from "~/config"
+import { sortedPosts } from "~/lib/post"
 import { MyLink } from "~/components/MyLink"
+import PostRow from "~/components/PostRow"
 import ProjectCard from "~/components/ProjectCard"
+
+const latestPosts = sortedPosts.slice(0, 4)
 
 export default function HomePage() {
   return (
@@ -43,6 +47,17 @@ export default function HomePage() {
         />
       </div>
       <p className="mt-4">
+        I&apos;ve started writing blogs about the technologies I&apos;m
+        interested in. I&apos;ll be sharing my own experiences and trying to
+        pass on some knowledge to anyone who&apos;s interested.
+      </p>
+      <div className="mt-4 space-y-2">
+        {latestPosts.map((post) => (
+          <PostRow key={post.slug} post={post} />
+        ))}
+        <MyLink href="/blog" title="All posts ➛" />
+      </div>
+      <p className="mb-8 mt-4 md:mb-16">
         I&apos;m always up for making new friends and having a good chat. Reach
         out to me on <MyLink title="Twitter" href={SITE.links.twitter} />,{" "}
         <MyLink title="Github" href={SITE.links.github} /> or drop me an email
