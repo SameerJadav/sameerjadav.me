@@ -1,16 +1,11 @@
-import { allProjects } from "contentlayer/generated"
-import { siteConfig } from "~/config/site"
+import { type MetadataRoute } from "next"
+import { SITE } from "~/config"
 
-export default async function sitemap() {
-  const project = allProjects.map((project) => ({
-    url: `https://leerob.io/blog/${project.slug}`,
-    lastModified: new Date().toISOString().split("T")[0],
-  }))
-
-  const routes = ["", "/projects", "/blog", "/uses"].map((route) => ({
-    url: `${siteConfig.url}${route}`,
-    lastModified: new Date().toISOString().split("T")[0],
-  }))
-
-  return [...routes, ...project]
+export default function sitemap(): MetadataRoute.Sitemap {
+  return [
+    {
+      url: SITE.url,
+      lastModified: new Date().toISOString().split("T")[0],
+    },
+  ]
 }

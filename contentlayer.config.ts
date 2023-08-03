@@ -4,42 +4,30 @@ import rehypePrettyCode from "rehype-pretty-code"
 import rehypeSlug from "rehype-slug"
 import remarkGfm from "remark-gfm"
 
-const computedFields = {
-  slug: {
-    type: "string",
-    resolve: (doc) => `/${doc._raw.flattenedPath}`,
-  },
-  slugAsParams: {
-    type: "string",
-    resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
-  },
-}
-
-const Projects = defineDocumentType(() => ({
-  name: "Projects",
-  filePathPattern: `projects/**/*.mdx`,
+export const Post = defineDocumentType(() => ({
+  name: "Post",
   contentType: "mdx",
+  filePathPattern: `blog/**/*.mdx`,
   fields: {
-    title: {
+    title: { type: "string", required: true },
+    description: { type: "string", required: true },
+    publishedAt: { type: "string", required: true },
+  },
+  computedFields: {
+    slug: {
       type: "string",
-      required: true,
+      resolve: (doc) => `/${doc._raw.flattenedPath}`,
     },
-    description: {
+    slugAsParams: {
       type: "string",
-      required: true,
-    },
-    // Remove projectLink
-    projectLink: {
-      type: "string",
-      required: true,
+      resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
     },
   },
-  computedFields,
 }))
 
 export default makeSource({
   contentDirPath: "./src/content",
-  documentTypes: [Projects],
+  documentTypes: [Post],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
@@ -48,17 +36,23 @@ export default makeSource({
         rehypePrettyCode,
         {
           theme: "one-dark-pro",
-          onVisitLine(node) {
+          onVisitLine(node: { children: { length: number }[] }) {
             // Prevent lines from collapsing in `display: grid` mode, and allow empty
             // lines to be copy/pasted
             if (node.children.length === 0) {
-              node.children = [{ type: "text", value: " " }]
+              node.children = [{ type: "text", value: " " }] as unknown as {
+                length: number
+              }[]
             }
           },
-          onVisitHighlightedLine(node) {
+          onVisitHighlightedLine(node: {
+            properties: { className: string[] }
+          }) {
             node.properties.className.push("line--highlighted")
           },
-          onVisitHighlightedWord(node) {
+          onVisitHighlightedWord(node: {
+            properties: { className: string[] }
+          }) {
             node.properties.className = ["word--highlighted"]
           },
         },
@@ -67,8 +61,7 @@ export default makeSource({
         rehypeAutolinkHeadings,
         {
           properties: {
-            className: ["subheading-anchor"],
-            ariaLabel: "Link to section",
+            className: ["anchor"],
           },
         },
       ],

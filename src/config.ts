@@ -1,9 +1,9 @@
-export const siteConfig = {
+export const SITE = {
   name: "Sameer Jadav",
   description:
-    "I'm a full stack developer based in India. I like creative coding, VFX, and CGI. Let's connect and see where it takes us.",
+    "A 19 y/o from India, passionate about programming and web development.",
   url: "https://sameerjadav.me",
-  ogImage: "https://og.sameerjadav.me",
+  image: "https://og.sameerjadav.me",
   author: "Sameer Jadav",
   twitterId: "@SameerJadav_",
   links: {

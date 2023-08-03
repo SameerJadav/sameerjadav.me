@@ -1,8 +1,19 @@
 {
   "name": "Sameer Jadav",
-  "short_name": "",
-  "description": "I'm a full stack developer based in India. I like creative coding, VFX, and CGI. Let's connect and see where it takes us.",
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "short_name": "Sameer Jadav",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#151718",
+  "background_color": "#151718",
   "display": "standalone"
 }
