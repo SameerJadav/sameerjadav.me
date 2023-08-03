@@ -8,7 +8,7 @@
   box-decoration-break: clone;
 }
 
-h2 > a {
+/* h2 > a {
   @apply invisible absolute -ml-4 w-full max-w-2xl cursor-pointer no-underline;
 }
 
@@ -19,7 +19,7 @@ h2:hover > a {
 h2 > a::after {
   @apply text-slate8 transition-all;
   content: "#";
-}
+} */
 
 /* Remove scrollbar */
 code::-webkit-scrollbar,
