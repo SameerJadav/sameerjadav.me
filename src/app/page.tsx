@@ -42,7 +42,7 @@ export default function HomePage() {
         />
         <ProjectCard
           title="sameerjadav.me"
-          description="My personal website built with Astro and Tailwind CSS."
+          description="My current website made with Next.js, Tailwind CSS and Contentlayer."
           projectLink={`${SITE.links.github}/sameerjadav.me`}
         />
       </div>
