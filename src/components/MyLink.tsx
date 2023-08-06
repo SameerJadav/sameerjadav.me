@@ -12,27 +12,27 @@ interface MyLinkProps {
 const isExternal = (href: string) => href.startsWith("https")
 
 export function MyLink({ title, href, className, icon }: MyLinkProps) {
-  return isExternal(href) ? (
-    <Link
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={cn(
-        "inline-flex items-center gap-1 underline decoration-slate7 underline-offset-4 transition-colors ease-in hover:decoration-slate8 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate6",
-        className,
-      )}
-    >
-      <span>{title}</span>
-      {icon && <Icons.ExternalLink />}
-    </Link>
-  ) : (
-    <Link
-      href={href}
-      className={cn(
-        "inline-flex items-center gap-1 underline decoration-slate7 underline-offset-4 transition-colors ease-in hover:decoration-slate8 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate6",
-        className,
-      )}
-    >
+  const commonClassName = cn(
+    "inline-flex items-center gap-1 underline decoration-slate7 underline-offset-4 transition-colors ease-in hover:decoration-slate8 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate6",
+    className,
+  )
+
+  if (isExternal(href)) {
+    return (
+      <Link
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={commonClassName}
+      >
+        <span>{title}</span>
+        {icon && <Icons.ExternalLink />}
+      </Link>
+    )
+  }
+
+  return (
+    <Link href={href} className={commonClassName}>
       {title}
     </Link>
   )
