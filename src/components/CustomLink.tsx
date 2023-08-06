@@ -2,7 +2,7 @@ import Link from "next/link"
 import { cn } from "~/lib/utils"
 import { Icons } from "~/components/Icons"
 
-interface MyLinkProps {
+interface CustomLinkProps {
   title: string
   href: string
   className?: string
@@ -11,7 +11,12 @@ interface MyLinkProps {
 
 const isExternal = (href: string) => href.startsWith("https")
 
-export function MyLink({ title, href, className, icon }: MyLinkProps) {
+export default function CustomLink({
+  title,
+  href,
+  className,
+  icon,
+}: CustomLinkProps) {
   const commonClassName = cn(
     "inline-flex items-center gap-1 underline decoration-slate7 underline-offset-4 transition-colors ease-in hover:decoration-slate8 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate6",
     className,

@@ -1,5 +1,5 @@
 import { Balancer } from "react-wrap-balancer"
-import { MyLink } from "~/components/MyLink"
+import CustomLink from "~/components/CustomLink"
 
 interface ProjectCardProps {
   title: string
@@ -14,7 +14,7 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   return (
     <div className="rounded-md border border-slate7 bg-slate3 p-2">
-      <MyLink href={projectLink} title={title} icon />
+      <CustomLink href={projectLink} title={title} icon />
       <p className="mt-2 text-slate11">
         <Balancer>{description}</Balancer>
       </p>

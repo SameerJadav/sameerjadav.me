@@ -4,8 +4,8 @@ import { allNotes } from "contentlayer/generated"
 import { Balancer } from "react-wrap-balancer"
 import { SITE } from "~/config"
 import { formatDate } from "~/lib/utils"
+import CustomLink from "~/components/CustomLink"
 import { Mdx } from "~/components/MdxComponents"
-import { MyLink } from "~/components/MyLink"
 
 interface PostPageProps {
   params: {
@@ -82,7 +82,7 @@ export default async function PostPage({ params }: PostPageProps) {
       </h1>
       <div className="mt-2 flex items-center justify-between text-sm">
         <p className="font-mono text-slate11">{formatDate(post.publishedAt)}</p>
-        <MyLink href="/blog" title="Back" />
+        <CustomLink href="/blog" title="Back" />
       </div>
       <div className="mb-8 md:mb-16">
         <Mdx code={post.body.code} />

@@ -1,6 +1,6 @@
 import { SITE } from "~/config"
 import { sortedPosts } from "~/lib/utils"
-import { MyLink } from "~/components/MyLink"
+import CustomLink from "~/components/CustomLink"
 import PostRow from "~/components/PostRow"
 import ProjectCard from "~/components/ProjectCard"
 
@@ -20,7 +20,7 @@ export default function HomePage() {
         </p>
         <p>
           At the moment, I&apos;m working on building a gaming app(
-          <MyLink title="Cosmix" href={`${SITE.links.github}/Cosmix`} />
+          <CustomLink title="Cosmix" href={`${SITE.links.github}/Cosmix`} />
           ), expanding my knowledge of full-stack development, learning Go
           programming language, and improving my writing skills.
         </p>
@@ -55,13 +55,14 @@ export default function HomePage() {
         {latestPosts.map((post) => (
           <PostRow key={post.slug} post={post} />
         ))}
-        <MyLink href="/blog" title="All posts ➛" />
+        <CustomLink href="/blog" title="All posts ➛" />
       </div>
       <p className="mb-8 mt-4 md:mb-16">
         I&apos;m always up for making new friends and having a good chat. Reach
-        out to me on <MyLink title="Twitter" href={SITE.links.twitter} />,{" "}
-        <MyLink title="Github" href={SITE.links.github} /> or drop me an email
-        at <MyLink title="sameerjadav001@gmail.com" href={SITE.links.mail} />.
+        out to me on <CustomLink title="Twitter" href={SITE.links.twitter} />,{" "}
+        <CustomLink title="Github" href={SITE.links.github} /> or drop me an
+        email at{" "}
+        <CustomLink title="sameerjadav001@gmail.com" href={SITE.links.mail} />.
       </p>
     </>
   )

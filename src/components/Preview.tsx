@@ -1,6 +1,6 @@
 import type { Post, Notes } from "contentlayer/generated"
 import { formatDate } from "~/lib/utils"
-import { MyLink } from "~/components/MyLink"
+import CustomLink from "~/components/CustomLink"
 
 interface Props {
   post: Post | Notes
@@ -9,7 +9,7 @@ interface Props {
 export default function Preview({ post }: Props) {
   return (
     <div className="space-y-2">
-      <MyLink
+      <CustomLink
         href={post.slug}
         title={post.title}
         className="text-lg font-medium"
