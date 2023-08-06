@@ -1,12 +1,12 @@
-import { type Post } from "contentlayer/generated"
-import { formatDate } from "~/lib/post"
+import type { Post, Notes } from "contentlayer/generated"
+import { formatDate } from "~/lib/utils"
 import { MyLink } from "~/components/MyLink"
 
 interface Props {
-  post: Post
+  post: Post | Notes
 }
 
-export default function PostPreview({ post }: Props) {
+export default function Preview({ post }: Props) {
   return (
     <div className="space-y-2">
       <MyLink

@@ -1,5 +1,5 @@
 import { type Post } from "contentlayer/generated"
-import { formatDate } from "~/lib/post"
+import { formatDate } from "~/lib/utils"
 import { MyLink } from "~/components/MyLink"
 
 interface Props {

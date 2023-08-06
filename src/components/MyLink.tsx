@@ -18,7 +18,7 @@ export function MyLink({ title, href, className, icon }: MyLinkProps) {
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "inline-flex items-center gap-1 underline decoration-slate7 underline-offset-4 transition-colors duration-200 ease-in hover:decoration-slate8 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate6",
+        "inline-flex items-center gap-1 underline decoration-slate7 underline-offset-4 transition-colors ease-in hover:decoration-slate8 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate6",
         className,
       )}
     >
@@ -29,7 +29,7 @@ export function MyLink({ title, href, className, icon }: MyLinkProps) {
     <Link
       href={href}
       className={cn(
-        "inline-flex items-center gap-1 underline decoration-slate7 underline-offset-4 transition-colors duration-200 ease-in hover:decoration-slate8 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate6",
+        "inline-flex items-center gap-1 underline decoration-slate7 underline-offset-4 transition-colors ease-in hover:decoration-slate8 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate6",
         className,
       )}
     >

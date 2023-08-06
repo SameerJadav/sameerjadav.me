@@ -1,12 +1,11 @@
 import { type Metadata } from "next"
 import { notFound } from "next/navigation"
-import { allPosts } from "contentlayer/generated"
+import { allNotes } from "contentlayer/generated"
 import { Balancer } from "react-wrap-balancer"
 import { SITE } from "~/config"
 import { formatDate } from "~/lib/utils"
 import { Mdx } from "~/components/MdxComponents"
 import { MyLink } from "~/components/MyLink"
-import "~/styles/mdx.css"
 
 interface PostPageProps {
   params: {
@@ -16,7 +15,7 @@ interface PostPageProps {
 
 // eslint-disable-next-line @typescript-eslint/require-await
 export async function generateStaticParams() {
-  return allPosts.map((post) => ({
+  return allNotes.map((post) => ({
     slug: post.slugAsParams,
   }))
 }
@@ -25,7 +24,7 @@ export async function generateStaticParams() {
 async function getPostFromParams({ params }: PostPageProps) {
   const slug = params.slug
 
-  const post = allPosts.find((post) => post.slugAsParams === slug)
+  const post = allNotes.find((post) => post.slugAsParams === slug)
 
   if (!post) null
 

@@ -1,11 +1,11 @@
 import { type Metadata } from "next"
 import { SITE } from "~/config"
-import { sortedPosts } from "~/lib/utils"
+import { sortedNotes } from "~/lib/utils"
 import Preview from "~/components/Preview"
 
-const title = "Blog"
-const description = "Sameer Jadav's blog"
-const url = `${SITE.url}/blog`
+const title = "Notes"
+const description = "Programming notes"
+const url = `${SITE.url}/notes`
 const image = `${SITE.image}/og?title=${title}`
 
 export const metadata: Metadata = {
@@ -35,10 +35,10 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   return (
     <div>
-      <h1 className="mt-8 text-2xl font-medium tracking-tight">Blog</h1>
+      <h1 className="mt-8 text-2xl font-medium tracking-tight">Notes</h1>
       <div className="mt-6 space-y-4">
-        {sortedPosts.map((post) => (
-          <Preview key={post.slug} post={post} />
+        {sortedNotes.map((note) => (
+          <Preview key={note.slug} post={note} />
         ))}
       </div>
     </div>

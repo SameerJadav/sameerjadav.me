@@ -1,0 +1,39 @@
+---
+title: What is Functional Programming
+description: Discover the basics of functional programming in JavaScript with this friendly introduction.
+publishedAt: August 6, 2023
+---
+
+Functional programming is a programming paradigm. It is a declarative type of programming style. It is made of pure functions - functions that takes input and returns output. Pure functions don't interact with the the world(checking the current time, checking for user information, etc.. are considered as interaction to the out side world). Functional programming is more predictable, safer, and easier to test and debug.
+
+**Impure**
+
+```js
+let name = "Alan"
+
+function greet() {
+  console.log(`Hello ${name}!`)
+}
+
+greet() // Hello Alan!
+
+name = "Alex"
+greet() // Hello Alex!
+```
+
+This impure function is dependent on the `name` variable. If the `name` changes we will get different output. I am passing `name` variable but getting different output based on the value of the variable. I can call the function in the exact same way(`greet();`) and get different outputs. This function is not returning anything.
+
+**Pure**
+
+```js
+function greet(name) {
+  return `Hello ${name}!`
+}
+
+greet("Alan") // Hello Alan!
+greet("Alex") // Hello Alex!
+```
+
+Pure function takes an input(arg `name`) and return(output) string. Every time i call this function like this `greet("Alan");` i will get the same output.
+
+In functional programming data is treated as immutable. Instead of updating existing data, functional programming encourages creating new data structures with the desired changes.

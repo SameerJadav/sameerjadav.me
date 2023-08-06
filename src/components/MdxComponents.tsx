@@ -2,6 +2,20 @@ import Link from "next/link"
 import { useMDXComponent } from "next-contentlayer/hooks"
 import { cn } from "~/lib/utils"
 
+interface CalloutProps {
+  emoji: string
+  children: React.ReactNode
+}
+
+function callout({ emoji, children }: CalloutProps) {
+  return (
+    <div className="mt-4 flex items-center gap-2 rounded-md border border-slate7 bg-slate3 p-2">
+      <p>{emoji}</p>
+      <p>{children}</p>
+    </div>
+  )
+}
+
 const components = {
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
@@ -12,6 +26,12 @@ const components = {
   p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p className={cn("mt-4 leading-7", className)} {...props} />
   ),
+  strong: ({
+    className,
+    ...props
+  }: React.HTMLAttributes<HTMLParagraphElement>) => (
+    <strong className={cn("font-semibold", className)} {...props} />
+  ),
   a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
@@ -20,7 +40,7 @@ const components = {
     return isExternal ? (
       <a
         className={cn(
-          "underline decoration-slate7 underline-offset-4 transition-colors duration-200 ease-in hover:decoration-slate8 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate6",
+          "underline decoration-slate7 underline-offset-4 transition-colors ease-in hover:decoration-slate8 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate6",
           className,
         )}
         target="_blank"
@@ -34,7 +54,7 @@ const components = {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         href={props.href}
         className={cn(
-          "underline decoration-slate7 underline-offset-4 transition-colors duration-200 ease-in hover:decoration-slate8 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate6",
+          "underline decoration-slate7 underline-offset-4 transition-colors ease-in hover:decoration-slate8 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate6",
           className,
         )}
         {...props}
@@ -65,7 +85,7 @@ const components = {
   pre: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <pre
       className={cn(
-        "mt-4 overflow-x-auto rounded-md bg-slate3 px-4 py-2 font-mono",
+        "mt-4 overflow-x-auto rounded-md border border-slate7 bg-slate3 px-4 py-2 font-mono",
         className,
       )}
       {...props}
@@ -109,6 +129,7 @@ const components = {
       {...props}
     />
   ),
+  Callout: callout,
 }
 
 interface MdxProps {

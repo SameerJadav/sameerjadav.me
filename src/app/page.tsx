@@ -1,5 +1,5 @@
 import { SITE } from "~/config"
-import { sortedPosts } from "~/lib/post"
+import { sortedPosts } from "~/lib/utils"
 import { MyLink } from "~/components/MyLink"
 import PostRow from "~/components/PostRow"
 import ProjectCard from "~/components/ProjectCard"
