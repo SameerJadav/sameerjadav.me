@@ -95,7 +95,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html dir="ltr" lang="en_US">
+    <html dir="ltr" lang="en">
       <body className={cn(inter.variable, jetbrains.variable)}>
         <SiteHeader />
         <main>{children}</main>
