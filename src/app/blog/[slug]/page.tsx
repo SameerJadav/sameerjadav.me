@@ -6,7 +6,6 @@ import { SITE } from "~/config"
 import { formatDate } from "~/lib/utils"
 import CustomLink from "~/components/CustomLink"
 import { Mdx } from "~/components/MdxComponents"
-import "~/styles/mdx.css"
 
 interface PostPageProps {
   params: {
