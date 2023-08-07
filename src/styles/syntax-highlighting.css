@@ -1,0 +1,31 @@
+/* Remove scrollbar */
+code::-webkit-scrollbar,
+pre::-webkit-scrollbar {
+  display: none;
+}
+
+code,
+pre {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+div[data-rehype-pretty-code-fragment] {
+  @apply mt-4 overflow-hidden rounded-md border border-slate7 bg-slate3;
+}
+
+div[data-rehype-pretty-code-title] {
+  @apply border-b border-b-slate7 bg-slate2 px-4 py-2 font-mono text-sm;
+}
+
+div[data-rehype-pretty-code-fragment] pre {
+  @apply mt-0 border-none;
+
+  background-color: #202425 !important;
+}
+
+div[data-rehype-pretty-code-fragment] code {
+  @apply m-0 grid min-w-full overflow-x-auto break-words rounded-none border-none bg-transparent p-0;
+  counter-reset: line;
+  box-decoration-break: clone;
+}

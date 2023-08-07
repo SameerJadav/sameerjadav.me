@@ -24,8 +24,8 @@ const config = {
   ],
   plugins: [
     "@trivago/prettier-plugin-sort-imports",
-    "prettier-plugin-tailwindcss",
+    require.resolve("prettier-plugin-tailwindcss"),
   ],
-};
+}
 
-module.exports = config;
+module.exports = config
