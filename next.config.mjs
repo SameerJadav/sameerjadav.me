@@ -16,6 +16,10 @@ const config = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  experimental: {
+    mdxRs: true,
+    webVitalsAttribution: ["CLS", "FCP", "FID", "INP", "LCP", "TTFB"],
+  },
 }
 
 export default withContentlayer(config)
