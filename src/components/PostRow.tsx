@@ -9,7 +9,7 @@ interface Props {
 export default function PostRow({ post }: Props) {
   return (
     <div className="space-y-2 rounded-md border border-gray6 bg-gray2 p-2">
-      <CustomLink href={post.slug} title={post.title} />
+      <CustomLink href={post.slug}>{post.title}</CustomLink>
       <p className="text-gray11">{post.description}</p>
       <p className="font-mono text-gray11">{formatDate(post.publishedAt)}</p>
     </div>

@@ -3,7 +3,7 @@ import { cn } from "~/lib/utils"
 import { Icons } from "~/components/Icons"
 
 interface CustomLinkProps {
-  title: string
+  children: React.ReactNode
   href: string
   className?: string
   icon?: boolean
@@ -12,7 +12,7 @@ interface CustomLinkProps {
 const isExternal = (href: string) => href.startsWith("https")
 
 export default function CustomLink({
-  title,
+  children,
   href,
   className,
   icon,
@@ -30,7 +30,7 @@ export default function CustomLink({
         rel="noopener noreferrer"
         className={commonClassName}
       >
-        <span>{title}</span>
+        <span>{children}</span>
         {icon && <Icons.ExternalLink />}
       </Link>
     )
@@ -38,7 +38,7 @@ export default function CustomLink({
 
   return (
     <Link href={href} className={commonClassName}>
-      {title}
+      {children}
     </Link>
   )
 }

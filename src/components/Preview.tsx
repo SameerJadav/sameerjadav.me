@@ -9,11 +9,9 @@ interface Props {
 export default function Preview({ post }: Props) {
   return (
     <div className="space-y-2">
-      <CustomLink
-        href={post.slug}
-        title={post.title}
-        className="text-lg font-medium"
-      />
+      <CustomLink href={post.slug} className="text-lg font-medium">
+        {post.title}
+      </CustomLink>
       <p className="text-gray11">{post.description}</p>
       <p className="font-mono text-gray11">{formatDate(post.publishedAt)}</p>
     </div>

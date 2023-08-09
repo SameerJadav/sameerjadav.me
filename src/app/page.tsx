@@ -20,7 +20,7 @@ export default function HomePage() {
         </p>
         <p>
           At the moment, I&apos;m working on building a gaming app(
-          <CustomLink title="Cosmix" href={`${SITE.links.github}/Cosmix`} />
+          <CustomLink href={`${SITE.links.github}/Cosmix`}>Cosmix</CustomLink>
           ), expanding my knowledge of full-stack development, learning Go
           programming language, and improving my writing skills.
         </p>
@@ -55,14 +55,15 @@ export default function HomePage() {
         {latestPosts.map((post) => (
           <PostRow key={post.slug} post={post} />
         ))}
-        <CustomLink href="/blog" title="All posts ➛" />
+        <CustomLink href="/blog">All posts ➛</CustomLink>
       </div>
       <p className="mb-8 mt-4 md:mb-16">
         I&apos;m always up for making new friends and having a good chat. Reach
-        out to me on <CustomLink title="Twitter" href={SITE.links.twitter} />,{" "}
-        <CustomLink title="Github" href={SITE.links.github} /> or drop me an
+        out to me on <CustomLink href={SITE.links.twitter}>Twitter</CustomLink>,{" "}
+        <CustomLink href={SITE.links.github}>Github</CustomLink> or drop me an
         email at{" "}
-        <CustomLink title="sameerjadav001@gmail.com" href={SITE.links.mail} />.
+        <CustomLink href={SITE.links.mail}>sameerjadav001@gmail.com</CustomLink>
+        .
       </p>
     </>
   )
