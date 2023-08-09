@@ -86,7 +86,7 @@ export default async function NotePage({ params }: NotePageProps) {
         <p className="font-mono text-gray11">{formatDate(note.publishedAt)}</p>
         <CustomLink href="/notes">Back</CustomLink>
       </div>
-      <div className="mb-8 md:mb-16">
+      <div className="my-8 md:mb-16">
         <Mdx code={note.body.code} />
       </div>
     </>
