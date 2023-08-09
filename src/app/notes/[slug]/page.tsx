@@ -79,10 +79,10 @@ export default async function NotePage({ params }: NotePageProps) {
 
   return (
     <>
-      <h1 className="mt-8 text-2xl font-medium tracking-tight">
+      <h1 className="mt-8 font-serif text-4xl font-medium leading-[1.2] md:text-5xl md:leading-[1.2]">
         <Balancer>{titleCase(note.title)}</Balancer>
       </h1>
-      <div className="mt-2 flex items-center justify-between text-sm">
+      <div className="mt-2 flex items-center justify-between">
         <p className="font-mono text-gray11">{formatDate(note.publishedAt)}</p>
         <CustomLink href="/notes">Back</CustomLink>
       </div>
