@@ -14,8 +14,8 @@ export default function Preview({ post }: Props) {
         title={post.title}
         className="text-lg font-medium"
       />
-      <p className="text-slate11">{post.description}</p>
-      <p className="font-mono text-slate11">{formatDate(post.publishedAt)}</p>
+      <p className="text-gray11">{post.description}</p>
+      <p className="font-mono text-gray11">{formatDate(post.publishedAt)}</p>
     </div>
   )
 }

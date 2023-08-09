@@ -9,7 +9,7 @@ interface CalloutProps {
 
 function callout({ emoji, children }: CalloutProps) {
   return (
-    <div className="mt-4 flex items-center gap-2 rounded-md border border-slate7 bg-slate3 p-2">
+    <div className="mt-4 flex items-center gap-2 rounded-md border border-gray6 bg-gray2 p-2">
       <p>{emoji}</p>
       <p>{children}</p>
     </div>
@@ -40,7 +40,7 @@ const components = {
     return isExternal ? (
       <a
         className={cn(
-          "underline decoration-slate7 underline-offset-4 transition-colors ease-in hover:decoration-slate8 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate6",
+          "underline decoration-gray7 underline-offset-4 transition-colors ease-in hover:decoration-gray8 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray7",
           className,
         )}
         target="_blank"
@@ -54,7 +54,7 @@ const components = {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         href={props.href}
         className={cn(
-          "underline decoration-slate7 underline-offset-4 transition-colors ease-in hover:decoration-slate8 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate6",
+          "underline decoration-gray7 underline-offset-4 transition-colors ease-in hover:decoration-gray8 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray7",
           className,
         )}
         {...props}
@@ -73,19 +73,19 @@ const components = {
   blockquote: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <blockquote
       className={cn(
-        "mt-4 border-l-2 border-slate6 pl-6 italic text-slate11",
+        "mt-4 border-l-2 border-gray6 pl-6 italic text-gray11",
         className,
       )}
       {...props}
     />
   ),
   hr: ({ ...props }: React.HTMLAttributes<HTMLHRElement>) => (
-    <hr className="my-6 border-slate6" {...props} />
+    <hr className="my-6 border-gray6" {...props} />
   ),
   pre: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <pre
       className={cn(
-        "mt-4 overflow-x-auto rounded-md border border-slate7 bg-slate3 px-4 py-2 font-mono",
+        "mt-4 overflow-x-auto rounded-md border border-gray6 bg-gray2 px-4 py-2 font-mono",
         className,
       )}
       {...props}
@@ -94,7 +94,7 @@ const components = {
   code: ({ className, ...props }: React.HTMLAttributes<HTMLHRElement>) => (
     <code
       className={cn(
-        "rounded border border-slate7 bg-slate3 px-1 py-0.5 font-mono text-sm",
+        "rounded border border-gray6 bg-gray2 px-1 py-0.5 font-mono text-sm",
         className,
       )}
       {...props}
@@ -107,14 +107,14 @@ const components = {
   ),
   tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
     <tr
-      className={cn("m-0 border-t border-slate7 p-0 even:bg-slate3", className)}
+      className={cn("m-0 border-t border-gray6 p-0 even:bg-gray2", className)}
       {...props}
     />
   ),
   th: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
     <th
       className={cn(
-        "border border-slate7 px-4 py-2 text-left font-medium [&[align=center]]:text-center [&[align=right]]:text-right",
+        "border border-gray6 px-4 py-2 text-left font-medium [&[align=center]]:text-center [&[align=right]]:text-right",
         className,
       )}
       {...props}
@@ -123,7 +123,7 @@ const components = {
   td: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
     <td
       className={cn(
-        "border border-slate7 px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right",
+        "border border-gray6 px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right",
         className,
       )}
       {...props}

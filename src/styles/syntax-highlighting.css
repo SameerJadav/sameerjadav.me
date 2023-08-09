@@ -11,17 +11,17 @@ pre {
 }
 
 div[data-rehype-pretty-code-fragment] {
-  @apply mt-4 overflow-hidden rounded-md border border-slate7 bg-slate3;
+  @apply mt-4 overflow-hidden rounded-md border border-gray6 bg-gray2;
 }
 
 div[data-rehype-pretty-code-title] {
-  @apply border-b border-b-slate7 bg-slate2 px-4 py-2 font-mono text-sm;
+  @apply border-b border-b-gray6 bg-gray2 px-4 py-2 font-mono text-sm;
 }
 
 div[data-rehype-pretty-code-fragment] pre {
-  @apply mt-0 border-none;
+  @apply mt-0 rounded-none border-none;
 
-  background-color: #202425 !important;
+  background-color: hsl(0, 0%, 11%) !important;
 }
 
 div[data-rehype-pretty-code-fragment] code {

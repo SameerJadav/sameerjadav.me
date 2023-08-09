@@ -1,4 +1,4 @@
-import { slateDark } from "@radix-ui/colors"
+import { blueDark, grayDark } from "@radix-ui/colors"
 import { type Config } from "tailwindcss"
 import theme from "tailwindcss/defaultTheme"
 
@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        ...slateDark,
+        ...grayDark,
+        ...blueDark,
       },
       fontFamily: {
         sans: ["var(--font-inter)", ...theme.fontFamily.sans],

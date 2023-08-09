@@ -13,9 +13,9 @@ export default function ProjectCard({
   projectLink,
 }: ProjectCardProps) {
   return (
-    <div className="rounded-md border border-slate7 bg-slate3 p-2">
+    <div className="rounded-md border border-gray6 bg-gray2 p-2">
       <CustomLink href={projectLink} title={title} icon />
-      <p className="mt-2 text-slate11">
+      <p className="mt-2 text-gray11">
         <Balancer>{description}</Balancer>
       </p>
     </div>

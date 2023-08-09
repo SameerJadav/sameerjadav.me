@@ -82,7 +82,7 @@ export default async function PostPage({ params }: PostPageProps) {
         <Balancer>{post.title}</Balancer>
       </h1>
       <div className="mt-2 flex items-center justify-between text-sm">
-        <p className="font-mono text-slate11">{formatDate(post.publishedAt)}</p>
+        <p className="font-mono text-gray11">{formatDate(post.publishedAt)}</p>
         <CustomLink href="/notes" title="Back" />
       </div>
       <div className="mb-8 md:mb-16">

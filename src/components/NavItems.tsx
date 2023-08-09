@@ -2,11 +2,11 @@ import Link from "next/link"
 import { cn } from "~/lib/utils"
 
 const commonClassName = cn(
-  "text-slate11 transition-colors ease-in hover:text-slate12 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate6",
+  "text-gray11 transition-colors ease-in hover:text-gray12 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray7",
 )
 
 const commonActiveClassName = cn(
-  "pointer-events-none text-slate12 underline decoration-slate9 underline-offset-8",
+  "pointer-events-none text-gray12 underline decoration-gray8 underline-offset-8",
 )
 
 export const home = (pathname: string) => {
