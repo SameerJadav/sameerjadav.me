@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   return (
     <div>
-      <h1 className="mt-8 text-2xl font-medium tracking-tight">Notes</h1>
+      <h1 className="mt-8 font-serif text-5xl font-medium">Notes</h1>
       <div className="mt-6 space-y-4">
         {sortedNotes.map((note) => (
           <Preview key={note.slug} post={note} />

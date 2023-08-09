@@ -1,5 +1,6 @@
 import { type Metadata } from "next"
 import { Inter, JetBrains_Mono } from "next/font/google"
+import localFont from "next/font/local"
 import { SITE } from "~/config"
 import { cn } from "~/lib/utils"
 import SiteHeader from "~/components/SiteHeader"
@@ -15,16 +16,24 @@ const inter = Inter({
   variable: "--font-inter",
 })
 
-const title = SITE.name
-const description = SITE.description
-const url = SITE.url
-const image = `${SITE.image}/home`
-
 const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-jetbrains-mono",
 })
+
+const ppeditorial = localFont({
+  src: "../../public/fonts/pp-editorial-new/regular.woff2",
+  display: "swap",
+  weight: "500",
+  preload: true,
+  variable: "--font-pp-editorial-new",
+})
+
+const title = SITE.name
+const description = SITE.description
+const url = SITE.url
+const image = `${SITE.image}/home`
 
 export const metadata: Metadata = {
   title: {
@@ -96,7 +105,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html dir="ltr" lang="en">
-      <body className={cn(inter.variable, jetbrains.variable)}>
+      <body
+        className={cn(inter.variable, jetbrains.variable, ppeditorial.variable)}
+      >
         <SiteHeader />
         <main>{children}</main>
       </body>

@@ -13,6 +13,7 @@ export default {
       fontFamily: {
         sans: ["var(--font-inter)", ...theme.fontFamily.sans],
         mono: ["var(--font-jetbrains-mono)", ...theme.fontFamily.mono],
+        serif: ["var(--font-pp-editorial-new)", ...theme.fontFamily.serif],
       },
     },
   },

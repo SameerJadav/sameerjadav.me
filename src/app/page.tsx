@@ -9,8 +9,8 @@ const latestPosts = sortedPosts.slice(0, 4)
 export default function HomePage() {
   return (
     <>
-      <h1 className="mt-8 text-2xl font-medium tracking-tight">
-        Hey, I&apos;m Sameer 👋
+      <h1 className="mt-8 font-serif text-5xl font-medium">
+        Hey, I&apos;m Sameer
       </h1>
       <div className="mt-6 space-y-4">
         <p>
