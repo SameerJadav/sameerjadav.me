@@ -2,12 +2,13 @@ import { type Metadata } from "next"
 import { notFound } from "next/navigation"
 import { allNotes } from "contentlayer/generated"
 import { Balancer } from "react-wrap-balancer"
+import { titleCase } from "title-case"
 import { SITE } from "~/config"
 import { formatDate } from "~/lib/utils"
 import CustomLink from "~/components/CustomLink"
 import { Mdx } from "~/components/MdxComponents"
 
-interface PostPageProps {
+interface NotePageProps {
   params: {
     slug: string
   }
@@ -15,33 +16,33 @@ interface PostPageProps {
 
 // eslint-disable-next-line @typescript-eslint/require-await
 export async function generateStaticParams() {
-  return allNotes.map((post) => ({
-    slug: post.slugAsParams,
+  return allNotes.map((note) => ({
+    slug: note.slugAsParams,
   }))
 }
 
 // eslint-disable-next-line @typescript-eslint/require-await
-async function getPostFromParams({ params }: PostPageProps) {
+async function getNoteFromParams({ params }: NotePageProps) {
   const slug = params.slug
 
-  const post = allNotes.find((post) => post.slugAsParams === slug)
+  const note = allNotes.find((note) => note.slugAsParams === slug)
 
-  if (!post) null
+  if (!note) null
 
-  return post
+  return note
 }
 
 // eslint-disable-next-line @typescript-eslint/require-await
 export async function generateMetadata({
   params,
-}: PostPageProps): Promise<Metadata> {
-  const post = await getPostFromParams({ params })
+}: NotePageProps): Promise<Metadata> {
+  const note = await getNoteFromParams({ params })
 
-  if (!post) notFound()
+  if (!note) notFound()
 
-  const title = post.title
-  const description = post.description
-  const url = `${SITE.url}/notes/${post.slugAsParams}`
+  const title = note.title
+  const description = note.description
+  const url = `${SITE.url}/notes/${note.slugAsParams}`
   const image = `${SITE.image}/blog?title=${title}`
 
   return {
@@ -71,22 +72,22 @@ export async function generateMetadata({
   }
 }
 
-export default async function PostPage({ params }: PostPageProps) {
-  const post = await getPostFromParams({ params })
+export default async function NotePage({ params }: NotePageProps) {
+  const note = await getNoteFromParams({ params })
 
-  if (!post) notFound()
+  if (!note) notFound()
 
   return (
     <>
       <h1 className="mt-8 text-2xl font-medium tracking-tight">
-        <Balancer>{post.title}</Balancer>
+        <Balancer>{titleCase(note.title)}</Balancer>
       </h1>
       <div className="mt-2 flex items-center justify-between text-sm">
-        <p className="font-mono text-gray11">{formatDate(post.publishedAt)}</p>
+        <p className="font-mono text-gray11">{formatDate(note.publishedAt)}</p>
         <CustomLink href="/notes">Back</CustomLink>
       </div>
       <div className="mb-8 md:mb-16">
-        <Mdx code={post.body.code} />
+        <Mdx code={note.body.code} />
       </div>
     </>
   )
