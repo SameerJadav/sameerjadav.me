@@ -18,7 +18,7 @@ export default function CustomLink({
   icon,
 }: CustomLinkProps) {
   const commonClassName = cn(
-    "inline-flex items-center gap-1 underline decoration-gray7 underline-offset-4 transition-colors ease-in hover:decoration-gray8 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray7",
+    "inline-flex items-center gap-1 underline decoration-gray7 underline-offset-2 transition-colors ease-in hover:text-blue10 hover:decoration-blue8 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray7",
     className,
   )
 

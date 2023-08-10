@@ -9,10 +9,12 @@ export default function SiteHeader() {
   if (pathname.includes("/notes/")) pathname = "/notes"
   return (
     <header className="mt-8 w-full md:mt-16">
-      <nav className="flex items-center gap-4">
-        {home(pathname)}
-        {blog(pathname)}
-        {notes(pathname)}
+      <nav>
+        <ul className="flex items-center gap-4">
+          <li>{home(pathname)}</li>
+          <li>{blog(pathname)}</li>
+          <li>{notes(pathname)}</li>
+        </ul>
       </nav>
     </header>
   )

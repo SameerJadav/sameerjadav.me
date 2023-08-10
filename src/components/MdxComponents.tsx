@@ -1,6 +1,6 @@
-import Link from "next/link"
 import { useMDXComponent } from "next-contentlayer/hooks"
 import { cn } from "~/lib/utils"
+import CustomLink from "~/components/CustomLink"
 
 interface CalloutProps {
   emoji: string
@@ -32,35 +32,12 @@ const components = {
   }: React.HTMLAttributes<HTMLParagraphElement>) => (
     <strong className={cn("font-semibold", className)} {...props} />
   ),
-  a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => {
+  a: ({ ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-    const isExternal = props.href?.startsWith("https")
-    return isExternal ? (
-      <a
-        className={cn(
-          "underline decoration-gray7 underline-offset-4 transition-colors ease-in hover:decoration-gray8 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray7",
-          className,
-        )}
-        target="_blank"
-        rel="noopener noreferrer"
-        {...props}
-      />
-    ) : (
-      <Link
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        href={props.href}
-        className={cn(
-          "underline decoration-gray7 underline-offset-4 transition-colors ease-in hover:decoration-gray8 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray7",
-          className,
-        )}
-        {...props}
-      />
-    )
-  },
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    <CustomLink href={props.href} {...props} />
+  ),
   ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
     <ul className={cn("ml-6 mt-4 list-disc", className)} {...props} />
   ),
@@ -93,10 +70,7 @@ const components = {
   ),
   code: ({ className, ...props }: React.HTMLAttributes<HTMLHRElement>) => (
     <code
-      className={cn(
-        "rounded border border-gray6 bg-gray2 px-1 py-0.5 font-mono text-sm",
-        className,
-      )}
+      className={cn("bg-gray3 px-1 py-0.5 font-mono text-sm", className)}
       {...props}
     />
   ),
