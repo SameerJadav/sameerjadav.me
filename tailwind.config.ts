@@ -1,4 +1,4 @@
-import { blue, blueDark, grayDark } from "@radix-ui/colors"
+import { blue, grayDark } from "@radix-ui/colors"
 import { type Config } from "tailwindcss"
 import theme from "tailwindcss/defaultTheme"
 
@@ -11,7 +11,7 @@ export default {
         ...blue,
       },
       fontFamily: {
-        sans: ["var(--font-inter)", ...theme.fontFamily.sans],
+        sans: ["var(--font-nunito)", ...theme.fontFamily.sans],
         mono: ["var(--font-jetbrains-mono)", ...theme.fontFamily.mono],
         serif: ["var(--font-pp-editorial-new)", ...theme.fontFamily.serif],
       },

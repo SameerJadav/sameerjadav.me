@@ -1,5 +1,5 @@
 import { type Metadata } from "next"
-import { Inter, JetBrains_Mono } from "next/font/google"
+import { JetBrains_Mono, Nunito } from "next/font/google"
 import localFont from "next/font/local"
 import { SITE } from "~/config"
 import { cn } from "~/lib/utils"
@@ -10,10 +10,10 @@ interface RootLayoutProps {
   children: React.ReactNode
 }
 
-const inter = Inter({
+const nunito = Nunito({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-nunito",
 })
 
 const jetbrains = JetBrains_Mono({
@@ -106,7 +106,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html dir="ltr" lang="en">
       <body
-        className={cn(inter.variable, jetbrains.variable, ppeditorial.variable)}
+        className={cn(
+          nunito.variable,
+          jetbrains.variable,
+          ppeditorial.variable,
+        )}
       >
         <SiteHeader />
         <main>{children}</main>

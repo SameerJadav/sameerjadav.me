@@ -10,19 +10,22 @@ export default function HomePage() {
   return (
     <>
       <h1 className="mt-8 font-serif text-4xl font-medium md:text-5xl">
-        Hey, I&apos;m Sameer
+        Sameer Jadav
       </h1>
       <div className="mt-6 space-y-4">
         <p>
-          I&apos;m a 19-year-old web developer. I enjoy learning new things,
-          discovering more about myself, and watching anime. My current goal is
-          to learn more about programming and become an articulate man.
+          I am a 19-year-old JavaScript/TypeScript developer who specializes in
+          building full-stack applications using Next.js and serverless
+          technologies. Currently, I am also exploring Svelte to gain experience
+          with different frameworks. Open-source contributions are a significant
+          part of my work, as all of my projects are open-source. Additionally,
+          I write blogs to enhance my writing skills and become more articulate.
         </p>
         <p>
-          At the moment, I&apos;m working on building a gaming app(
-          <CustomLink href={`${SITE.links.github}/Cosmix`}>Cosmix</CustomLink>
-          ), expanding my knowledge of full-stack development, learning Go
-          programming language, and improving my writing skills.
+          During my free time, I enjoy watching anime and listening to podcasts
+          to expand my knowledge on various topics. Additionally, I make it a
+          point to exercise every day and spend some quiet time alone without
+          any music or shows to recharge my batteries.
         </p>
         <p>
           These are the projects that I&apos;ve poured my heart and soul into
