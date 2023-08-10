@@ -41,7 +41,14 @@ export const metadata: Metadata = {
     template: `%s - ${title}`,
   },
   description: description,
-  keywords: ["Sameer Jadav", "Web Developer", "Programming", "Blog"],
+  keywords: [
+    "Sameer Jadav",
+    "JavaScript",
+    "Typescript",
+    "Full-stack Developer",
+    "Next.js",
+    "Blog",
+  ],
   authors: [{ name: SITE.author, url: url }],
   creator: SITE.author,
   icons: [

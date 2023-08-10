@@ -1,7 +1,7 @@
 export const SITE = {
   name: "Sameer Jadav",
   description:
-    "A 19 y/o from India, passionate about programming and web development.",
+    "19 y/o JavaScript/TypeScript developer with a focus on building full-stack apps using Next.js & serverless tech.",
   url: "https://sameerjadav.me",
   image: "https://og.sameerjadav.me",
   author: "Sameer Jadav",
