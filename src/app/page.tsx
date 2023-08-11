@@ -1,7 +1,9 @@
 import { SITE } from "~/config"
 import { sortedPosts } from "~/lib/utils"
 import CustomLink from "~/components/CustomLink"
-import PostRow from "~/components/PostRow"
+import H2 from "~/components/H2"
+import { Icons } from "~/components/Icons"
+import LatestPosts from "~/components/LatestPosts"
 import ProjectPreview from "~/components/ProjectPreview"
 import { projects } from "~/components/Projects"
 
@@ -29,9 +31,7 @@ export default function HomePage() {
           any music or shows to recharge my batteries.
         </p>
       </div>
-      <h2 className="relative mt-12 font-serif text-3xl font-medium before:absolute before:-top-4 before:left-0 before:mb-2 before:h-[3px] before:w-6 before:bg-current before:content-[''] md:text-4xl">
-        Projects
-      </h2>
+      <H2 lable="Projects" />
       <div className="mt-6 divide-y divide-dashed divide-gray6">
         {projects.map((project) => (
           <ProjectPreview
@@ -45,16 +45,15 @@ export default function HomePage() {
           />
         ))}
       </div>
-      <p className="mt-4">
-        I&apos;ve started writing blogs about the technologies I&apos;m
-        interested in. I&apos;ll be sharing my own experiences and trying to
-        pass on some knowledge to anyone who&apos;s interested.
-      </p>
-      <div className="mt-4 space-y-2">
+      <H2 lable="Latest Posts" />
+      <div className="mt-6 space-y-4">
         {latestPosts.map((post) => (
-          <PostRow key={post.slug} post={post} />
+          <LatestPosts key={post.slug} post={post} />
         ))}
-        <CustomLink href="/blog">All posts ➛</CustomLink>
+        <CustomLink href="/blog" className="font-medium">
+          Read more
+          {<Icons.ArrowRight />}
+        </CustomLink>
       </div>
       <p className="mb-8 mt-4 md:mb-16">
         I&apos;m always up for making new friends and having a good chat. Reach
