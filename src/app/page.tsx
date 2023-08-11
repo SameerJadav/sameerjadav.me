@@ -1,4 +1,5 @@
 import { SITE } from "~/config"
+import guestbook from "~/images/guestbook.png"
 import { sortedPosts } from "~/lib/utils"
 import CustomLink from "~/components/CustomLink"
 import PostRow from "~/components/PostRow"
@@ -27,26 +28,18 @@ export default function HomePage() {
           point to exercise every day and spend some quiet time alone without
           any music or shows to recharge my batteries.
         </p>
-        <p>
-          These are the projects that I&apos;ve poured my heart and soul into
-          creating, maintaining, and nurturing.
-        </p>
       </div>
-      <div className="mt-4 grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-4">
+      <h2 className="relative mt-12 font-serif text-3xl font-medium before:absolute before:-top-4 before:left-0 before:mb-2 before:h-[3px] before:w-6 before:bg-current before:content-[''] md:text-4xl">
+        Projects
+      </h2>
+      <div className="mt-6 divide-y divide-dashed divide-gray6">
         <ProjectCard
+          href="https://guestbook.sameerjadav.me"
           title="Guestbook"
-          description="A simple and user-friendly full-stack guestbook app built with Next.js."
-          projectLink={`${SITE.links.github}/guestbook`}
-        />
-        <ProjectCard
-          title="Cosmix"
-          description="An open-source gaming app built with Next.js 13 and bootstrapped with `create t3-app`."
-          projectLink={`${SITE.links.github}/Cosmix`}
-        />
-        <ProjectCard
-          title="sameerjadav.me"
-          description="My current website made with Next.js, Tailwind CSS and Contentlayer."
-          projectLink={`${SITE.links.github}/sameerjadav.me`}
+          description="A simple and user-friendly full-stack guestbook application built with Next.js and serverless technologies bootstrapped with `create t3-app`."
+          image={guestbook}
+          imageAlt="Guestbook app screenshot"
+          direction="left"
         />
       </div>
       <p className="mt-4">
