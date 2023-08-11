@@ -1,9 +1,9 @@
 import { SITE } from "~/config"
-import guestbook from "~/images/guestbook.png"
 import { sortedPosts } from "~/lib/utils"
 import CustomLink from "~/components/CustomLink"
 import PostRow from "~/components/PostRow"
 import ProjectPreview from "~/components/ProjectPreview"
+import { projects } from "~/components/Projects"
 
 const latestPosts = sortedPosts.slice(0, 4)
 
@@ -33,14 +33,17 @@ export default function HomePage() {
         Projects
       </h2>
       <div className="mt-6 divide-y divide-dashed divide-gray6">
-        <ProjectPreview
-          href="https://guestbook.sameerjadav.me"
-          title="Guestbook"
-          description="A simple and user-friendly full-stack guestbook application built with Next.js and serverless technologies bootstrapped with `create t3-app`."
-          image={guestbook}
-          imageAlt="Guestbook app screenshot"
-          direction="left"
-        />
+        {projects.map((project) => (
+          <ProjectPreview
+            key={project.id}
+            href={project.href}
+            title={project.title}
+            description={project.description}
+            image={project.image}
+            imageAlt={project.imageAlt}
+            direction={project.direction}
+          />
+        ))}
       </div>
       <p className="mt-4">
         I&apos;ve started writing blogs about the technologies I&apos;m
