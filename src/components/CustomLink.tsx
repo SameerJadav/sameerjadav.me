@@ -7,6 +7,7 @@ interface CustomLinkProps {
   href: string
   className?: string
   icon?: boolean
+  underline?: boolean
 }
 
 const isExternal = (href: string) => href.startsWith("https")
@@ -16,9 +17,12 @@ export default function CustomLink({
   href,
   className,
   icon,
+  underline,
 }: CustomLinkProps) {
   const commonClassName = cn(
-    "inline-flex items-center gap-1 underline decoration-gray7 underline-offset-2 transition-colors ease-in hover:text-blue10 hover:decoration-gray8 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray7",
+    "inline-flex items-center gap-1 transition-colors ease-in hover:text-blue10 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray7",
+    underline &&
+      "underline decoration-gray7 underline-offset-2 hover:decoration-gray8",
     className,
   )
 

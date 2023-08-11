@@ -1,5 +1,6 @@
 import Image, { type StaticImageData } from "next/image"
 import Link from "next/link"
+import CustomLink from "~/components/CustomLink"
 
 interface ProjectPreviewProps {
   href: string
@@ -45,14 +46,24 @@ export default function ProjectPreview({
         />
       </div>
       <div className="mt-4 flex-1 md:mt-0 md:pl-6 md:text-left">
-        <ProjectLink href={href} title={title} />
+        <CustomLink
+          href={href}
+          className="font-serif text-2xl font-medium md:text-3xl"
+        >
+          {title}
+        </CustomLink>
         <p className="mt-2 text-lg text-gray11">{description}</p>
       </div>
     </div>
   ) : (
     <div className="flex flex-col-reverse first:pb-6 only:p-0 md:flex-row md:divide-x md:divide-dashed md:divide-gray6 [&:not(:first-child)]:pt-6">
       <div className="mt-4 flex-1 md:mt-0 md:pr-6 md:text-right">
-        <ProjectLink href={href} title={title} />
+        <CustomLink
+          href={href}
+          className="font-serif text-2xl font-medium md:text-3xl"
+        >
+          {title}
+        </CustomLink>
         <p className="mt-2 text-lg text-gray11">{description}</p>
       </div>
       <div className="flex-1 md:pl-6">

@@ -36,7 +36,7 @@ const components = {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    <CustomLink href={props.href} {...props} />
+    <CustomLink href={props.href} {...props} underline />
   ),
   ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
     <ul className={cn("ml-6 mt-4 list-disc", className)} {...props} />

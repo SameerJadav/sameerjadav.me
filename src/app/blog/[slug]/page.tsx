@@ -84,7 +84,9 @@ export default async function PostPage({ params }: PostPageProps) {
       </h1>
       <div className="mt-2 flex items-center justify-between">
         <p className="font-mono text-gray11">{formatDate(post.publishedAt)}</p>
-        <CustomLink href="/blog">Back</CustomLink>
+        <CustomLink href="/blog" underline>
+          Back
+        </CustomLink>
       </div>
       <div className="my-8 md:mb-16">
         <Mdx code={post.body.code} />
