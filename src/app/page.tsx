@@ -3,7 +3,7 @@ import guestbook from "~/images/guestbook.png"
 import { sortedPosts } from "~/lib/utils"
 import CustomLink from "~/components/CustomLink"
 import PostRow from "~/components/PostRow"
-import ProjectCard from "~/components/ProjectCard"
+import ProjectPreview from "~/components/ProjectPreview"
 
 const latestPosts = sortedPosts.slice(0, 4)
 
@@ -33,7 +33,7 @@ export default function HomePage() {
         Projects
       </h2>
       <div className="mt-6 divide-y divide-dashed divide-gray6">
-        <ProjectCard
+        <ProjectPreview
           href="https://guestbook.sameerjadav.me"
           title="Guestbook"
           description="A simple and user-friendly full-stack guestbook application built with Next.js and serverless technologies bootstrapped with `create t3-app`."

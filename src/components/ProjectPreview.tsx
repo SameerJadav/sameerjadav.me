@@ -1,7 +1,7 @@
 import Image, { type StaticImageData } from "next/image"
 import Link from "next/link"
 
-interface ProjectCardProps {
+interface ProjectPreviewProps {
   href: string
   title: string
   description: string
@@ -26,14 +26,14 @@ const ProjectLink = ({ href, title }: ProjectLinkProps) => (
   </Link>
 )
 
-export default function ProjectCard({
+export default function ProjectPreview({
   href,
   title,
   description,
   image,
   imageAlt,
   direction,
-}: ProjectCardProps) {
+}: ProjectPreviewProps) {
   return direction === "left" ? (
     <div className="flex flex-col first:pb-6 only:p-0 md:flex-row md:divide-x md:divide-dashed md:divide-gray6 [&:not(:first-child)]:pt-6">
       <div className="flex-1 md:pr-6">

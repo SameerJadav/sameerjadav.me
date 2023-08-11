@@ -1,7 +1,7 @@
 import { type Metadata } from "next"
 import { SITE } from "~/config"
 import { sortedPosts } from "~/lib/utils"
-import Preview from "~/components/Preview"
+import ContentPreview from "~/components/ContentPreview"
 
 const title = "Blog"
 const description = "Sameer Jadav's blog"
@@ -38,7 +38,7 @@ export default function BlogPage() {
       <h1 className="mt-8 font-serif text-4xl font-medium md:text-5xl">Blog</h1>
       <div className="mt-6 space-y-4">
         {sortedPosts.map((post) => (
-          <Preview key={post.slug} post={post} />
+          <ContentPreview key={post.slug} content={post} />
         ))}
       </div>
     </div>
