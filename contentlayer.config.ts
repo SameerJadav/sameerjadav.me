@@ -7,6 +7,7 @@ import remarkGfm from "remark-gfm"
 
 const rehypePrettyCodeOptions: Options = {
   theme: "one-dark-pro",
+  keepBackground: false,
   tokensMap: {
     fn: "entity.name.function",
     objKey: "meta.object-literal.key",

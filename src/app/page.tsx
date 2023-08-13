@@ -1,6 +1,7 @@
 import { SITE } from "~/config"
 import { sortedPosts } from "~/lib/utils"
 import CustomLink from "~/components/CustomLink"
+import H1 from "~/components/H1"
 import H2 from "~/components/H2"
 import { Icons } from "~/components/Icons"
 import LatestPosts from "~/components/LatestPosts"
@@ -12,9 +13,7 @@ const latestPosts = sortedPosts.slice(0, 4)
 export default function HomePage() {
   return (
     <>
-      <h1 className="mt-8 font-serif text-4xl font-medium md:text-5xl">
-        Sameer Jadav
-      </h1>
+      <H1 lable="Sameer Jadav" />
       <div className="mt-6 space-y-4">
         <p>
           I am a 19-year-old JavaScript/TypeScript developer who specializes in
@@ -50,9 +49,8 @@ export default function HomePage() {
         {latestPosts.map((post) => (
           <LatestPosts key={post.slug} post={post} />
         ))}
-        <CustomLink href="/blog" className="font-medium">
+        <CustomLink href="/blog" icon className="font-medium">
           Read more
-          {<Icons.ArrowRight />}
         </CustomLink>
       </div>
       <p className="mb-8 mt-4 md:mb-16">

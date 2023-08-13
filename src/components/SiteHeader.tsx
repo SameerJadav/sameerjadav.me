@@ -1,26 +1,25 @@
 "use client"
 
 import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { useSelectedLayoutSegment } from "next/navigation"
 import { LayoutGroup, motion } from "framer-motion"
 import { cn } from "~/lib/utils"
 
 const navItems = {
-  "/": {
+  "": {
     lable: "Home",
   },
-  "/blog": {
+  blog: {
     lable: "Blog",
   },
-  "/notes": {
+  notes: {
     lable: "Notes",
   },
 }
 
 export default function SiteHeader() {
-  let pathname = usePathname()
-  if (pathname.includes("/blog/")) pathname = "/blog"
-  if (pathname.includes("/notes/")) pathname = "/notes"
+  let segment = useSelectedLayoutSegment()
+  if (segment === null) segment = "" // for the home page
 
   return (
     <header className="mt-8 w-full md:mt-16">
@@ -28,11 +27,11 @@ export default function SiteHeader() {
         <ul className="flex items-center gap-4">
           <LayoutGroup>
             {Object.entries(navItems).map(([path, { lable }]) => {
-              const isActive = pathname === path
+              const isActive = segment === path
               return (
                 <li key={path} className="font-medium">
                   <Link
-                    href={path}
+                    href={`/${path}`}
                     className={cn(
                       "text-gray11 transition-colors ease-in hover:text-gray12 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray7",
                       isActive && "pointer-events-none text-gray12",

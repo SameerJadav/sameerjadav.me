@@ -42,7 +42,8 @@ export default function CustomLink({
 
   return (
     <Link href={href} className={commonClassName}>
-      {children}
+      <span>{children}</span>
+      {icon && <Icons.ArrowRight />}
     </Link>
   )
 }

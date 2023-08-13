@@ -15,17 +15,13 @@ div[data-rehype-pretty-code-fragment] {
 }
 
 div[data-rehype-pretty-code-title] {
-  @apply border-b border-b-gray6 bg-gray2 px-4 py-2 font-mono text-sm;
+  @apply border-b border-b-gray6 px-4 py-2 font-mono text-sm;
 }
 
 div[data-rehype-pretty-code-fragment] pre {
   @apply mt-0 rounded-none border-none;
-
-  background-color: hsl(0, 0%, 11%) !important;
 }
 
 div[data-rehype-pretty-code-fragment] code {
   @apply m-0 grid min-w-full overflow-x-auto break-words rounded-none border-none bg-transparent p-0;
-  counter-reset: line;
-  box-decoration-break: clone;
 }

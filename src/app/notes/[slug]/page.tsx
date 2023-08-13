@@ -88,7 +88,7 @@ export default async function NotePage({ params }: NotePageProps) {
           Back
         </CustomLink>
       </div>
-      <div className="my-8 md:mb-16">
+      <div className="mb-8 mt-6 md:mb-16">
         <Mdx code={note.body.code} />
       </div>
     </>

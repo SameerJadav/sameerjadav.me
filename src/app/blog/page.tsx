@@ -2,6 +2,7 @@ import { type Metadata } from "next"
 import { SITE } from "~/config"
 import { sortedPosts } from "~/lib/utils"
 import ContentPreview from "~/components/ContentPreview"
+import H1 from "~/components/H1"
 
 const title = "Blog"
 const description = "Sameer Jadav's blog"
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   return (
     <div>
-      <h1 className="mt-8 font-serif text-4xl font-medium md:text-5xl">Blog</h1>
+      <H1 lable="Blog" />
       <div className="mt-6 space-y-4">
         {sortedPosts.map((post) => (
           <ContentPreview key={post.slug} content={post} />

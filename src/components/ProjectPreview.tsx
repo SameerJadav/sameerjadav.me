@@ -1,5 +1,4 @@
 import Image, { type StaticImageData } from "next/image"
-import Link from "next/link"
 import CustomLink from "~/components/CustomLink"
 
 interface ProjectPreviewProps {
@@ -10,22 +9,6 @@ interface ProjectPreviewProps {
   imageAlt: string
   direction: "left" | "right"
 }
-
-interface ProjectLinkProps {
-  href: string
-  title: string
-}
-
-const ProjectLink = ({ href, title }: ProjectLinkProps) => (
-  <Link
-    href={href}
-    className="font-serif text-2xl font-medium transition-colors ease-in hover:text-blue10 md:text-3xl"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    {title}
-  </Link>
-)
 
 export default function ProjectPreview({
   href,

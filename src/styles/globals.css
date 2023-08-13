@@ -10,7 +10,7 @@
   }
 
   body {
-    @apply mx-auto w-full max-w-3xl scroll-smooth bg-gray1 px-4 font-sans text-gray12 antialiased selection:bg-blue12 md:px-6 lg:p-0;
+    @apply mx-auto w-full max-w-3xl scroll-smooth bg-gray1 px-4 font-sans text-gray12 antialiased selection:bg-gray12 selection:text-gray1 md:px-6 lg:p-0;
 
     scrollbar-gutter: stable;
   }
