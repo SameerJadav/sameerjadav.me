@@ -18,8 +18,7 @@ const navItems = {
 }
 
 export default function SiteHeader() {
-  let segment = useSelectedLayoutSegment()
-  if (segment === null) segment = "" // for the home page
+  const segment = useSelectedLayoutSegment() ?? ""
 
   return (
     <header className="mt-8 w-full md:mt-16">
