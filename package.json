@@ -8,7 +8,7 @@
     "lint": "next lint",
     "start": "next start",
     "preview": "pnpm run build && pnpm run start",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "contentlayer build && tsc --noEmit",
     "lint-typecheck": "pnpm run lint && pnpm run typecheck"
   },
   "dependencies": {
