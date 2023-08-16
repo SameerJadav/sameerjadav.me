@@ -5,17 +5,20 @@ import { useSelectedLayoutSegment } from "next/navigation"
 import { LayoutGroup, motion } from "framer-motion"
 import { cn } from "~/lib/utils"
 
-const navItems = {
-  "/": {
-    name: "Home",
+const navItems = [
+  {
+    path: "",
+    label: "Home",
   },
-  "/blogs": {
-    name: "Blogs",
+  {
+    path: "blogs",
+    label: "Blogs",
   },
-  "/notes": {
-    name: "Notes",
+  {
+    path: "notes",
+    label: "Notes",
   },
-}
+]
 
 export default function SiteHeader() {
   const segment = useSelectedLayoutSegment() ?? ""
@@ -25,21 +28,19 @@ export default function SiteHeader() {
       <nav>
         <ul className="flex items-center gap-4">
           <LayoutGroup>
-            {Object.entries(navItems).map(([path, { name }]) => {
-              const isActive = `/${segment}` === path
+            {navItems.map(({ path, label }) => {
+              const isActive = segment === path
               return (
                 <li key={path} className="font-medium">
                   <Link
-                    href={path}
+                    href={`/${path}`}
                     className={cn(
                       "text-gray11 transition-colors ease-in hover:text-gray12 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray7",
                       isActive && "pointer-events-none text-gray12",
                     )}
                   >
                     <div className="relative px-2 py-1">
-                      <span className="sr-only">Check out my </span>
-                      <span>{name}</span>
-                      <span className="sr-only"> page</span>
+                      <span>{label}</span>
                       {isActive ? (
                         <motion.div
                           className="absolute inset-0 top-7 mx-2 h-0.5 rounded-full bg-gradient-to-r from-gray8 to-gray1"
