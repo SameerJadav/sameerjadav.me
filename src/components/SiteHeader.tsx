@@ -5,17 +5,20 @@ import { useSelectedLayoutSegment } from "next/navigation"
 import { LayoutGroup, motion } from "framer-motion"
 import { cn } from "~/lib/utils"
 
-const navItems = {
-  "": {
-    lable: "Home",
+const navItems = [
+  {
+    path: "",
+    label: "Home",
   },
-  blog: {
-    lable: "Blog",
+  {
+    path: "blogs",
+    label: "Blogs",
   },
-  notes: {
-    lable: "Notes",
+  {
+    path: "notes",
+    label: "Notes",
   },
-}
+]
 
 export default function SiteHeader() {
   const segment = useSelectedLayoutSegment() ?? ""
@@ -25,7 +28,7 @@ export default function SiteHeader() {
       <nav>
         <ul className="flex items-center gap-4">
           <LayoutGroup>
-            {Object.entries(navItems).map(([path, { lable }]) => {
+            {navItems.map(({ path, label }) => {
               const isActive = segment === path
               return (
                 <li key={path} className="font-medium">
@@ -37,7 +40,7 @@ export default function SiteHeader() {
                     )}
                   >
                     <div className="relative px-2 py-1">
-                      <span>{lable}</span>
+                      <span>{label}</span>
                       {isActive ? (
                         <motion.div
                           className="absolute inset-0 top-7 mx-2 h-0.5 rounded-full bg-gradient-to-r from-gray8 to-gray1"
