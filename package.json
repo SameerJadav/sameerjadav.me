@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "contentlayer build && next build",
-    "dev": "contentlayer build && next dev",
+    "build": "next build",
+    "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
     "preview": "pnpm run build && pnpm run start",
-    "typecheck": "contentlayer build && tsc --noEmit",
+    "typecheck": "tsc --noEmit",
+    "contentlayer:build": "contentlayer build",
     "lint-typecheck": "pnpm run lint && pnpm run typecheck"
   },
   "dependencies": {
