@@ -42,7 +42,7 @@ export async function generateMetadata({
 
   const title = post.title
   const description = post.description
-  const url = `${SITE.url}/blog/${post.slugAsParams}`
+  const url = `${SITE.url}/blogs/${post.slugAsParams}`
   const image = `${SITE.image}/blog?title=${title}`
 
   return {
@@ -84,7 +84,7 @@ export default async function PostPage({ params }: PostPageProps) {
       </h1>
       <div className="mt-2 flex items-center justify-between">
         <p className="font-mono text-gray11">{formatDate(post.publishedAt)}</p>
-        <CustomLink href="/blog" underline>
+        <CustomLink href="/blogs" underline>
           Back
         </CustomLink>
       </div>

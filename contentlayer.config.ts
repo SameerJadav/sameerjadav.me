@@ -25,7 +25,7 @@ const rehypePrettyCodeOptions: Options = {
 export const Post = defineDocumentType(() => ({
   name: "Post",
   contentType: "mdx",
-  filePathPattern: `blog/**/*.mdx`,
+  filePathPattern: `blogs/**/*.mdx`,
   fields: {
     title: { type: "string", required: true },
     description: { type: "string", required: true },

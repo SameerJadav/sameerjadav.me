@@ -4,9 +4,9 @@ import { sortedPosts } from "~/lib/utils"
 import ContentPreview from "~/components/ContentPreview"
 import H1 from "~/components/H1"
 
-const title = "Blog"
-const description = "Sameer Jadav's blog"
-const url = `${SITE.url}/blog`
+const title = "Blogs"
+const description = "Sameer Jadav's blogs"
+const url = `${SITE.url}/blogs`
 const image = `${SITE.image}/og?title=${title}`
 
 export const metadata: Metadata = {
@@ -33,10 +33,10 @@ export const metadata: Metadata = {
   alternates: { canonical: url },
 }
 
-export default function BlogPage() {
+export default function BlogsPage() {
   return (
     <div>
-      <H1 lable="Blog" />
+      <H1 lable="Blogs" />
       <div className="mt-6 space-y-4">
         {sortedPosts.map((post) => (
           <ContentPreview key={post.slug} content={post} />

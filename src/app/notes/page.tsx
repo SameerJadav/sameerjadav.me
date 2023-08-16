@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   alternates: { canonical: url },
 }
 
-export default function BlogPage() {
+export default function NotesPage() {
   return (
     <div>
       <H1 lable="Notes" />

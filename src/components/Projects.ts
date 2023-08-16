@@ -27,7 +27,7 @@ export const projects: Project[] = [
     id: 2,
     title: "sameerjadav.me",
     description:
-      "My website, built with Next.js, Tailwind CSS, and Contentlayer, is feature-rich and includes a stunning blog, engaging comment section, and like functionality.",
+      "My website, built with Next.js, Tailwind CSS, and Contentlayer, is feature-rich and includes a stunning blogs, engaging comment section, and like functionality.",
     href: "https://sameerjadav.me",
     image: website,
     imageAlt: "My website screenshot",
