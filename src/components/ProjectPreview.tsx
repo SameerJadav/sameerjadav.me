@@ -24,7 +24,6 @@ export default function ProjectPreview({
         <Image
           src={image}
           alt={imageAlt}
-          priority
           placeholder="blur"
           className="rounded-md border border-gray6"
         />
@@ -54,7 +53,6 @@ export default function ProjectPreview({
         <Image
           src={image}
           alt={imageAlt}
-          priority
           placeholder="blur"
           className="rounded-md border border-gray6"
         />
