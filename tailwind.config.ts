@@ -15,6 +15,13 @@ export default {
         mono: ["var(--font-jetbrains-mono)", ...theme.fontFamily.mono],
         serif: ["var(--font-pp-editorial-new)", ...theme.fontFamily.serif],
       },
+      keyframes: {
+        shimmer: {
+          "100%": {
+            transform: "translateX(100%)",
+          },
+        },
+      },
     },
   },
   future: {

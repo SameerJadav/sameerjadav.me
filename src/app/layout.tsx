@@ -1,8 +1,10 @@
+import { Suspense } from "react"
 import { type Metadata } from "next"
 import { JetBrains_Mono, Nunito } from "next/font/google"
 import localFont from "next/font/local"
 import { SITE } from "~/config"
 import { cn } from "~/lib/utils"
+import HeaderSkeleton from "~/components/HeaderSkeleton"
 import SiteHeader from "~/components/SiteHeader"
 import "~/styles/globals.css"
 
@@ -119,7 +121,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
           ppeditorial.variable,
         )}
       >
-        <SiteHeader />
+        <Suspense fallback={<HeaderSkeleton />}>
+          <SiteHeader />
+        </Suspense>
         <main>{children}</main>
       </body>
     </html>
