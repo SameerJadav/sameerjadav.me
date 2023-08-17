@@ -1,4 +1,3 @@
-import { SITE } from "~/config"
 import { sortedPosts } from "~/lib/utils"
 import CustomLink from "~/components/CustomLink"
 import H1 from "~/components/H1"
