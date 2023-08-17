@@ -1,6 +1,6 @@
 # sameerjadav.me
 
-![coded check](https://github.com/SameerJadav/sameerjadav.me/blob/main/.github/workflows/code-check.yml/badge.svg)
+[![Code check](https://github.com/SameerJadav/sameerjadav.me/actions/workflows/code-check.yml/badge.svg)](https://github.com/SameerJadav/sameerjadav.me/actions/workflows/code-check.yml)
 
 My personal website where i post thing some things happening in my life, my thoughts and showcase my projects. This website is built with Next.js 13 and bootstrapped with [`create t3-app`](https://create.t3.gg).
 
