@@ -44,30 +44,14 @@ export default function HomePage() {
         ))}
       </div>
       <H2 lable="Latest Posts" />
-      <div className="mt-6 space-y-4">
+      <div className="mb-8 mt-6 space-y-4 md:mb-16">
         {latestPosts.map((post) => (
           <LatestPosts key={post.slug} post={post} />
         ))}
         <CustomLink href="/blogs" icon className="font-medium">
-          Read more
+          All posts
         </CustomLink>
       </div>
-      <p className="mb-8 mt-4 md:mb-16">
-        I&apos;m always up for making new friends and having a good chat. Reach
-        out to me on{" "}
-        <CustomLink href={SITE.links.twitter} underline>
-          Twitter
-        </CustomLink>
-        ,{" "}
-        <CustomLink href={SITE.links.github} underline>
-          Github
-        </CustomLink>{" "}
-        or drop me an email at{" "}
-        <CustomLink href={SITE.links.mail} underline>
-          sameerjadav001@gmail.com
-        </CustomLink>
-        .
-      </p>
     </>
   )
 }
