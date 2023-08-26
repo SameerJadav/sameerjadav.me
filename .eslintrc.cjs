@@ -15,11 +15,11 @@ const config = {
       "warn",
       {
         prefer: "type-imports",
-        fixStyle: "inline-type-imports",
+        fixStyle: "separate-type-imports",
       },
     ],
     "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
   },
-};
+}
 
-module.exports = config;
+module.exports = config

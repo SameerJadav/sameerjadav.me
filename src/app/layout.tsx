@@ -2,6 +2,7 @@ import { Suspense } from "react"
 import { type Metadata } from "next"
 import { JetBrains_Mono, Nunito } from "next/font/google"
 import localFont from "next/font/local"
+import { Analytics } from "@vercel/analytics/react"
 import { SITE } from "~/config"
 import { cn } from "~/lib/utils"
 import HeaderSkeleton from "~/components/HeaderSkeleton"
@@ -125,6 +126,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <SiteHeader />
         </Suspense>
         <main>{children}</main>
+        <Analytics />
       </body>
     </html>
   )
