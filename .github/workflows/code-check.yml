@@ -40,11 +40,11 @@ jobs:
       - name: Install deps (with cache)
         run: pnpm install
 
-      - name: Contentlayer build
-        run: pnpm run contentlayer:build
-
       - name: Run lint
         run: pnpm run lint
+
+      - name: Run format
+        run: pnpm run format
 
       - name: Run typecheck
         run: pnpm run typecheck
