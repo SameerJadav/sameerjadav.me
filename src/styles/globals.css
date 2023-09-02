@@ -4,24 +4,11 @@
 
 @import "syntax-highlighting.css";
 
-@layer base {
-  :root {
-    color-scheme: dark;
-  }
-
-  body {
-    @apply mx-auto w-full max-w-3xl scroll-smooth bg-gray1 px-4 font-sans text-gray12 antialiased selection:bg-gray12 selection:text-gray1 md:px-6 lg:p-0;
-
-    scrollbar-gutter: stable;
-  }
-}
-
-/* Remove scrollbar */
-/* body::-webkit-scrollbar {
-  display: none;
+:root {
+  scrollbar-gutter: stable;
+  color-scheme: dark;
 }
 
 body {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-} */
+  @apply mx-auto w-full max-w-3xl scroll-smooth bg-gray1 px-4 font-sans text-gray12 antialiased selection:bg-gray12 selection:text-gray1 md:px-6 lg:p-0;
+}
