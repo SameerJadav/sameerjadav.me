@@ -20,7 +20,7 @@ export default function CustomLink({
   underline,
 }: CustomLinkProps) {
   const commonClassName = cn(
-    "inline-flex items-center gap-1 transition-colors ease-in hover:text-blue10 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray7",
+    "inline-flex items-center gap-1 transition-colors ease-in hover:text-blue10 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray7 group",
     underline &&
       "underline decoration-gray7 underline-offset-2 hover:decoration-gray8",
     className,
@@ -43,7 +43,9 @@ export default function CustomLink({
   return (
     <Link href={href} className={commonClassName}>
       <span>{children}</span>
-      {icon && <Icons.ArrowRight />}
+      {icon && (
+        <Icons.ArrowRight className="transition-transform duration-200 ease-in group-hover:translate-x-1" />
+      )}
     </Link>
   )
 }
