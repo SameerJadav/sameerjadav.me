@@ -10,16 +10,8 @@ await import("./src/env.mjs")
 const config = {
   reactStrictMode: true,
   swcMinify: true,
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  experimental: {
-    mdxRs: true,
-    webVitalsAttribution: ["CLS", "FCP", "FID", "INP", "LCP", "TTFB"],
-  },
+  typescript: { ignoreBuildErrors: true },
+  eslint: { ignoreDuringBuilds: true },
 }
 
 export default withContentlayer(config)
