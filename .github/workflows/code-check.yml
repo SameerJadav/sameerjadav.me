@@ -7,7 +7,7 @@ on:
     branches: ["*"]
 
 jobs:
-  typecheck-lint:
+  code-check:
     runs-on: ubuntu-latest
 
     steps:
