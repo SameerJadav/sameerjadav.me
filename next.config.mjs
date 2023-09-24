@@ -10,6 +10,7 @@ await import("./src/env.mjs")
 const config = {
   reactStrictMode: true,
   swcMinify: true,
+  images: { formats: ["image/avif"] },
   typescript: { ignoreBuildErrors: true },
   eslint: { ignoreDuringBuilds: true },
 }
