@@ -1,6 +1,6 @@
 import { type StaticImageData } from "next/image"
-import guestbook from "~/images/guestbook.png"
-import website from "~/images/website.png"
+import guestbook from "~/images/guestbook.webp"
+import website from "~/images/website.webp"
 
 interface Project {
   id: number
