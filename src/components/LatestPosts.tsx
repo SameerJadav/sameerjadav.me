@@ -1,10 +1,11 @@
-import { type Post } from "contentlayer/generated"
+import type { Notes } from "contentlayer/generated"
+import type { Post } from "contentlayer/generated"
 import { Balancer } from "react-wrap-balancer"
 import { titleCase } from "title-case"
 import CustomLink from "~/components/CustomLink"
 
 interface LatestPostsProps {
-  post: Post
+  post: Post | Notes
 }
 
 export default function LatestPosts({ post }: LatestPostsProps) {
