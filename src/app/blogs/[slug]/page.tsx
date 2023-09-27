@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/require-await */
 import { type Metadata } from "next"
 import { notFound } from "next/navigation"
+import type { Post } from "contentlayer/generated"
 import { allPosts } from "contentlayer/generated"
 import { Balancer } from "react-wrap-balancer"
 import { titleCase } from "title-case"
@@ -14,45 +16,47 @@ interface PostPageProps {
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/require-await
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<{ slug: string }[]> {
   return allPosts.map((post) => ({
     slug: post.slugAsParams,
   }))
 }
 
-// eslint-disable-next-line @typescript-eslint/require-await
-async function getPostFromParams({ params }: PostPageProps) {
+function getPostFromParams({ params }: PostPageProps): Post | null {
   const slug = params.slug
 
   const post = allPosts.find((post) => post.slugAsParams === slug)
 
-  if (!post) null
+  if (!post) return null
 
   return post
 }
 
-// eslint-disable-next-line @typescript-eslint/require-await
 export async function generateMetadata({
   params,
 }: PostPageProps): Promise<Metadata> {
-  const post = await getPostFromParams({ params })
+  const post = getPostFromParams({ params })
 
   if (!post) notFound()
 
   const title = post.title
   const description = post.description
-  const url = `${SITE.url}/blogs/${post.slugAsParams}`
+  const url = `${SITE.url}/posts/${post.slugAsParams}`
   const image = `${SITE.image}/blog?title=${title}`
+
+  const sharedMeta = {
+    title: title,
+    description: description,
+    images: [image],
+  }
 
   return {
     title: title,
     description: description,
     openGraph: {
       type: "article",
-      title: title,
-      description: description,
       url: url,
+      ...sharedMeta,
       images: [
         {
           url: image,
@@ -64,16 +68,14 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: title,
-      description: description,
-      images: [image],
+      ...sharedMeta,
     },
     alternates: { canonical: url },
   }
 }
 
 export default async function PostPage({ params }: PostPageProps) {
-  const post = await getPostFromParams({ params })
+  const post = getPostFromParams({ params })
 
   if (!post) notFound()
 

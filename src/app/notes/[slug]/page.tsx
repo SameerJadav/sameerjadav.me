@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/require-await */
 import { type Metadata } from "next"
 import { notFound } from "next/navigation"
+import type { Notes } from "contentlayer/generated"
 import { allNotes } from "contentlayer/generated"
 import { Balancer } from "react-wrap-balancer"
 import { titleCase } from "title-case"
@@ -14,29 +16,26 @@ interface NotePageProps {
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/require-await
-export async function generateStaticParams() {
-  return allNotes.map((note) => ({
+export async function generateStaticParams(): Promise<{ slug: string }[]> {
+  return allNotes.map((note): { slug: string } => ({
     slug: note.slugAsParams,
   }))
 }
 
-// eslint-disable-next-line @typescript-eslint/require-await
-async function getNoteFromParams({ params }: NotePageProps) {
+function getNoteFromParams({ params }: NotePageProps): Notes | null {
   const slug = params.slug
 
   const note = allNotes.find((note) => note.slugAsParams === slug)
 
-  if (!note) null
+  if (!note) return null
 
   return note
 }
 
-// eslint-disable-next-line @typescript-eslint/require-await
 export async function generateMetadata({
   params,
 }: NotePageProps): Promise<Metadata> {
-  const note = await getNoteFromParams({ params })
+  const note = getNoteFromParams({ params })
 
   if (!note) notFound()
 
@@ -45,14 +44,19 @@ export async function generateMetadata({
   const url = `${SITE.url}/notes/${note.slugAsParams}`
   const image = `${SITE.image}/blog?title=${title}`
 
+  const sharedMeta = {
+    title: title,
+    description: description,
+    images: [image],
+  }
+
   return {
     title: title,
     description: description,
     openGraph: {
       type: "article",
-      title: title,
-      description: description,
       url: url,
+      ...sharedMeta,
       images: [
         {
           url: image,
@@ -64,16 +68,14 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: title,
-      description: description,
-      images: [image],
+      ...sharedMeta,
     },
     alternates: { canonical: url },
   }
 }
 
 export default async function NotePage({ params }: NotePageProps) {
-  const note = await getNoteFromParams({ params })
+  const note = getNoteFromParams({ params })
 
   if (!note) notFound()
 
