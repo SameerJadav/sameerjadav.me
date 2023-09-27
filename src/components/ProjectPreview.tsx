@@ -26,6 +26,7 @@ export default function ProjectPreview({
           alt={imageAlt}
           placeholder="blur"
           className="rounded-md border border-gray6"
+          priority
         />
       </div>
       <div className="mt-4 flex-1 md:mt-0 md:pl-6 md:text-left">
@@ -55,6 +56,7 @@ export default function ProjectPreview({
           alt={imageAlt}
           placeholder="blur"
           className="rounded-md border border-gray6"
+          priority
         />
       </div>
     </div>
