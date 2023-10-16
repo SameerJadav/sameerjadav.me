@@ -125,7 +125,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <Suspense fallback={<HeaderSkeleton />}>
           <SiteHeader />
         </Suspense>
-        <main>{children}</main>
+        {children}
         <Analytics />
       </body>
     </html>

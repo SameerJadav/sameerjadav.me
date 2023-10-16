@@ -80,7 +80,7 @@ export default async function NotePage({ params }: NotePageProps) {
   if (!note) notFound()
 
   return (
-    <>
+    <article>
       <h1 className="mt-8 font-serif text-4xl font-medium leading-[1.2] md:text-5xl md:leading-[1.2]">
         <Balancer>{titleCase(note.title)}</Balancer>
       </h1>
@@ -93,6 +93,6 @@ export default async function NotePage({ params }: NotePageProps) {
       <div className="mb-8 mt-6 md:mb-16">
         <Mdx code={note.body.code} />
       </div>
-    </>
+    </article>
   )
 }

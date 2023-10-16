@@ -35,13 +35,13 @@ export const metadata: Metadata = {
 
 export default function BlogsPage() {
   return (
-    <div>
+    <main>
       <H1 lable="Blogs" />
       <div className="mt-6 space-y-4">
         {sortedPosts.map((post) => (
           <ContentPreview key={post.slug} content={post} />
         ))}
       </div>
-    </div>
+    </main>
   )
 }
