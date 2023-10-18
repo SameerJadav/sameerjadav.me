@@ -4,8 +4,6 @@ import { cva } from "class-variance-authority"
 import { cn } from "~/lib/utils"
 import { Icons } from "~/components/Icons"
 
-const checkIfExternalLink = (href: string) => href.startsWith("https")
-
 const linkStyles = cva(
   "inline-flex items-center gap-1 font-medium transition-colors ease-in focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray7",
   {
@@ -14,7 +12,7 @@ const linkStyles = cva(
         highlight: "hover:text-blue10",
       },
       underline: {
-        true: "underline underline-offset-2 decoration-gray7  hover:decoration-gray8",
+        true: "underline decoration-gray7 underline-offset-2  hover:decoration-gray8",
       },
     },
     defaultVariants: {
@@ -40,23 +38,12 @@ export default function CustomLink({
   className,
   ...props
 }: LinkProps) {
-  const isExternalLink = checkIfExternalLink(href)
-  return isExternalLink ? (
+  const isExternalLink = href.startsWith("https")
+  return (
     <Link
       href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={cn(linkStyles({ intent, underline }), className)}
-      {...props}
-    >
-      <span>{children}</span>
-      {icon && (
-        <Icons.ArrowRight className="transition-transform duration-200 ease-in group-hover:translate-x-1" />
-      )}
-    </Link>
-  ) : (
-    <Link
-      href={href}
+      target={isExternalLink ? "_blank" : undefined}
+      rel={isExternalLink ? "noopener noreferrer" : undefined}
       className={cn(
         linkStyles({ intent, underline }),
         icon && "group",
@@ -65,7 +52,8 @@ export default function CustomLink({
       {...props}
     >
       <span>{children}</span>
-      {icon && (
+      {isExternalLink && icon && <Icons.ExternalLink className="h-4 w-4" />}
+      {!isExternalLink && icon && (
         <Icons.ArrowRight className="transition-transform duration-200 ease-in group-hover:translate-x-1" />
       )}
     </Link>
