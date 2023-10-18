@@ -53,7 +53,7 @@ export default function HomePage() {
           {latestPosts.map((post) => (
             <LatestPosts key={post.slug} post={post} />
           ))}
-          <CustomLink href="/blogs" icon className="font-medium">
+          <CustomLink href="/blogs" icon>
             All posts
           </CustomLink>
         </div>

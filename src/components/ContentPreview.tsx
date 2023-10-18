@@ -10,7 +10,7 @@ interface ContentPreviewProps {
 export default function ContentPreview({ content }: ContentPreviewProps) {
   return (
     <div className="space-y-2">
-      <CustomLink href={content.slug} className="text-lg font-medium" underline>
+      <CustomLink href={content.slug} underline className="text-lg">
         {titleCase(content.title)}
       </CustomLink>
       <p className="text-gray11">{content.description}</p>
