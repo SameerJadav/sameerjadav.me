@@ -34,7 +34,7 @@ export default function SiteHeader() {
                 <Link
                   href={`/${path}`}
                   className={cn(
-                    "relative px-2 py-1 font-medium text-gray11 transition-colors ease-in hover:text-gray12 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray7",
+                    "relative px-2 py-1 font-medium text-gray11 transition-colors duration-200 ease-in hover:text-gray12 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray7",
                     isActive && "pointer-events-none text-gray12",
                   )}
                 >

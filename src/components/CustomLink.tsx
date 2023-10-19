@@ -5,7 +5,7 @@ import { cn } from "~/lib/utils"
 import { Icons } from "~/components/Icons"
 
 const linkStyles = cva(
-  "inline-flex items-center gap-1 font-medium transition-colors ease-in focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray7",
+  "inline-flex items-center gap-1 font-medium transition-colors duration-200 ease-in focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray7",
   {
     variants: {
       intent: {
