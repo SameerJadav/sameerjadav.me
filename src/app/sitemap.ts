@@ -1,5 +1,5 @@
 import { type MetadataRoute } from "next"
-import { allPosts, allNotes } from "contentlayer/generated"
+import { allPosts } from "contentlayer/generated"
 import { SITE } from "~/config"
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -8,15 +8,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(post.publishedAt).toISOString().split("T")[0],
   }))
 
-  const notes = allNotes.map((note) => ({
-    url: `${SITE.url}${note.slug}`,
-    lastModified: new Date(note.publishedAt).toISOString().split("T")[0],
-  }))
-
-  const routes = ["", "/blogs", "/notes"].map((route) => ({
+  const routes = ["", "/blogs"].map((route) => ({
     url: `${SITE.url}${route}`,
     lastModified: new Date().toISOString().split("T")[0],
   }))
 
-  return [...routes, ...posts, ...notes]
+  return [...routes, ...posts]
 }

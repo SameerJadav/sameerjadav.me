@@ -1,10 +1,10 @@
-import type { Post, Notes } from "contentlayer/generated"
+import type { Post } from "contentlayer/generated"
 import { titleCase } from "title-case"
 import { formatDate } from "~/lib/utils"
 import CustomLink from "~/components/CustomLink"
 
 interface ContentPreviewProps {
-  content: Post | Notes
+  content: Post
 }
 
 export default function ContentPreview({ content }: ContentPreviewProps) {

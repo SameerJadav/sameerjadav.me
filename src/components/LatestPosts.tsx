@@ -1,10 +1,9 @@
-import type { Notes } from "contentlayer/generated"
 import type { Post } from "contentlayer/generated"
 import { titleCase } from "title-case"
 import CustomLink from "~/components/CustomLink"
 
 interface LatestPostsProps {
-  post: Post | Notes
+  post: Post
 }
 
 export default function LatestPosts({ post }: LatestPostsProps) {

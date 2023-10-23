@@ -1,6 +1,6 @@
 import { type ClassValue, clsx } from "clsx"
-import type { Notes, Post } from "contentlayer/generated"
-import { allNotes, allPosts } from "contentlayer/generated"
+import type { Post } from "contentlayer/generated"
+import { allPosts } from "contentlayer/generated"
 import { twMerge } from "tailwind-merge"
 
 export const cn = (...inputs: ClassValue[]): string => twMerge(clsx(inputs))
@@ -29,7 +29,7 @@ export const formatDate = (dateString: string): string => {
   return `${fullDate} (${formattedDate})`
 }
 
-const sortArrayByDate = (arr: Notes[] | Post[]): Notes[] | Post[] =>
+const sortArrayByDate = (arr: Post[]) =>
   arr
     .slice()
     .sort(
@@ -38,5 +38,3 @@ const sortArrayByDate = (arr: Notes[] | Post[]): Notes[] | Post[] =>
     )
 
 export const sortedPosts = sortArrayByDate(allPosts)
-
-export const sortedNotes = sortArrayByDate(allNotes)

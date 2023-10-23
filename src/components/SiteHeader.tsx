@@ -14,10 +14,6 @@ const navItems = [
     path: "blogs",
     label: "Blogs",
   },
-  {
-    path: "notes",
-    label: "Notes",
-  },
 ]
 
 export default function SiteHeader() {

@@ -43,30 +43,9 @@ export const Post = defineDocumentType(() => ({
   },
 }))
 
-export const Notes = defineDocumentType(() => ({
-  name: "Notes",
-  contentType: "mdx",
-  filePathPattern: `notes/**/*.mdx`,
-  fields: {
-    title: { type: "string", required: true },
-    description: { type: "string", required: true },
-    publishedAt: { type: "string", required: true },
-  },
-  computedFields: {
-    slug: {
-      type: "string",
-      resolve: (doc) => `/${doc._raw.flattenedPath}`,
-    },
-    slugAsParams: {
-      type: "string",
-      resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
-    },
-  },
-}))
-
 export default makeSource({
   contentDirPath: "./src/content",
-  documentTypes: [Post, Notes],
+  documentTypes: [Post],
   mdx: {
     esbuildOptions(options) {
       options.target = "esnext"
