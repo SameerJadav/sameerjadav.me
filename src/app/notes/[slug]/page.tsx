@@ -3,7 +3,6 @@ import { type Metadata } from "next"
 import { notFound } from "next/navigation"
 import type { Notes } from "contentlayer/generated"
 import { allNotes } from "contentlayer/generated"
-import { Balancer } from "react-wrap-balancer"
 import { titleCase } from "title-case"
 import { SITE } from "~/config"
 import { formatDate } from "~/lib/utils"
@@ -81,8 +80,8 @@ export default async function NotePage({ params }: NotePageProps) {
 
   return (
     <article>
-      <h1 className="mt-8 font-serif text-4xl font-medium leading-[1.2] md:text-5xl md:leading-[1.2]">
-        <Balancer>{titleCase(note.title)}</Balancer>
+      <h1 className="text-balance mt-8 font-serif text-4xl font-medium leading-[1.2] md:text-5xl md:leading-[1.2]">
+        {titleCase(note.title)}
       </h1>
       <div className="mt-2 flex items-center justify-between">
         <p className="font-mono text-gray11">{formatDate(note.publishedAt)}</p>

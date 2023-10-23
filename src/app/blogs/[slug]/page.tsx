@@ -3,7 +3,6 @@ import { type Metadata } from "next"
 import { notFound } from "next/navigation"
 import type { Post } from "contentlayer/generated"
 import { allPosts } from "contentlayer/generated"
-import { Balancer } from "react-wrap-balancer"
 import { titleCase } from "title-case"
 import { SITE } from "~/config"
 import { formatDate } from "~/lib/utils"
@@ -81,8 +80,8 @@ export default async function PostPage({ params }: PostPageProps) {
 
   return (
     <article>
-      <h1 className="mt-8 font-serif text-4xl font-medium leading-[1.2] md:text-5xl md:leading-[1.2]">
-        <Balancer>{titleCase(post.title)}</Balancer>
+      <h1 className="text-balance mt-8 font-serif text-4xl font-medium leading-[1.2] md:text-5xl md:leading-[1.2]">
+        {titleCase(post.title)}
       </h1>
       <div className="mt-2 flex items-center justify-between">
         <p className="font-mono text-gray11">{formatDate(post.publishedAt)}</p>

@@ -1,6 +1,5 @@
 import type { Notes } from "contentlayer/generated"
 import type { Post } from "contentlayer/generated"
-import { Balancer } from "react-wrap-balancer"
 import { titleCase } from "title-case"
 import CustomLink from "~/components/CustomLink"
 
@@ -11,8 +10,8 @@ interface LatestPostsProps {
 export default function LatestPosts({ post }: LatestPostsProps) {
   return (
     <div className="group flex justify-between">
-      <CustomLink href={post.slug} className="flex-1">
-        <Balancer>{titleCase(post.title)}</Balancer>
+      <CustomLink href={post.slug} className="text-balance flex-1">
+        {titleCase(post.title)}
       </CustomLink>
       <p className="shrink-0 text-gray11 transition-colors duration-200 ease-in group-hover:text-gray12">
         {post.publishedAt}

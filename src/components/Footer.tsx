@@ -19,7 +19,7 @@ export default function Footer() {
           <Icons.Mail className="h-6 w-6" />
         </CustomLink>
       </div>
-      <p className="text-center text-sm md:text-base">
+      <p className="text-balance text-center">
         Built by{" "}
         <CustomLink href={SITE.links.twitter} underline>
           {SITE.name}
