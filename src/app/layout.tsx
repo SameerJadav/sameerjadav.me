@@ -5,6 +5,7 @@ import localFont from "next/font/local"
 import { Analytics } from "@vercel/analytics/react"
 import { SITE } from "~/config"
 import { cn } from "~/lib/utils"
+import Footer from "~/components/Footer"
 import HeaderSkeleton from "~/components/HeaderSkeleton"
 import SiteHeader from "~/components/SiteHeader"
 import "~/styles/globals.css"
@@ -126,6 +127,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <SiteHeader />
         </Suspense>
         {children}
+        <Footer />
         <Analytics />
       </body>
     </html>

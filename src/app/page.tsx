@@ -59,7 +59,7 @@ export default function HomePage() {
       </section>
       <section>
         <H2 lable="Latest Posts" />
-        <div className="mb-8 mt-6 space-y-4 md:mb-16">
+        <div className="mt-6 space-y-4">
           {latestPosts.map((post) => (
             <LatestPosts key={post.slug} post={post} />
           ))}
