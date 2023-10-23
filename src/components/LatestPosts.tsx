@@ -12,7 +12,7 @@ export default function LatestPosts({ post }: LatestPostsProps) {
       <CustomLink href={post.slug} className="text-balance flex-1">
         {titleCase(post.title)}
       </CustomLink>
-      <p className="shrink-0 text-gray11 transition-colors duration-200 ease-in group-hover:text-gray12">
+      <p className="shrink-0 text-gray11 group-hover:text-gray12">
         {post.publishedAt}
       </p>
     </div>
