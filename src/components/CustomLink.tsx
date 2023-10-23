@@ -38,7 +38,7 @@ export default function CustomLink({
   className,
   ...props
 }: LinkProps) {
-  const isExternalLink = href.startsWith("https")
+  const isExternalLink = href.startsWith("https") || href.startsWith("mailto")
   return (
     <Link
       href={href}

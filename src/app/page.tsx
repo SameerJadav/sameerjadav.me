@@ -1,3 +1,4 @@
+import { SITE } from "~/config"
 import { sortedPosts } from "~/lib/utils"
 import CustomLink from "~/components/CustomLink"
 import H1 from "~/components/H1"
@@ -16,19 +17,28 @@ export default function HomePage() {
         <div className="mt-6 space-y-4">
           <p>
             I am a 19-year-old JavaScript/TypeScript developer who specializes
-            in building full-stack applications using Next.js and serverless
-            technologies. Currently, I am also exploring Svelte to gain
-            experience with different frameworks. Open-source contributions are
-            a significant part of my work, as all of my projects are
-            open-source. Additionally, I write blogs to enhance my writing
-            skills and become more articulate.
+            in building performant, scalable, and accessible applications using
+            Next.js and serverless technologies. I am also exploring Svelte to
+            gain experience with different frameworks. Open-source contributions
+            are a significant part of my work, as I&apos;ve contributed to
+            several open source projects and all of my projects are open-source.
+            Additionally, I write blogs to share my knowledge, enhance my
+            writing skills and become more articulate.
           </p>
           <p>
-            During my free time, I enjoy watching anime and listening to
-            podcasts to expand my knowledge on various topics. Additionally, I
-            make it a point to exercise every day and spend some quiet time
-            alone without any music or shows to recharge my batteries.
+            I&apos;m currently looking for a new role as a developer. Hire me?
           </p>
+          <div className="flex items-center gap-4 text-lg">
+            <CustomLink href={SITE.links.linkedin} underline icon>
+              LinkedIn
+            </CustomLink>
+            <CustomLink href={SITE.links.github} underline icon>
+              GitHub
+            </CustomLink>
+            <CustomLink href={SITE.links.mail} underline icon>
+              Mail
+            </CustomLink>
+          </div>
         </div>
       </section>
       <section>

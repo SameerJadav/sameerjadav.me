@@ -9,7 +9,7 @@ export const SITE = {
   links: {
     twitter: "https://twitter.com/SameerJadav_",
     github: "https://github.com/SameerJadav",
-    linkedin: "https://www.linkedin.com/in/sameer-jadav",
+    linkedin: "https://www.linkedin.com/in/sameerjadav",
     instagram: "https://www.instagram.com/sameerjadav._",
     mail: "mailto:sameerjdav001@gmail.com",
   },
