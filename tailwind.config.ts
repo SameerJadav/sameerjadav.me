@@ -6,6 +6,9 @@ export default {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      backgroundSize: {
+        grid: "2.75rem 2.75rem",
+      },
       colors: {
         ...grayDark,
         ...blue,
