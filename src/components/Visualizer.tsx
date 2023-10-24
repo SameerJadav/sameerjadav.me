@@ -9,7 +9,7 @@ export default function Visualizer({ children, className }: VisualizerProps) {
   return (
     <div
       className={cn(
-        "bg-grid flex items-center justify-center rounded-md border border-gray7 bg-[url('/images/grid.svg')] p-6",
+        "flex items-center justify-center rounded-md border border-gray7 bg-[url('/images/grid.svg')] bg-grid p-6",
         className,
       )}
     >
