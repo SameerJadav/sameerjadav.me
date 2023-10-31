@@ -4,6 +4,8 @@ import {
   GitHubLogoIcon,
   TwitterLogoIcon,
   LinkedInLogoIcon,
+  ChevronRightIcon,
+  ChevronLeftIcon,
   EnvelopeClosedIcon,
 } from "@radix-ui/react-icons"
 
@@ -14,4 +16,6 @@ export const Icons = {
   Linkedin: LinkedInLogoIcon,
   Twitter: TwitterLogoIcon,
   Mail: EnvelopeClosedIcon,
+  ChevronRight: ChevronRightIcon,
+  ChevronLeft: ChevronLeftIcon,
 }
