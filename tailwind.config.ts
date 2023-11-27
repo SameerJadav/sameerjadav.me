@@ -1,28 +1,44 @@
-import { blue, grayDark } from "@radix-ui/colors"
-import { type Config } from "tailwindcss"
-import theme from "tailwindcss/defaultTheme"
+import { grayDark, blue } from "@radix-ui/colors";
+import type { Config } from "tailwindcss";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default {
-  content: ["./src/**/*.{js,ts,jsx,tsx}"],
+  content: ["./src/**/*.tsx"],
   theme: {
     extend: {
-      backgroundSize: {
-        grid: "2.75rem 2.75rem",
+      fontFamily: {
+        serif: ["var(--font-pp-editorial-new)", ...fontFamily.serif],
+        sans: ["var(--font-nunito)", ...fontFamily.sans],
+        mono: ["var(--font-jetbrains-mono)", ...fontFamily.mono],
       },
       colors: {
-        ...grayDark,
-        ...blue,
-      },
-      fontFamily: {
-        sans: ["var(--font-nunito)", ...theme.fontFamily.sans],
-        mono: ["var(--font-jetbrains-mono)", ...theme.fontFamily.mono],
-        serif: ["var(--font-pp-editorial-new)", ...theme.fontFamily.serif],
-      },
-      keyframes: {
-        shimmer: {
-          "100%": {
-            transform: "translateX(100%)",
-          },
+        gray: {
+          1: grayDark.gray1,
+          2: grayDark.gray2,
+          3: grayDark.gray3,
+          4: grayDark.gray4,
+          5: grayDark.gray5,
+          6: grayDark.gray6,
+          7: grayDark.gray7,
+          8: grayDark.gray8,
+          9: grayDark.gray9,
+          10: grayDark.gray10,
+          11: grayDark.gray11,
+          12: grayDark.gray12,
+        },
+        blue: {
+          1: blue.blue1,
+          2: blue.blue2,
+          3: blue.blue3,
+          4: blue.blue4,
+          5: blue.blue5,
+          6: blue.blue6,
+          7: blue.blue7,
+          8: blue.blue8,
+          9: blue.blue9,
+          10: blue.blue10,
+          11: blue.blue11,
+          12: blue.blue12,
         },
       },
     },
@@ -31,4 +47,4 @@ export default {
     hoverOnlyWhenSupported: true,
   },
   plugins: [],
-} satisfies Config
+} satisfies Config;
