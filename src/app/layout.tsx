@@ -5,7 +5,7 @@ import { Analytics } from "@vercel/analytics/react";
 import SiteFooter from "~/components/SiteFooter";
 import SiteHeader from "~/components/SiteHeader";
 import { SITE } from "~/config";
-import { cn } from "~/utils";
+import { cn } from "~/utils/cn";
 import "~/styles/globals.css";
 
 const ppeditorial = localFont({

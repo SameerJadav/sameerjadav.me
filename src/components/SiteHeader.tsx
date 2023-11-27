@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
 import { motion } from "framer-motion";
-import { cn } from "~/utils";
+import { cn } from "~/utils/cn";
 
 const navItems = [
   {

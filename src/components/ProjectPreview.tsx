@@ -1,7 +1,7 @@
 import type { StaticImageData } from "next/image";
 import Image from "next/image";
 import Anchor from "~/components/Anchor";
-import { cn } from "~/utils";
+import { cn } from "~/utils/cn";
 
 export interface ProjectsPreviewProps {
   src: StaticImageData;
