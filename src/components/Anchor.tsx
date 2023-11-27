@@ -2,7 +2,7 @@ import type { ComponentPropsWithoutRef } from "react";
 import Link from "next/link";
 import type { VariantProps } from "class-variance-authority";
 import { cva } from "class-variance-authority";
-import { cn } from "~/utils";
+import { cn } from "~/utils/cn";
 
 const AnchorStyles = cva(
   "inline-flex items-center gap-2 font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-7",
