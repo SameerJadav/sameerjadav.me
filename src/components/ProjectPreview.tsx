@@ -1,58 +1,53 @@
-import Image, { type StaticImageData } from "next/image"
-import CustomLink from "~/components/CustomLink"
+import type { StaticImageData } from "next/image";
+import Image from "next/image";
+import Anchor from "~/components/Anchor";
+import { cn } from "~/utils";
 
-interface ProjectPreviewProps {
-  href: string
-  title: string
-  description: string
-  image: StaticImageData
-  imageAlt: string
-  direction: "left" | "right"
+export interface ProjectsPreviewProps {
+  src: StaticImageData;
+  alt: string;
+  href: string;
+  title: string;
+  description: string;
+  imagePosition: "left" | "right";
 }
 
-export default function ProjectPreview({
+export default function ProjectsPreview({
+  src,
+  alt,
   href,
   title,
   description,
-  image,
-  imageAlt,
-  direction,
-}: ProjectPreviewProps) {
-  return direction === "left" ? (
-    <div className="flex flex-col first:pb-6 only:p-0 md:flex-row md:divide-x md:divide-dashed md:divide-gray6 [&:not(:first-child)]:pt-6">
-      <div className="flex-1 md:pr-6">
+  imagePosition,
+}: ProjectsPreviewProps) {
+  return (
+    <div
+      className={cn(
+        "flex flex-col gap-4 [&:not(:first-child)]:pt-4",
+        imagePosition === "right" ? "md:flex-row-reverse" : "md:flex-row",
+      )}
+    >
+      <div className="flex-1">
         <Image
-          src={image}
-          alt={imageAlt}
+          alt={alt}
+          className="rounded-md border border-gray-6"
           placeholder="blur"
-          className="rounded-md border border-gray6"
-          priority
+          src={src}
         />
       </div>
-      <div className="mt-4 flex-1 md:mt-0 md:pl-6 md:text-left">
-        <CustomLink href={href} className="font-serif text-2xl md:text-3xl">
+      <div
+        className={cn(
+          "flex-1",
+          imagePosition === "right"
+            ? "md:border-r md:border-dashed md:border-gray-6 md:pr-4 md:text-right"
+            : "md:border-l md:border-dashed md:border-gray-6 md:pl-4 md:text-left",
+        )}
+      >
+        <Anchor className="font-serif text-2xl md:text-3xl" href={href}>
           {title}
-        </CustomLink>
-        <p className="mt-2 text-lg text-gray11">{description}</p>
+        </Anchor>
+        <p className="mt-2 text-lg text-gray-11">{description}</p>
       </div>
     </div>
-  ) : (
-    <div className="flex flex-col-reverse first:pb-6 only:p-0 md:flex-row md:divide-x md:divide-dashed md:divide-gray6 [&:not(:first-child)]:pt-6">
-      <div className="mt-4 flex-1 md:mt-0 md:pr-6 md:text-right">
-        <CustomLink href={href} className="font-serif text-2xl md:text-3xl">
-          {title}
-        </CustomLink>
-        <p className="mt-2 text-lg text-gray11">{description}</p>
-      </div>
-      <div className="flex-1 md:pl-6">
-        <Image
-          src={image}
-          alt={imageAlt}
-          placeholder="blur"
-          className="rounded-md border border-gray6"
-          priority
-        />
-      </div>
-    </div>
-  )
+  );
 }

@@ -2,11 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "syntax-highlighting.css";
-
 :root {
-  scrollbar-gutter: stable;
-  color-scheme: dark;
+  color-scheme: light dark;
 }
 
 html {
@@ -14,7 +11,8 @@ html {
 }
 
 body {
-  @apply mx-auto w-full max-w-3xl bg-gray1 px-4 font-sans text-gray12 antialiased selection:bg-gray12 selection:text-gray1 md:px-6 lg:p-0;
+  @apply mx-auto w-full max-w-3xl bg-gray-1 px-4 font-sans text-gray-12 antialiased md:px-6 lg:p-0;
+  text-rendering: optimizeLegibility;
 }
 
 .text-balance {

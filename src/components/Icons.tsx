@@ -7,9 +7,9 @@ import {
   ChevronRightIcon,
   ChevronLeftIcon,
   EnvelopeClosedIcon,
-} from "@radix-ui/react-icons"
+} from "@radix-ui/react-icons";
 
-export const Icons = {
+const Icons = {
   ExternalLink: ExternalLinkIcon,
   ArrowRight: ArrowRightIcon,
   Github: GitHubLogoIcon,
@@ -18,4 +18,6 @@ export const Icons = {
   Mail: EnvelopeClosedIcon,
   ChevronRight: ChevronRightIcon,
   ChevronLeft: ChevronLeftIcon,
-}
+};
+
+export default Icons;

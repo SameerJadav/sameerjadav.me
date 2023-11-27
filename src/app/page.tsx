@@ -1,19 +1,15 @@
-import { SITE } from "~/config"
-import { sortedPosts } from "~/lib/utils"
-import CustomLink from "~/components/CustomLink"
-import H1 from "~/components/H1"
-import H2 from "~/components/H2"
-import LatestPosts from "~/components/LatestPosts"
-import ProjectPreview from "~/components/ProjectPreview"
-import { projects } from "~/components/Projects"
+import Anchor from "~/components/Anchor";
+import H1 from "~/components/H1";
+import H2 from "~/components/H2";
+import Icons from "~/components/Icons";
+import ProjectsPreview from "~/components/ProjectPreview";
+import { PROJECTS, SITE } from "~/config";
 
-const latestPosts = sortedPosts.slice(0, 4)
-
-export default function HomePage() {
+export default function Home() {
   return (
     <main>
       <section>
-        <H1 lable="Sameer Jadav" />
+        <H1 lable={SITE.name} />
         <div className="mt-6 space-y-4">
           <p>
             I am a 19-year-old JavaScript/TypeScript developer who specializes
@@ -29,45 +25,34 @@ export default function HomePage() {
             I&apos;m currently looking for a new role as a developer. Hire me?
           </p>
           <div className="flex items-center gap-4 text-lg">
-            <CustomLink href={SITE.links.linkedin} underline icon>
-              LinkedIn
-            </CustomLink>
-            <CustomLink href={SITE.links.github} underline icon>
-              GitHub
-            </CustomLink>
-            <CustomLink href={SITE.links.mail} underline icon>
-              Mail
-            </CustomLink>
+            <Anchor href={SITE.links.linkedin} underline>
+              <Icons.Linkedin className="h-5 w-5" /> LinkedIn
+            </Anchor>
+            <Anchor href={SITE.links.github} underline>
+              <Icons.Github className="h-5 w-5" /> GitHub
+            </Anchor>
+            <Anchor href={SITE.links.mail} underline>
+              <Icons.Mail className="h-5 w-5" /> Mail
+            </Anchor>
           </div>
         </div>
       </section>
       <section>
         <H2 lable="Projects" />
-        <div className="mt-6 divide-y divide-dashed divide-gray6">
-          {projects.map((project) => (
-            <ProjectPreview
-              key={project.id}
-              href={project.href}
-              title={project.title}
+        <div className="mt-6 flex flex-col gap-4 divide-y divide-dashed divide-gray-6">
+          {PROJECTS.map((project) => (
+            <ProjectsPreview
+              alt={project.alt}
               description={project.description}
-              image={project.image}
-              imageAlt={project.imageAlt}
-              direction={project.direction}
+              href={project.href}
+              imagePosition={project.imagePosition}
+              key={project.title}
+              src={project.src}
+              title={project.title}
             />
           ))}
         </div>
       </section>
-      <section>
-        <H2 lable="Latest Posts" />
-        <div className="mt-6 space-y-4">
-          {latestPosts.map((post) => (
-            <LatestPosts key={post.slug} post={post} />
-          ))}
-          <CustomLink href="/blogs" icon underline>
-            All posts
-          </CustomLink>
-        </div>
-      </section>
     </main>
-  )
+  );
 }

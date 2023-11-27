@@ -1,60 +1,58 @@
-import { Suspense } from "react"
-import { type Metadata } from "next"
-import { JetBrains_Mono, Nunito } from "next/font/google"
-import localFont from "next/font/local"
-import { Analytics } from "@vercel/analytics/react"
-import { SITE } from "~/config"
-import { cn } from "~/lib/utils"
-import Footer from "~/components/Footer"
-import HeaderSkeleton from "~/components/HeaderSkeleton"
-import SiteHeader from "~/components/SiteHeader"
-import "~/styles/globals.css"
+import type { Metadata, Viewport } from "next";
+import { JetBrains_Mono as JetBrainsMono, Nunito } from "next/font/google";
+import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/react";
+import SiteFooter from "~/components/SiteFooter";
+import SiteHeader from "~/components/SiteHeader";
+import { SITE } from "~/config";
+import { cn } from "~/utils";
+import "~/styles/globals.css";
 
-interface RootLayoutProps {
-  children: React.ReactNode
-}
+const ppeditorial = localFont({
+  src: "./fonts/pp-editorial-new/regular.woff2",
+  weight: "400",
+  display: "swap",
+  variable: "--font-pp-editorial-new",
+});
 
 const nunito = Nunito({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-nunito",
-})
+});
 
-const jetbrains = JetBrains_Mono({
+const jetbrains = JetBrainsMono({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-jetbrains-mono",
-})
+});
 
-const ppeditorial = localFont({
-  src: "../../public/fonts/pp-editorial-new/regular.woff2",
-  display: "swap",
-  weight: "500",
-  preload: true,
-  variable: "--font-pp-editorial-new",
-})
-
-const title = SITE.name
-const description = SITE.description
-const url = SITE.url
-const image = `${SITE.image}/home`
+const title = SITE.name;
+const description = SITE.description;
+const url = SITE.url;
+const twitterId = SITE.twitterId;
+const author = SITE.author;
 
 export const metadata: Metadata = {
   title: {
     default: title,
     template: `%s - ${title}`,
   },
-  description: description,
+  description,
+  applicationName: title,
+  generator: "Next.js",
+  referrer: "origin-when-cross-origin",
+  authors: [{ name: author, url }],
+  creator: author,
+  publisher: author,
+  metadataBase: new URL(url),
   keywords: [
     "Sameer Jadav",
-    "JavaScript",
     "Typescript",
     "Full-stack Developer",
     "Next.js",
     "Blog",
   ],
-  authors: [{ name: SITE.author, url: url }],
-  creator: SITE.author,
   icons: [
     {
       rel: "icon",
@@ -70,20 +68,21 @@ export const metadata: Metadata = {
       url: "/apple-touch-icon.png",
     },
   ],
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#151718" },
-    { media: "(prefers-color-scheme: dark)", color: "#151718" },
-  ],
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: url,
-    title: title,
-    description: description,
+    url: "/",
+    title,
+    description,
     siteName: title,
     images: [
       {
-        url: image,
+        url: "/og.png",
         width: 1200,
         height: 630,
         alt: title,
@@ -92,11 +91,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: title,
-    description: description,
-    images: [image],
-    creator: SITE.twitterId,
-    site: SITE.twitterId,
+    title,
+    description,
+    images: ["/og.png"],
+    creator: twitterId,
+    site: twitterId,
   },
   robots: {
     index: true,
@@ -110,26 +109,33 @@ export const metadata: Metadata = {
     },
   },
   manifest: `${url}/site.webmanifest`,
-  alternates: { canonical: url },
+  alternates: { canonical: "/" },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#111111",
+  colorScheme: "dark",
+};
+
+interface RootLayoutProps {
+  children: React.ReactNode;
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html dir="ltr" lang="en">
+    <html lang="en">
       <body
         className={cn(
-          nunito.variable,
-          jetbrains.variable,
           ppeditorial.variable,
+          jetbrains.variable,
+          nunito.variable,
         )}
       >
-        <Suspense fallback={<HeaderSkeleton />}>
-          <SiteHeader />
-        </Suspense>
+        <SiteHeader />
         {children}
-        <Footer />
-        <Analytics />
+        <SiteFooter />
       </body>
+      <Analytics />
     </html>
-  )
+  );
 }
