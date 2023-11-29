@@ -32,7 +32,7 @@ const components = {
   ),
   a: ({ ...props }: ComponentPropsWithoutRef<"a">) => (
     // @ts-expect-error
-    <Anchor href={props.href} {...props} />
+    <Anchor href={props.href} underline {...props} />
   ),
   ul: ({ ...props }: ComponentPropsWithoutRef<"ul">) => (
     <ul className="ml-6 mt-4 list-disc" {...props} />
