@@ -12,6 +12,7 @@ export interface Post {
   metadata: Metadata;
   content: string;
   slug: string;
+  slugAsParams: string;
 }
 
 function parseFrontmatter(fileContent: string) {
@@ -68,11 +69,13 @@ function getMDXData(dir: string) {
   const mdxData = mdxFiles.map((file) => {
     const filePath = path.join(dir, file);
     const { metadata, content } = readAndParseMDXFile(filePath);
-    const slug = path.basename(file, path.extname(file));
+    const slug = `blogs/${path.basename(file, path.extname(file))}`;
+    const slugAsParams = path.basename(file, path.extname(file));
     return {
       metadata,
       content,
       slug,
+      slugAsParams,
     };
   });
   return mdxData;
