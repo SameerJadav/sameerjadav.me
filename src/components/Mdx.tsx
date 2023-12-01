@@ -3,6 +3,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { ComponentPropsWithoutRef } from "react";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import rehypeHighlight from "rehype-highlight";
 import Anchor from "~/components/Anchor";
 
 interface CalloutProps {
@@ -58,9 +59,9 @@ const components = {
       {...props}
     />
   ),
-  /* code: ({ ...props }: ComponentPropsWithoutRef<"code">) => (
+  code: ({ ...props }: ComponentPropsWithoutRef<"code">) => (
     <code className="bg-gray-3 px-1 py-0.5 font-mono text-sm" {...props} />
-  ), */
+  ),
   /* table: ({ ...props }: ComponentPropsWithoutRef<"table">) => (
     <div className="mt-4 w-full overflow-y-auto">
       <table className="w-full" {...props} />
@@ -89,5 +90,16 @@ interface MDXProps {
 }
 
 export default function Mdx({ source }: MDXProps) {
-  return <MDXRemote components={components} source={source} />;
+  return (
+    <MDXRemote
+      components={components}
+      options={{
+        mdxOptions: {
+          // @ts-expect-error
+          rehypePlugins: [rehypeHighlight],
+        },
+      }}
+      source={source}
+    />
+  );
 }

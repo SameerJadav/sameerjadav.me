@@ -21,6 +21,7 @@
     "next-mdx-remote": "^4.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "rehype-highlight": "^7.0.0",
     "sharp": "^0.32.6",
     "tailwind-merge": "^2.0.0"
   },
