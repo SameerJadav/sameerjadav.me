@@ -22,7 +22,7 @@ export const PROJECTS: ProjectsPreviewProps[] = [
   {
     title: "Guestbook",
     description:
-      "A simple and user-friendly full-stack guestbook application built with Next.js and serverless technologies bootstrapped with `create t3-app`.",
+      "A simple and user-friendly full-stack guestbook application built with Next.js and serverless technologies bootstrapped with T3 app.",
     href: "https://guestbook.sameerjadav.me",
     src: guestbook,
     alt: "Guestbook app screenshot",
@@ -31,7 +31,7 @@ export const PROJECTS: ProjectsPreviewProps[] = [
   {
     title: "Personal Website",
     description:
-      "My website, built with Next.js, Tailwind CSS, and Contentlayer, is feature-rich and includes a stunning blogs, engaging comment section, and like functionality.",
+      "My Next.js site, featuring some of my work, interactive and feature-rich blogs, and tons of cool stuff. Performant, Accessible, and Beautiful",
     href: "https://sameerjadav.me",
     src: website,
     alt: "My website screenshot",
