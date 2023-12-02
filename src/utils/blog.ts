@@ -1,5 +1,5 @@
 /* eslint-disable unicorn/prefer-node-protocol -- webpack was throwing an error */
-import fs from "fs";
+import fs from "fs/promises";
 import path from "path";
 
 interface Metadata {
@@ -50,25 +50,25 @@ function parseFrontmatter(fileContent: string) {
   return { metadata: metadata as Metadata, content: contentWithoutFrontMatter };
 }
 
-function getMDXFiles(dir: string) {
-  const filesInDirectory = fs.readdirSync(dir);
+async function getMDXFiles(dir: string) {
+  const filesInDirectory = await fs.readdir(dir);
   const mdxFiles = filesInDirectory.filter(
     (file) => path.extname(file) === ".mdx",
   );
   return mdxFiles;
 }
 
-function readAndParseMDXFile(filePath: string) {
-  const fileContent = fs.readFileSync(filePath, "utf-8");
+async function readAndParseMDXFile(filePath: string) {
+  const fileContent = await fs.readFile(filePath, "utf-8");
   const metadata = parseFrontmatter(fileContent);
   return metadata;
 }
 
-function getMDXData(dir: string) {
-  const mdxFiles = getMDXFiles(dir);
-  const mdxData = mdxFiles.map((file) => {
+async function getMDXData(dir: string) {
+  const mdxFiles = await getMDXFiles(dir);
+  const mdxDataPromises = mdxFiles.map(async (file) => {
     const filePath = path.join(dir, file);
-    const { metadata, content } = readAndParseMDXFile(filePath);
+    const { metadata, content } = await readAndParseMDXFile(filePath);
     const slug = `blogs/${path.basename(file, path.extname(file))}`;
     const slugAsParams = path.basename(file, path.extname(file));
     return {
@@ -78,16 +78,17 @@ function getMDXData(dir: string) {
       slugAsParams,
     };
   });
+  const mdxData = await Promise.all(mdxDataPromises);
   return mdxData;
 }
 
-export function getBlogPosts(): Post[] {
-  const contentDirectoryPath = path.join(process.cwd(), "src/content/blogs");
-  const blogPosts = getMDXData(contentDirectoryPath);
+export async function getBlogPosts(): Promise<Post[]> {
+  const contentDirectory = path.join(process.cwd(), "src/content/blogs");
+  const blogPosts = await getMDXData(contentDirectory);
   return blogPosts;
 }
 
-export const allPosts = getBlogPosts();
+export const allPosts = await getBlogPosts();
 
 export const sortedPosts = allPosts
   .slice()
