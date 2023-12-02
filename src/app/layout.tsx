@@ -41,7 +41,6 @@ export const metadata: Metadata = {
   description,
   applicationName: title,
   generator: "Next.js",
-  referrer: "origin-when-cross-origin",
   authors: [{ name: author, url }],
   creator: author,
   publisher: author,
