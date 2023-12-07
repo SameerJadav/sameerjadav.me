@@ -8,7 +8,7 @@ Links are the preferred way of navigating or redirecting on the web. There are t
 
 ## ClassName utility function
 
-```ts
+```ts title="cn.ts"
 import type { ClassValue } from "clsx";
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -22,7 +22,7 @@ This utility function will allow us to add Tailwind CSS classes conditionally wi
 
 We will use [Class Variance Authority (CVA)](https://cva.style/docs) to define different variants for the link component. These variants will be Tailwind CSS classes.
 
-```tsx showLineNumbers  {4, 7, 10}
+```tsx showLineNumbers title="Anchor.tsx" {4, 7, 10}
 import { cva } from "class-variance-authority";
 
 const AnchorStyles = cva(
@@ -47,9 +47,10 @@ First we need to add some default styles (4) that we need in every variant, thes
 
 ## Create the Link Component
 
-```tsx showLineNumbers
+```tsx showLineNumbers title="Anchor.tsx"
 import type { ComponentPropsWithoutRef } from "react";
 import type { VariantProps } from "class-variance-authority";
+import { cn } from "cn";
 
 interface AnchorProps
   extends ComponentPropsWithoutRef<"a">,
@@ -91,7 +92,7 @@ We have successfully made a reusable link component. But we still have to add at
 
 As we discussed earlier, we want external links to open in new tab for better user experience(UX). We can do that with very little code. We just need to add a boolean type variable and conditionally add `rel` and `target` attributes.
 
-```tsx showLineNumbers  {9,15,16}
+```tsx showLineNumbers title="Anchor.tsx" {9,15,16}
 export default function Anchor({
   href,
   children,

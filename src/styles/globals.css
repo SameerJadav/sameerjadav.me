@@ -81,7 +81,7 @@ code[data-line-numbers] > span[data-line]::before {
 /* Higlighted Lines */
 
 span[data-highlighted-line] {
-  @apply border-l-8 border-l-gray-7 bg-gray-3 px-2;
+  @apply border-l-4 border-l-gray-7 bg-gray-3 px-3; /* border + padding = 16px */
 }
 
 code[data-line-numbers] > span[data-highlighted-line]::before {
