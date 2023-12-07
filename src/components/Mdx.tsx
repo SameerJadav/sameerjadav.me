@@ -27,7 +27,7 @@ function Callout({ emoji, children }: CalloutProps) {
   return (
     <div className="mt-4 flex items-center gap-2 rounded-md border border-gray-6 bg-gray-2 p-2">
       <p>{emoji}</p>
-      <p>{children}</p>
+      <div className="callout">{children}</div>
     </div>
   );
 }
@@ -66,7 +66,10 @@ const components = {
     <hr className="my-6 border-gray-6" {...props} />
   ),
   code: ({ ...props }: ComponentPropsWithoutRef<"code">) => (
-    <code className="bg-gray-3 px-1 py-0.5 font-mono text-sm" {...props} />
+    <code
+      className="rounded-sm border border-gray-6 bg-gray-3 px-1 py-0.5 font-mono text-sm"
+      {...props}
+    />
   ),
   Callout,
 };
