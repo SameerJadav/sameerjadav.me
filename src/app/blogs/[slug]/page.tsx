@@ -31,7 +31,7 @@ export function generateMetadata({ params }: PostPageProps): Metadata {
   const title = post.metadata.title;
   const description = post.metadata.description;
   const url = post.slug;
-  const image = `${SITE.image}/blog?title=${title}`;
+  const image = `${SITE.image}/blog-2?title=${title}`;
 
   return {
     title,
