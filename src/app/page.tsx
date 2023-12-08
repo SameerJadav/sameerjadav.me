@@ -1,9 +1,11 @@
+import Link from "next/link";
 import Anchor from "~/components/Anchor";
 import H1 from "~/components/H1";
 import H2 from "~/components/H2";
 import Icons from "~/components/Icons";
 import ProjectsPreview from "~/components/ProjectPreview";
 import { PROJECTS, SITE } from "~/config";
+import { sortedPosts } from "~/utils/blog";
 
 export default function Home() {
   return (
@@ -50,6 +52,23 @@ export default function Home() {
               src={project.src}
               title={project.title}
             />
+          ))}
+        </div>
+      </section>
+      <section>
+        <H2 lable="Latest Posts" />
+        <div className="mt-6 space-y-4">
+          {sortedPosts.slice(0, 4).map(({ slug, metadata }) => (
+            <Link
+              className="focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-7"
+              href={slug}
+              key={slug}
+            >
+              <div className="flex justify-between gap-4">
+                <p>{metadata.title}</p>
+                <p>{metadata.date}</p>
+              </div>
+            </Link>
           ))}
         </div>
       </section>
