@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "./syntax-highlighting.css";
+
 :root {
   color-scheme: light dark;
 }
@@ -23,67 +25,4 @@ body {
   margin: 0px !important;
   font-size: 1rem !important;
   line-height: 1.5rem !important;
-}
-
-/* --- SYNTAX HIGHLIGHTING --- */
-
-/* Remove Scrollbar */
-
-code::-webkit-scrollbar,
-pre::-webkit-scrollbar {
-  display: none;
-}
-
-code,
-pre {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-/* Code Fragments */
-
-div[data-rehype-pretty-code-fragment] {
-  @apply mt-4 overflow-hidden rounded-md border border-gray-6 bg-gray-2;
-}
-
-div[data-rehype-pretty-code-fragment] > pre {
-  @apply overflow-x-auto py-2 font-mono;
-}
-
-div[data-rehype-pretty-code-fragment] > pre > code {
-  @apply m-0 grid overflow-x-auto break-words border-none bg-transparent p-0 font-mono text-base;
-}
-
-/* Code Title */
-
-div[data-rehype-pretty-code-title] {
-  @apply border-b border-b-gray-6 px-4 py-2 font-mono text-base font-bold;
-}
-
-/* Code Lines */
-
-span[data-line] {
-  @apply px-4;
-}
-
-/* Line Numbers Styling */
-
-code[data-line-numbers] {
-  counter-reset: lineNumber;
-}
-
-code[data-line-numbers] > span[data-line]::before {
-  counter-increment: lineNumber;
-  content: counter(lineNumber);
-  @apply mr-4 inline-block w-4 text-right text-gray-9;
-}
-
-/* Higlighted Lines */
-
-span[data-highlighted-line] {
-  @apply border-l-4 border-l-gray-7 bg-gray-3 px-3; /* border + padding = 16px */
-}
-
-code[data-line-numbers] > span[data-highlighted-line]::before {
-  @apply text-gray-12;
 }
