@@ -134,9 +134,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <SiteHeader />
         {children}
         <SiteFooter />
+        <Analytics />
+        <SpeedInsights />
       </body>
-      <Analytics />
-      <SpeedInsights />
     </html>
   );
 }
