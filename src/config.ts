@@ -1,4 +1,5 @@
 import type { ProjectsPreviewProps } from "~/components/ProjectPreview";
+import fatality from "~/images/fatality-studios.webp";
 import guestbook from "~/images/guestbook.webp";
 import website from "~/images/website.webp";
 
@@ -20,13 +21,22 @@ export const SITE = {
 
 export const PROJECTS: ProjectsPreviewProps[] = [
   {
+    title: "Fatality Studios",
+    description:
+      "A beautiful and accessible music production studio site. Built with Next.js 13 and Tailwindcss features an awesome music player.",
+    href: "https://fatalitystudios.com",
+    src: fatality,
+    alt: "Fatality Studios site screenshot",
+    imagePosition: "left",
+  },
+  {
     title: "Guestbook",
     description:
       "A simple and user-friendly full-stack guestbook application built with Next.js and serverless technologies bootstrapped with T3 app.",
     href: "https://guestbook.sameerjadav.me",
     src: guestbook,
     alt: "Guestbook app screenshot",
-    imagePosition: "left",
+    imagePosition: "right",
   },
   {
     title: "Personal Website",
@@ -35,6 +45,6 @@ export const PROJECTS: ProjectsPreviewProps[] = [
     href: "https://sameerjadav.me",
     src: website,
     alt: "My website screenshot",
-    imagePosition: "right",
+    imagePosition: "left",
   },
 ];
