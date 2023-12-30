@@ -28,13 +28,13 @@ export default function Home() {
           </p>
           <div className="flex items-center gap-4 text-lg">
             <Anchor href={SITE.links.linkedin} underline>
-              <Icons.Linkedin className="h-5 w-5" /> LinkedIn
+              <Icons.Linkedin className="size-5" /> LinkedIn
             </Anchor>
             <Anchor href={SITE.links.github} underline>
-              <Icons.Github className="h-5 w-5" /> GitHub
+              <Icons.Github className="size-5" /> GitHub
             </Anchor>
             <Anchor href={SITE.links.mail} underline>
-              <Icons.Mail className="h-5 w-5" /> Mail
+              <Icons.Mail className="size-5" /> Mail
             </Anchor>
           </div>
         </div>

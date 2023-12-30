@@ -28,8 +28,7 @@ export function generateMetadata({ params }: PostPageProps): Metadata {
   const post = getPostFromParams({ params });
   if (!post) notFound();
 
-  const title = post.metadata.title;
-  const description = post.metadata.description;
+  const { title, description } = post.metadata;
   const url = post.slug;
   const image = `${SITE.image}/blog-2?title=${title}`;
 
@@ -64,7 +63,7 @@ export default function PostPage({ params }: PostPageProps) {
   if (!post) notFound();
 
   return (
-    <article>
+    <main>
       <h1 className="mt-8 text-balance font-serif text-4xl font-medium leading-[1.2] md:text-5xl md:leading-[1.2]">
         {post.metadata.title}
       </h1>
@@ -79,6 +78,6 @@ export default function PostPage({ params }: PostPageProps) {
       <div className="mb-8 mt-6 md:mb-16">
         <Mdx source={post.content} />
       </div>
-    </article>
+    </main>
   );
 }

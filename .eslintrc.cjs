@@ -29,6 +29,8 @@ const config = {
   rules: {
     "unicorn/filename-case": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
+    "eslint-comments/require-description": "off",
+    "react/button-has-type": "off",
     "import/no-default-export": "off",
     "import/no-extraneous-dependencies": [
       "error",

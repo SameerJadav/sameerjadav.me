@@ -1,5 +1,3 @@
-/* eslint-disable eslint-comments/require-description -- No description needed */
-
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { ComponentPropsWithoutRef } from "react";
 import { MDXRemote } from "next-mdx-remote/rsc";
@@ -27,7 +25,7 @@ function Callout({ emoji, children }: CalloutProps) {
   return (
     <div className="mt-4 flex items-center gap-2 rounded-md border border-gray-6 bg-gray-2 p-2">
       <p>{emoji}</p>
-      <div className="callout">{children}</div>
+      <div className="*:m-0">{children}</div>
     </div>
   );
 }
