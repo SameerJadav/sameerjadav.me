@@ -33,7 +33,7 @@ export default function CreateCommentWizard({
           username,
           avatar,
           post,
-          comment: content,
+          comment: content.trim(),
         }),
       }),
     onSuccess: async () => {
@@ -44,13 +44,13 @@ export default function CreateCommentWizard({
 
   const handleClick = (e: EventFor<"button", "onClick">) => {
     e.preventDefault();
-    if (content !== "") mutate();
+    if (content.trim() !== "") mutate();
   };
 
   const handleKeyDown = (e: EventFor<"textarea", "onKeyDown">) => {
     if (e.ctrlKey && e.key === "Enter") {
       e.preventDefault();
-      if (content !== "") mutate();
+      if (content.trim() !== "") mutate();
     }
   };
 
@@ -92,7 +92,7 @@ export default function CreateCommentWizard({
         </button>
         <button
           className="rounded-md bg-gray-12 px-2 py-1 text-gray-1 hover:bg-white hover:text-black disabled:bg-gray-11"
-          disabled={status === "pending" || content === ""}
+          disabled={status === "pending" || content.trim() === ""}
           onClick={handleClick}
         >
           Add Comment
