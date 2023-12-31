@@ -5,8 +5,7 @@ import website from "~/images/website.webp";
 
 export const SITE = {
   name: "Sameer Jadav",
-  description:
-    "19 y/o JavaScript/TypeScript developer with a focus on building full-stack apps using Next.js & serverless tech.",
+  description: "Software engineer.",
   url: "https://sameerjadav.me",
   image: "https://og.sameerjadav.me",
   author: "Sameer Jadav",
