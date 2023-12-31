@@ -5,8 +5,8 @@ import { comments } from "~/server/db/schema";
 
 interface CommentSchema {
   post: string;
-  username: string;
-  avatar: string;
+  username: string | null | undefined;
+  avatar: string | null | undefined;
   comment: string;
 }
 

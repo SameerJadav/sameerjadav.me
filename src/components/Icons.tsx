@@ -4,6 +4,7 @@ import {
   GitHubLogoIcon,
   TwitterLogoIcon,
   LinkedInLogoIcon,
+  PersonIcon,
   ChevronRightIcon,
   ChevronLeftIcon,
   EnvelopeClosedIcon,
@@ -18,6 +19,7 @@ const Icons = {
   Mail: EnvelopeClosedIcon,
   ChevronRight: ChevronRightIcon,
   ChevronLeft: ChevronLeftIcon,
+  Person: PersonIcon,
 };
 
 export default Icons;

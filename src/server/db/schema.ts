@@ -13,8 +13,8 @@ export const comments = mysqliteTable("comments", {
     .primaryKey({ autoIncrement: true })
     .notNull(),
   post: text("post").notNull(),
-  username: text("username").notNull(),
-  avatar: text("avatar").notNull(),
+  username: text("username"),
+  avatar: text("avatar"),
   comment: text("comment").notNull(),
   createdAt: text("created_at")
     .default(sql`CURRENT_DATE`)

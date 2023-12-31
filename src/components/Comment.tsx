@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
+import Icons from "~/components/Icons";
 
 interface CommentProps {
   post: string;
@@ -9,8 +10,8 @@ interface CommentProps {
 
 interface Comment {
   post: string;
-  username: string;
-  avatar: string;
+  username: string | null | undefined;
+  avatar: string | null | undefined;
   comment: string;
   id: number;
   createdAt: string;
@@ -67,14 +68,20 @@ export default function Comment({ post }: CommentProps) {
     ({ username, avatar, comment, id, createdAt }) => (
       <div className="p-4" key={id}>
         <div className="flex items-center gap-2">
-          <Image
-            alt={`${username}'s github avatar`}
-            className="size rounded-full"
-            height={32}
-            src={avatar}
-            width={32}
-          />
-          <p className="font-medium">{username}</p>
+          {avatar ? (
+            <Image
+              alt={`${username}'s github avatar`}
+              className="size rounded-full"
+              height={32}
+              src={avatar}
+              width={32}
+            />
+          ) : (
+            <div className="flex size-8 items-center justify-center rounded-full border border-gray-7">
+              <Icons.Person className="size-6 rounded-full text-gray-9" />
+            </div>
+          )}
+          <p className="font-medium">{username || "Some guy"}</p>
           <p className="text-gray-11">{getElapsedTime(createdAt)}</p>
         </div>
         <p className="mt-2">{comment}</p>

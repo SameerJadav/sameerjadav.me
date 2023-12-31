@@ -22,7 +22,7 @@ export default async function CommentSection({ post }: CommentSectionProps) {
       <p className="text-gray-11">Comments</p>
       <div className="mt-2 divide-y divide-gray-7 rounded-md border border-gray-7">
         <Comment post={post} />
-        {session?.user?.name && session.user.image ? (
+        {session?.user ? (
           <CreateCommentWizard
             avatar={session.user.image}
             post={post}
