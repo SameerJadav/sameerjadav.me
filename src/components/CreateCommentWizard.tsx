@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { signOut } from "next-auth/react";
 import type { EventFor } from "~/utils/react";
 
@@ -19,6 +19,8 @@ export default function CreateCommentWizard({
 }: CreateCommentWizardProps) {
   const [content, setContent] = useState("");
 
+  const queryClient = useQueryClient();
+
   const { mutate, status } = useMutation({
     mutationFn: () =>
       fetch("/api/comments", {
@@ -33,7 +35,8 @@ export default function CreateCommentWizard({
           comment: content,
         }),
       }),
-    onSuccess: () => {
+    onSuccess: async () => {
+      await queryClient.refetchQueries({ queryKey: ["comments"] });
       setContent("");
     },
   });

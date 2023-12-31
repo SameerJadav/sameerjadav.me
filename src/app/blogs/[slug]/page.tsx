@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import { auth } from "~/server/auth";
 import Anchor from "~/components/Anchor";
+import Comment from "~/components/Comment";
 import Mdx from "~/components/Mdx";
 import { SITE } from "~/config";
 import { allPosts, formatDate } from "~/utils/blog";
@@ -91,8 +92,9 @@ export default async function PostPage({ params }: PostPageProps) {
         <Mdx source={post.content} />
       </div>
       <div>
-        <p className="text-gray-11">Comments (number of comments)</p>
+        <p className="text-gray-11">Comments</p>
         <div className="mt-2 divide-y divide-gray-7 rounded-md border border-gray-7">
+          <Comment post={post.metadata.title} />
           {session?.user?.name && session.user.image ? (
             <CreateCommentWizard
               avatar={session.user.image}

@@ -17,6 +17,6 @@ export const comments = mysqliteTable("comments", {
   avatar: text("avatar").notNull(),
   comment: text("comment").notNull(),
   createdAt: text("created_at")
-    .default(sql`CURRENT_TIME`)
+    .default(sql`CURRENT_DATE`)
     .notNull(),
 });
