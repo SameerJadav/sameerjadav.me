@@ -10,10 +10,12 @@ const config = {
     require.resolve("@vercel/style-guide/eslint/typescript"),
     require.resolve("@vercel/style-guide/eslint/react"),
     require.resolve("@vercel/style-guide/eslint/next"),
+    "plugin:@tanstack/eslint-plugin-query/recommended",
   ],
   parserOptions: {
     project,
   },
+  parser: "@typescript-eslint/parser",
   globals: {
     React: true,
     JSX: true,
