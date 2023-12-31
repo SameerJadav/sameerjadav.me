@@ -3,6 +3,7 @@ import { JetBrains_Mono as JetBrainsMono, Nunito } from "next/font/google";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Providers from "~/app/providers";
 import SiteFooter from "~/components/SiteFooter";
 import SiteHeader from "~/components/SiteHeader";
 import { SITE } from "~/config";
@@ -131,9 +132,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
           nunito.variable,
         )}
       >
-        <SiteHeader />
-        {children}
-        <SiteFooter />
+        <Providers>
+          <SiteHeader />
+          {children}
+          <SiteFooter />
+        </Providers>
         <Analytics />
         <SpeedInsights />
       </body>

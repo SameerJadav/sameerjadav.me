@@ -96,6 +96,7 @@ export default async function PostPage({ params }: PostPageProps) {
           {session?.user?.name && session.user.image ? (
             <CreateCommentWizard
               avatar={session.user.image}
+              post={post.metadata.title}
               username={session.user.name}
             />
           ) : (
