@@ -64,7 +64,9 @@ export default function Comment({ post }: CommentProps) {
 
   const filteredComments = data?.filter((comment) => comment.post === post);
 
-  return filteredComments?.map(
+  if (!filteredComments?.length) return null;
+
+  return filteredComments.map(
     ({ username, avatar, comment, id, createdAt }) => (
       <div className="p-4" key={id}>
         <div className="flex items-center gap-2">
@@ -81,8 +83,12 @@ export default function Comment({ post }: CommentProps) {
               <Icons.Person className="size-6 rounded-full text-gray-9" />
             </div>
           )}
-          <p className="font-medium">{username || "Some guy"}</p>
-          <p className="text-gray-11">{getElapsedTime(createdAt)}</p>
+          <p className="font-medium">
+            {username || "Someone from the internet"}{" "}
+            <span className="font-normal text-gray-11">
+              {getElapsedTime(createdAt)}
+            </span>
+          </p>
         </div>
         <p className="mt-2">{comment}</p>
       </div>

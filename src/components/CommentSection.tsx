@@ -1,13 +1,15 @@
 import dynamic from "next/dynamic";
 import { auth } from "~/server/auth";
 import Comment from "~/components/Comment";
+import Skeleton from "~/components/skeleton";
 
 const CreateCommentWizard = dynamic(
   () => import("~/components/CreateCommentWizard"),
-  { ssr: false },
+  { ssr: false, loading: () => <Skeleton className="h-[234px] w-full" /> },
 );
 const SignIn = dynamic(() => import("~/components/SigninButton"), {
   ssr: false,
+  loading: () => <Skeleton className="h-[34px] w-[184.94px]" />,
 });
 
 interface CommentSectionProps {
