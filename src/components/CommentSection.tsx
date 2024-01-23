@@ -21,14 +21,17 @@ interface CommentSectionProps {
 
 const CreateCommentWizard = dynamic(
   () => import("~/components/CreateCommentWizard"),
-  { ssr: false, loading: () => <Skeleton className="h-[234px] w-full" /> },
+  {
+    ssr: false,
+    loading: () => <Skeleton className="h-[234px] w-full rounded-md" />,
+  },
 );
 const SignIn = dynamic(() => import("~/components/SigninButton"), {
   ssr: false,
-  loading: () => <Skeleton className="h-[34px] w-[184.94px]" />,
+  loading: () => <Skeleton className="h-[34px] w-[184.94px] rounded-md" />,
 });
 
-async function getComments(post: string): Promise<Comment[] | undefined> {
+async function getPostComments(post: string): Promise<Comment[] | undefined> {
   try {
     const postComments = await db.query.comments.findMany({
       orderBy: [asc(comments.createdAt)],
@@ -44,7 +47,7 @@ async function getComments(post: string): Promise<Comment[] | undefined> {
 export default async function CommentSection({ post }: CommentSectionProps) {
   const session = await auth();
 
-  const postComments = await getComments(post);
+  const postComments = await getPostComments(post);
 
   return (
     <div>

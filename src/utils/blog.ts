@@ -54,24 +54,3 @@ export const sortedPosts = allPosts
     (a, b) =>
       new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime(),
   );
-
-export const formatDate = (dateString: string) => {
-  const MS_PER_DAY = 1000 * 60 * 60 * 24;
-  const currentDate = Date.now();
-  const postDate = new Date(dateString).getTime();
-  const timeDiff = currentDate - postDate;
-  const daysAgo = Math.floor(timeDiff / MS_PER_DAY);
-
-  let formattedDate = "Today";
-  if (daysAgo >= 365) formattedDate = `${Math.floor(daysAgo / 365)}y ago`;
-  else if (daysAgo >= 30) formattedDate = `${Math.floor(daysAgo / 30)}mo ago`;
-  else if (daysAgo > 0) formattedDate = `${daysAgo}d ago`;
-
-  const fullDate = new Date(postDate).toLocaleDateString("en-us", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
-
-  return `${fullDate} (${formattedDate})`;
-};

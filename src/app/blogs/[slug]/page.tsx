@@ -4,7 +4,8 @@ import { InternalLink } from "~/components/Anchor";
 import CommentSection from "~/components/CommentSection";
 import Mdx from "~/components/Mdx";
 import { SITE } from "~/config";
-import { allPosts, formatDate } from "~/utils/blog";
+import { allPosts } from "~/utils/blog";
+import { getElapsedTime } from "~/utils/date";
 
 interface PostPageProps {
   params: {
@@ -63,15 +64,23 @@ export default function PostPage({ params }: PostPageProps) {
   const post = getPostFromParams({ params });
   if (!post) notFound();
 
+  const fulldate = new Date(post.metadata.date).toLocaleDateString("en-us", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+
+  const elapsedTime = getElapsedTime(post.metadata.date).short;
+
+  const date = `${fulldate} (${elapsedTime})`;
+
   return (
     <main>
       <h1 className="mt-8 text-balance font-serif text-4xl font-medium leading-[1.2] md:text-5xl md:leading-[1.2]">
         {post.metadata.title}
       </h1>
       <div className="mt-2 flex items-center justify-between">
-        <p className="text-gray11 font-mono">
-          {formatDate(post.metadata.date)}
-        </p>
+        <p className="text-gray11 font-mono">{date}</p>
         <InternalLink highlight underline url="/blogs">
           Back
         </InternalLink>
