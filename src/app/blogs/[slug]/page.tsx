@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Anchor from "~/components/Anchor";
+import { InternalLink } from "~/components/Anchor";
 import CommentSection from "~/components/CommentSection";
 import Mdx from "~/components/Mdx";
 import { SITE } from "~/config";
@@ -72,9 +72,9 @@ export default function PostPage({ params }: PostPageProps) {
         <p className="text-gray11 font-mono">
           {formatDate(post.metadata.date)}
         </p>
-        <Anchor href="/blogs" underline>
+        <InternalLink highlight underline url="/blogs">
           Back
-        </Anchor>
+        </InternalLink>
       </div>
       <div className="mb-8 mt-6 md:mb-16">
         <Mdx source={post.content} />

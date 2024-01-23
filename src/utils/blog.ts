@@ -33,7 +33,7 @@ async function getBlogPosts(): Promise<Post[]> {
       const parsedMatter = matter(fileContent);
       const metadata = parsedMatter.data as Metadata;
       const content = parsedMatter.content;
-      const slug = `blogs/${path.basename(file, path.extname(file))}`;
+      const slug = `/blogs/${path.basename(file, path.extname(file))}`;
       const slugAsParams = path.basename(file, path.extname(file));
       return {
         metadata,

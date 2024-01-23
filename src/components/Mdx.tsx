@@ -3,7 +3,7 @@ import type { ComponentPropsWithoutRef } from "react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import type { Options } from "rehype-pretty-code";
 import rehypePrettyCode from "rehype-pretty-code";
-import Anchor from "~/components/Anchor";
+import { Anchor } from "~/components/Anchor";
 
 interface CalloutProps {
   emoji: string;
@@ -43,7 +43,7 @@ const components = {
   ),
   a: ({ ...props }: ComponentPropsWithoutRef<"a">) => (
     // @ts-expect-error
-    <Anchor href={props.href} underline {...props} />
+    <Anchor highlight underline url={props.href} {...props} />
   ),
   ul: ({ ...props }: ComponentPropsWithoutRef<"ul">) => (
     <ul className="ml-6 mt-4 list-disc" {...props} />

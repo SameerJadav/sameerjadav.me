@@ -1,6 +1,6 @@
 import type { StaticImageData } from "next/image";
 import Image from "next/image";
-import Anchor from "~/components/Anchor";
+import { ExternalLink } from "~/components/Anchor";
 import { cn } from "~/utils/cn";
 
 export interface ProjectsPreviewProps {
@@ -43,9 +43,13 @@ export default function ProjectsPreview({
             : "md:border-l md:border-dashed md:border-gray-6 md:pl-4 md:text-left",
         )}
       >
-        <Anchor className="font-serif text-2xl md:text-3xl" href={href}>
+        <ExternalLink
+          className="font-serif text-2xl md:text-3xl"
+          highlight
+          url={href}
+        >
           {title}
-        </Anchor>
+        </ExternalLink>
         <p className="mt-2 text-lg text-gray-11">{description}</p>
       </div>
     </div>

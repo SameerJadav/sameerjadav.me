@@ -1,53 +1,89 @@
 import type { ComponentPropsWithoutRef } from "react";
 import Link from "next/link";
-import type { VariantProps } from "class-variance-authority";
-import { cva } from "class-variance-authority";
 import { cn } from "~/utils/cn";
 
-const AnchorStyles = cva(
-  "inline-flex items-center gap-2 font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-7",
-  {
-    variants: {
-      intent: {
-        highlight: "hover:text-blue-10",
-      },
-      underline: {
-        true: "underline decoration-gray-7 underline-offset-2  hover:decoration-gray-8",
-      },
-    },
-    defaultVariants: {
-      intent: "highlight",
-    },
-  },
-);
-
-interface AnchorProps
-  extends ComponentPropsWithoutRef<"a">,
-    VariantProps<typeof AnchorStyles> {
-  href: string;
+interface LinkProps extends ComponentPropsWithoutRef<"a"> {
+  url: string;
   children: React.ReactNode;
   className?: string;
+  highlight?: boolean;
+  underline?: boolean;
 }
 
-export default function Anchor({
-  href,
+export function ExternalLink({
+  url,
   children,
-  className,
-  intent,
+  highlight,
   underline,
-  ...rest
-}: AnchorProps) {
-  const isExternalLink = href.startsWith("https") || href.startsWith("mailto");
+  className,
+}: LinkProps) {
+  return (
+    <a
+      className={cn(
+        "inline-flex items-center gap-2 font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-7",
+        highlight && "hover:text-blue-10",
+        underline &&
+          "underline decoration-gray-7 underline-offset-2  hover:decoration-gray-8",
+        className,
+      )}
+      href={url}
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      {children}
+    </a>
+  );
+}
 
+export function InternalLink({
+  url,
+  children,
+  highlight,
+  underline,
+  className,
+}: LinkProps) {
   return (
     <Link
-      className={cn(AnchorStyles({ intent, underline }), className)}
-      href={href}
-      rel={isExternalLink ? "noopener noreferrer" : undefined}
-      target={isExternalLink ? "_blank" : undefined}
-      {...rest}
+      className={cn(
+        "inline-flex items-center gap-2 font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-7",
+        highlight && "hover:text-blue-10",
+        underline &&
+          "underline decoration-gray-7 underline-offset-2  hover:decoration-gray-8",
+        className,
+      )}
+      href={url}
     >
       {children}
     </Link>
+  );
+}
+
+export function Anchor({
+  url,
+  children,
+  underline,
+  highlight,
+  className,
+}: LinkProps) {
+  const isExternalLink = url.startsWith("https") || url.startsWith("mailto");
+
+  return isExternalLink ? (
+    <ExternalLink
+      className={className}
+      highlight={highlight}
+      underline={underline}
+      url={url}
+    >
+      {children}
+    </ExternalLink>
+  ) : (
+    <InternalLink
+      className={className}
+      highlight={highlight}
+      underline={underline}
+      url={url}
+    >
+      {children}
+    </InternalLink>
   );
 }

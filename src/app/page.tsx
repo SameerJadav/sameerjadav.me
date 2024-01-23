@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Anchor from "~/components/Anchor";
+import { ExternalLink } from "~/components/Anchor";
 import H1 from "~/components/H1";
 import H2 from "~/components/H2";
 import Icons from "~/components/Icons";
@@ -27,15 +27,15 @@ export default function Home() {
             I&apos;m currently looking for a new role as a developer. Hire me?
           </p>
           <div className="flex items-center gap-4 text-lg">
-            <Anchor href={SITE.links.linkedin} underline>
+            <ExternalLink highlight underline url={SITE.links.linkedin}>
               <Icons.Linkedin className="size-5" /> LinkedIn
-            </Anchor>
-            <Anchor href={SITE.links.github} underline>
+            </ExternalLink>
+            <ExternalLink highlight underline url={SITE.links.github}>
               <Icons.Github className="size-5" /> GitHub
-            </Anchor>
-            <Anchor href={SITE.links.mail} underline>
+            </ExternalLink>
+            <ExternalLink highlight underline url={SITE.links.mail}>
               <Icons.Mail className="size-5" /> Mail
-            </Anchor>
+            </ExternalLink>
           </div>
         </div>
       </section>
