@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useRouter } from "next/navigation";
+import { useMutation } from "@tanstack/react-query";
 import { signOut } from "next-auth/react";
 import Icons from "~/components/Icons";
 import type { EventFor } from "~/utils/react";
@@ -19,10 +20,9 @@ export default function CreateCommentWizard({
   post,
 }: CreateCommentWizardProps) {
   const [content, setContent] = useState("");
+  const router = useRouter();
 
-  const queryClient = useQueryClient();
-
-  const { mutate, status } = useMutation({
+  const { mutate, isPending, error } = useMutation({
     mutationFn: () =>
       fetch("/api/comments", {
         method: "POST",
@@ -36,21 +36,26 @@ export default function CreateCommentWizard({
           comment: content.trim(),
         }),
       }),
-    onSuccess: async () => {
-      await queryClient.refetchQueries({ queryKey: ["comments"] });
+    onSuccess: () => {
+      router.refresh();
       setContent("");
     },
   });
 
+  // eslint-disable-next-line no-console
+  if (error) console.error(error);
+
   const handleClick = (e: EventFor<"button", "onClick">) => {
-    e.preventDefault();
-    if (content.trim() !== "") mutate();
+    if (content.trim() !== "") {
+      e.preventDefault();
+      mutate();
+    }
   };
 
   const handleKeyDown = (e: EventFor<"textarea", "onKeyDown">) => {
-    if (e.ctrlKey && e.key === "Enter") {
+    if (e.ctrlKey && e.key === "Enter" && content.trim() !== "") {
       e.preventDefault();
-      if (content.trim() !== "") mutate();
+      mutate();
     }
   };
 
@@ -70,11 +75,12 @@ export default function CreateCommentWizard({
             <Icons.Person className="size-6 rounded-full text-gray-9" />
           </div>
         )}
-        <p className="font-medium">{username || "Some guy"}</p>
+        <p className="font-medium">{username || "Some guy/girl"}</p>
       </div>
       <textarea
         className="w-full rounded-md border border-gray-7 bg-gray-3 p-2 placeholder:text-gray-10 hover:border-gray-8 focus:border-gray-8 focus:outline-none"
-        disabled={status === "pending"}
+        disabled={isPending}
+        name="comment-textarea"
         onChange={(e) => {
           setContent(e.target.value);
         }}
@@ -92,7 +98,7 @@ export default function CreateCommentWizard({
         </button>
         <button
           className="rounded-md bg-gray-12 px-2 py-1 text-gray-1 hover:bg-white hover:text-black disabled:bg-gray-11"
-          disabled={status === "pending" || content.trim() === ""}
+          disabled={isPending || content.trim() === ""}
           onClick={handleClick}
         >
           Add Comment

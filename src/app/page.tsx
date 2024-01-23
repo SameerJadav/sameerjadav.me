@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { auth } from "~/server/auth";
 import Anchor from "~/components/Anchor";
 import H1 from "~/components/H1";
 import H2 from "~/components/H2";
@@ -9,7 +8,6 @@ import { PROJECTS, SITE } from "~/config";
 import { sortedPosts } from "~/utils/blog";
 
 export default function Home() {
-  const _ = auth();
   return (
     <main>
       <section>
