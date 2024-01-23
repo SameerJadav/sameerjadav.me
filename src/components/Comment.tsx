@@ -34,7 +34,7 @@ export default function Comment({
         <p className="font-medium">
           {username || "Someone from the internet"}{" "}
           <span className="font-normal text-gray-11">
-            {getElapsedTime(createdAt).short}
+            {getElapsedTime(createdAt).long}
           </span>
         </p>
       </div>
