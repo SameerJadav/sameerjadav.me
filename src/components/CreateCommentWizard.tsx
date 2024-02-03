@@ -75,7 +75,7 @@ export default function CreateCommentWizard({
             <Icons.Person className="size-6 rounded-full text-gray-9" />
           </div>
         )}
-        <p className="font-medium">{username || "Some guy/girl"}</p>
+        <p className="font-medium">{username ?? "Some guy/girl"}</p>
       </div>
       <textarea
         className="w-full rounded-md border border-gray-7 bg-gray-3 p-2 placeholder:text-gray-10 hover:border-gray-8 focus:border-gray-8 focus:outline-none"

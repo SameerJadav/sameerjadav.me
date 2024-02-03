@@ -3,12 +3,19 @@ import { JetBrains_Mono as JetBrainsMono, Nunito } from "next/font/google";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import dynamic from "next/dynamic";
 import Providers from "~/app/providers";
 import SiteFooter from "~/components/SiteFooter";
-import SiteHeader from "~/components/SiteHeader";
 import { SITE } from "~/config";
 import { cn } from "~/utils/cn";
 import "~/styles/globals.css";
+
+const SiteHeader = dynamic(
+  () => import("~/components/SiteHeader"),
+  {
+    ssr:false
+  }
+)
 
 const ppeditorial = localFont({
   src: "./fonts/pp-editorial-new/regular.woff2",
@@ -81,20 +88,23 @@ export const metadata: Metadata = {
     title,
     description,
     siteName: title,
-    images: [
-      {
-        url: "/og.png",
-        width: 1200,
-        height: 630,
-        alt: title,
-      },
-    ],
+    images: {
+      url: "/og.png",
+      width: 1200,
+      height: 630,
+      alt: title,
+    },
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: ["/og.png"],
+    images: {
+      url: "/og.png",
+      width: 1200,
+      height: 630,
+      alt: title,
+    },
     creator: twitterId,
     site: twitterId,
   },

@@ -20,7 +20,7 @@ export default function Comment({
       <div className="flex items-center gap-2">
         {avatar ? (
           <Image
-            alt={`${username}'s github avatar`}
+            alt={`${username ?? "someone"}'s github avatar`}
             className="size rounded-full"
             height={32}
             src={avatar}
@@ -32,7 +32,7 @@ export default function Comment({
           </div>
         )}
         <p className="font-medium">
-          {username || "Someone from the internet"}{" "}
+          <span>{username ?? "Someone from the internet"}</span>{" "}
           <span className="font-normal text-gray-11">
             {getElapsedTime(createdAt).long}
           </span>

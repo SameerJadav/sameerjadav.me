@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import dynamic from "next/dynamic";
 import { asc, eq } from "drizzle-orm";
 import type { Session } from "next-auth";
@@ -24,7 +25,7 @@ const CreateCommentWizard = dynamic(
   () => import("~/components/CreateCommentWizard"),
   {
     ssr: false,
-    loading: () => <Skeleton className="h-[234px] w-full rounded-md" />,
+    loading: () => <Skeleton className="h-[234px] w-full rounded-b-md" />,
   },
 );
 
@@ -56,15 +57,23 @@ export default async function CommentSection({
     <div>
       <p className="text-gray-11">Comments ({postComments?.length})</p>
       <div className="mt-2 divide-y divide-gray-7 rounded-md border border-gray-7">
-        {postComments?.map(({ username, avatar, comment, id, createdAt }) => (
-          <Comment
-            avatar={avatar}
-            comment={comment}
-            createdAt={createdAt}
-            key={id}
-            username={username}
-          />
-        ))}
+        <Suspense
+          fallback={
+            <div className="p-4">
+              <p>Loading comments...</p>
+            </div>
+          }
+        >
+          {postComments?.map(({ username, avatar, comment, id, createdAt }) => (
+            <Comment
+              avatar={avatar}
+              comment={comment}
+              createdAt={createdAt}
+              key={id}
+              username={username}
+            />
+          ))}
+        </Suspense>
         {session?.user ? (
           <CreateCommentWizard
             avatar={session.user.image}
