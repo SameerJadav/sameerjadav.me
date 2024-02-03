@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 import { asc, eq } from "drizzle-orm";
-import { auth } from "~/server/auth";
+import type { Session } from "next-auth";
 import { db } from "~/server/db";
 import { comments } from "~/server/db/schema";
 import Comment from "~/components/Comment";
@@ -17,6 +17,7 @@ interface Comment {
 
 interface CommentSectionProps {
   post: string;
+  session: Session | null;
 }
 
 const CreateCommentWizard = dynamic(
@@ -26,6 +27,7 @@ const CreateCommentWizard = dynamic(
     loading: () => <Skeleton className="h-[234px] w-full rounded-md" />,
   },
 );
+
 const SignIn = dynamic(() => import("~/components/SigninButton"), {
   ssr: false,
   loading: () => <Skeleton className="h-[34px] w-[184.94px] rounded-md" />,
@@ -44,9 +46,10 @@ async function getPostComments(post: string): Promise<Comment[] | undefined> {
   }
 }
 
-export default async function CommentSection({ post }: CommentSectionProps) {
-  const session = await auth();
-
+export default async function CommentSection({
+  post,
+  session,
+}: CommentSectionProps) {
   const postComments = await getPostComments(post);
 
   return (

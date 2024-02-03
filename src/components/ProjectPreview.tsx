@@ -32,6 +32,7 @@ export default function ProjectsPreview({
           alt={alt}
           className="rounded-md border border-gray-6"
           placeholder="blur"
+          sizes="(max-width: 768px) 100vw, 40vw"
           src={src}
         />
       </div>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { auth } from "~/server/auth";
 import { InternalLink } from "~/components/Anchor";
 import CommentSection from "~/components/CommentSection";
 import Mdx from "~/components/Mdx";
@@ -60,9 +61,11 @@ export function generateMetadata({ params }: PostPageProps): Metadata {
   };
 }
 
-export default function PostPage({ params }: PostPageProps) {
+export default async function PostPage({ params }: PostPageProps) {
   const post = getPostFromParams({ params });
   if (!post) notFound();
+
+  const session = await auth();
 
   const fulldate = new Date(post.metadata.date).toLocaleDateString("en-us", {
     month: "long",
@@ -88,7 +91,7 @@ export default function PostPage({ params }: PostPageProps) {
       <div className="mb-8 mt-6 md:mb-16">
         <Mdx source={post.content} />
       </div>
-      <CommentSection post={post.metadata.title} />
+      <CommentSection post={post.metadata.title} session={session} />
     </main>
   );
 }
