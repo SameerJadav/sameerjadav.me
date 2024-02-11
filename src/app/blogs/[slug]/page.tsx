@@ -79,7 +79,7 @@ export default async function PostPage({ params }: PostPageProps) {
 
   return (
     <main>
-      <h1 className="mt-8 text-balance font-serif text-4xl font-medium leading-[1.2] md:text-5xl md:leading-[1.2]">
+      <h1 className="mt-8 text-balance font-serif text-4xl leading-[1.2] md:text-5xl md:leading-[1.2]">
         {post.metadata.title}
       </h1>
       <div className="mt-2 flex items-center justify-between">

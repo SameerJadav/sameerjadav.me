@@ -1,39 +1,72 @@
 import type { Metadata, Viewport } from "next";
-import { JetBrains_Mono as JetBrainsMono, Nunito } from "next/font/google";
+import dynamic from "next/dynamic";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import dynamic from "next/dynamic";
 import Providers from "~/app/providers";
 import SiteFooter from "~/components/SiteFooter";
+import Skeleton from "~/components/skeleton";
 import { SITE } from "~/config";
 import { cn } from "~/utils/cn";
 import "~/styles/globals.css";
 
-const SiteHeader = dynamic(
-  () => import("~/components/SiteHeader"),
-  {
-    ssr:false
-  }
-)
+const SiteHeader = dynamic(() => import("~/components/SiteHeader"), {
+  ssr: false,
+  loading: () => (
+    <div className="mt-8 flex w-full gap-4 md:mt-16">
+      <Skeleton className="h-6 w-[60px] rounded-md" />
+      <Skeleton className="h-6 w-[60px] rounded-md" />
+    </div>
+  ),
+});
 
 const ppeditorial = localFont({
-  src: "./fonts/pp-editorial-new/regular.woff2",
+  src: "../assets/fonts/pp-editorial/regular.woff2",
   weight: "400",
   display: "swap",
-  variable: "--font-pp-editorial-new",
+  variable: "--font-pp-editorial",
 });
 
-const nunito = Nunito({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-nunito",
+const geistSans = localFont({
+  src: [
+    {
+      path: "../assets/fonts/geist-sans/regular.woff2",
+      style: "normal",
+      weight: "400",
+    },
+    {
+      path: "../assets/fonts/geist-sans/medium.woff2",
+      style: "normal",
+      weight: "500",
+    },
+    {
+      path: "../assets/fonts/geist-sans/semibold.woff2",
+      style: "normal",
+      weight: "600",
+    },
+    {
+      path: "../assets/fonts/geist-sans/bold.woff2",
+      style: "normal",
+      weight: "700",
+    },
+  ],
+  variable: "--font-geist-sans",
 });
 
-const jetbrains = JetBrainsMono({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-jetbrains-mono",
+const geistMono = localFont({
+  src: [
+    {
+      path: "../assets/fonts/geist-mono/regular.woff2",
+      style: "normal",
+      weight: "400",
+    },
+    {
+      path: "../assets/fonts/geist-mono/bold.woff2",
+      style: "normal",
+      weight: "700",
+    },
+  ],
+  variable: "--font-geist-mono",
 });
 
 const title = SITE.name;
@@ -138,8 +171,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body
         className={cn(
           ppeditorial.variable,
-          jetbrains.variable,
-          nunito.variable,
+          geistMono.variable,
+          geistSans.variable,
         )}
       >
         <Providers>

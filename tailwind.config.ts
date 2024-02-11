@@ -7,9 +7,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        serif: ["var(--font-pp-editorial-new)", ...fontFamily.serif],
-        sans: ["var(--font-nunito)", ...fontFamily.sans],
-        mono: ["var(--font-jetbrains-mono)", ...fontFamily.mono],
+        serif: ["var(--font-pp-editorial)", ...fontFamily.serif],
+        sans: ["var(--font-geist-sans)", ...fontFamily.sans],
+        mono: ["var(--font-geist-mono)", ...fontFamily.mono],
       },
       colors: {
         gray: {

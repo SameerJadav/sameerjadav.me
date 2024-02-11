@@ -31,8 +31,10 @@ export default function Comment({
             <Icons.Person className="size-6 rounded-full text-gray-9" />
           </div>
         )}
-        <p className="font-medium">
-          <span>{username ?? "Someone from the internet"}</span>{" "}
+        <p>
+          <span className="font-medium">
+            {username ?? "Someone from the internet"}
+          </span>{" "}
           <span className="font-normal text-gray-11">
             {getElapsedTime(createdAt).long}
           </span>
