@@ -65,7 +65,7 @@ export default async function PostPage({ params }: PostPageProps) {
   const post = getPostFromParams({ params });
   if (!post) notFound();
 
-  const session = await auth();
+  const session = auth();
 
   const fulldate = new Date(post.metadata.date).toLocaleDateString("en-us", {
     month: "long",
@@ -91,7 +91,7 @@ export default async function PostPage({ params }: PostPageProps) {
       <div className="mb-8 mt-6 md:mb-16">
         <Mdx source={post.content} />
       </div>
-      <CommentSection post={post.metadata.title} session={session} />
+      <CommentSection post={post.metadata.title} session={await session} />
     </main>
   );
 }
